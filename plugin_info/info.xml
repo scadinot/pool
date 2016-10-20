@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+    <id>pool</id>
+    <name>Piscine</name>
+    <description>Plugin pour la gestion de piscine</description>
+    <licence>AGPL</licence>
+    <author>Stéphane Cadinot</author>
+    <require>2.0</require>
+    <category>wellness</category>
+	<display>panel</display>
+    <mobile>panel</mobile>
+    <hasOwnDeamon>1</hasOwnDeamon>
+</info>
+
