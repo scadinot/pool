@@ -1,0 +1,107 @@
+'''
+=== Cycle de filtration.
+
+A la fin du cycle, le plugin recalcule la nouvelle plage de filtration.
+Ce calcul est lancé uniquement à la fin du cycle.
+Si vous souhaitez relancer le calcul avant la fin du cycle, activez le bouton [Reset] dans l'onglet [Configuration avancée].
+
+'''
+=== Widget Piscine sur le Dashboard
+
+image::../images/fonctionnement_1.png["Widget Piscine",align="Center"]
+
+Sur le widget sont indiqués :
+
+- la température de l'eau.
+- la température de l'air (en mode hivernage uniquement).
+- le temps de filtration.
+- les horaires de filtration.
+- un bouton [Reset] (si activé dans la configuration).
+- l'état de la filtration.
+- un bouton [On] de lancement du surpresseur (si activé dans la configuration)
+- l'état du surpresseur (si activé)
+- un bouton [Start] de lancement du nettoyage du filtre à sable (si activé dans la configuration)
+- l'état du filtre à sable (si activé)
+- un bouton [Stop] (si surpresseur ou filtre à sable)
+
+==== Surpresseur
+
+Pour activer le surpresseur, cliquez sur le bouton [On], le surpresseur est alors lancé pour une durée spécifiée dans la configuration.
+Si la filtration n'est pas active, elle sera lancée automatiquement, puis ensuite le surpresseur après une temporisation de quelques secondes.
+[icon="../images/plugin/tip.png"]
+[TIP]
+Cette temporisation permet d'éviter d'endommager le surpresseur en mettant en mouvement l'eau dans le circuit de filration.
+
+Une fois le surpresseur lancé le widget affiche le temps restant sous forme de compte à rebours.
+
+image::../images/fonctionnement_2.png["Widget Piscine",align="Left"]
+
+A la fin de la temporisation, le surpresseur s'arrête ainsi que la filtration si elle n'était pas active auparavant.
+Le bouton [Stop] permet d'arrêter le cycle avant la fin de la temporisation si nécessaire.
+
+==== Nettoyage du filtre à sable
+
+Cette fonctionnalité est un assistant pour vous guider dans les opérations de lavage de votre filtre à sable.
+
+Pour lancer le lavage, cliquez sur [Start], la filtration est alors stoppée et le widget affiche :
+
+image::../images/fonctionnement_3.png["Arrêt, position lavage",align="Left"]
+
+Comme demandé sur le Widget, positionnez votre vanne sur la position [lavage], puis cliquez à nouveau sur [Start].
+
+image::../images/position-lavage.png["Position Lavage",align="Left"]
+
+La filtration démarre, le plugin affiche alors le temps restant pour l'opération de lavage :
+
+image::../images/fonctionnement_4.png["Lavage",align="Left"]
+image::../images/schema-lavage.gif["Schema Lavage",align="Left"]
+
+A la fin du lavage, le plugin affiche le message suivant:
+
+image::../images/fonctionnement_5.png["Arrêt, position rinçage",align="Left"]
+
+Comme demandé sur le Widget, positionnez votre vanne sur la position [Rinçage], puis cliquez à nouveau sur [Start].
+
+image::../images/position-rincage.png["Postion Rinçage",align="Left"]
+
+La filtration démarre, le plugin affiche alors le temps restant pour l'opération de rinçage :
+
+image::../images/fonctionnement_6.png["Rinçage",align="Left"]
+image::../images/schema-rincage.gif["Schema Rinçage",align="Left"]
+
+A la fin du rinçage, le plugin affiche le message suivant :
+
+image::../images/fonctionnement_7.png["Filtration",align="Left"]
+
+Comme demandé sur le Widget, positionnez votre vanne sur la position [Filtration], puis cliquez à nouveau sur [Start].
+
+image::../images/position-filtration.png["Position Filtration",align="Left"]
+
+Si la filtration était active avant l’opération de lavage, elle redémarre automatiquement.
+
+image::../images/schema-filtration.gif["Schema Filtration",align="Left"]
+
+'''
+=== Visualisation du fonctionnement de la piscine
+
+Une fois votre piscine configurée, vous pouvez contrôler les temps de filtration.
+
+image::../images/config_7.png["Menu de visualisation Piscine",align="Center"]
+
+Dans le menu `Accueil`, on trouve le sous-menu `Piscine`. La fenêtre qui s'affiche lorsqu'on sélectionne ce menu est découpée en trois zones :
+
+* Le _widget_ Piscine, pour visualiser l'état actuel de la piscine,
+
+* un graphique représentant le cumul du temps de filtration par jour (en nombre d'heures),
+
+image::../images/graph_cumulfiltration.png["cumul du temps de chauffe du thermostat",align="Center"]
+
+[.text-center]
+_Graphe du cumul du temps de filtration_
+
+* un autre graphique qui affiche les courbes de température de l'eau et l'état de la filtration.
+
+image::../images/graph_courbesfiltration.png["graphe des courbes de filtration",align="Center"]
+
+[.text-center]
+_Graphe des courbes de filtration_

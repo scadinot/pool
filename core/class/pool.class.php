@@ -978,7 +978,6 @@ class pool extends eqLogic
         $temperature_water = round(jeedom::evaluateExpression($this->getConfiguration('temperature_water')), 1);
 
         log::add('pool', 'debug', $this->getHumanName() . 'temperature_water=' . $temperature_water);
-
         log::add('pool', 'debug', $this->getHumanName() . 'evaluateTemperatureWater() end');
 
         return $temperature_water;
