@@ -24,7 +24,7 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class pool extends eqLogic
 {
 
-    /*     * ***********************Methode static*************************** */
+    /* ************************Methode static*************************** */
 
     public static function asservissement($_option)
     {
@@ -254,7 +254,7 @@ class pool extends eqLogic
         // log::add('pool', 'debug', 'cron() end');
     }
 
-    /*     * *********************Methode d'instance************************* */
+    /* **********************Methode d'instance************************* */
 
     public function stopDaemon()
     {
