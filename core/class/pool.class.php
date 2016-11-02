@@ -26,6 +26,8 @@ class pool extends eqLogic
 
     /* ************************Methode static*************************** */
 
+    // Test Master
+
     public static function asservissement($_option)
     {
         // log::add('pool', 'debug', 'asservissement() begin');
