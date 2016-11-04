@@ -1,21 +1,21 @@
 :icons:
-== Piscine
+== Pool
 
-== Description
-Plugin permettant de gérer la filtration d'une piscine en fonction de la température.
-Le plugin gère également les fonctions suivantes :
+== Beschreibung
+Plugin, um die Pool-Filtration temperaturabhängig zu verwalten.
+Das Plugin unterstützt auch die folgenden Funktionen :
 
--	Filtre à sable.
--	Surpresseur pour robot nettoyeur.
--	Hivernage actif.
--   Asservissement chauffage solaire.
+-	Sandfilter.
+-	Pumpe für Reinigungsroboter.
+-	aktives Überwintern.
+- Solarheizungs Regelung.
 
 '''
-== Configuration
+== Konfiguration
 include::configuration.asciidoc[]
 
 '''
-== Fonctionnement
+== Funktionsweise
 include::fonctionnement.asciidoc[]
 
 '''
@@ -23,5 +23,5 @@ include::fonctionnement.asciidoc[]
 include::faq.asciidoc[]
 
 '''
-== Troubleshoting
+== Fehlersuche
 include::troubleshoting.asciidoc[]

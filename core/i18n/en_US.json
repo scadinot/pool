@@ -1,18 +1,18 @@
 {
     "plugins/pool/plugin_info/info.xml": {
-        "Plugin pour la gestion de piscine": "Plugin pour la gestion de piscine",
-        "Aucune": "Aucune"
+        "Plugin pour la gestion de piscine": "Plugin for pool management",
+        "Aucune": "None"
     },
     "plugins/pool/core/class/pool.class.php": {
-        "Arrêté": "Arrêté",
-        "Température": "Température",
-        "Température extérieure": "Température extérieure",
-        "Temps filtration:": "Temps filtration",
-        "Horaires:": "Horaires:",
+        "Arrêté": "Order",
+        "Température": "Temperature",
+        "Température extérieure": "Outside temperature",
+        "Temps filtration:": "Time filter",
+        "Horaires:": "Opening hours:",
         "Reset": "Reset",
         "Filtration:": "Filtration:",
-        "Traitement:": "Traitement:",
-        "Chauffage:": "Chauffage:",
+        "Traitement:": "Treatment:",
+        "Chauffage:": "Heating:",
         "On": "On",
         "Surpresseur": "Surpresseur",
         "Start": "Start",
@@ -26,13 +26,13 @@
         " : Attention la température de l'eau est en dessous du seuil autorisé : ": ": Attention la température de l'eau est en dessous du seuil autorisé :"
     },
     "plugins/pool/desktop/php/pool.php": {
-        "Ajouter une piscine": "Ajouter une piscine",
-        "Rechercher": "Rechercher",
-        "Mes piscines": "Mes piscines",
-        "Nom de l'équipement piscine": "Nom de l'équipement piscine",
-        "Objet parent": "Objet parent",
-        "Aucun": "Aucun",
-        "Activer": "Activer",
+        "Ajouter une piscine": "Add a pool",
+        "Rechercher": "Search",
+        "Mes piscines": "My pools",
+        "Nom de l'équipement piscine": "Name of the pool equipment",
+        "Objet parent": "Parent object",
+        "Aucun": "None",
+        "Activer": "Activate",
         "Visible": "Visible",
         "Configuration": "Configuration",
         "Dupliquer": "Dupliquer",
