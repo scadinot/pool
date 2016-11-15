@@ -23,7 +23,9 @@
         " mn": "mn",
         " : Attention la température de l'eau est au dessus du seuil autorisé : ": ": Watch the water temperature is above the allowed threshold:",
         "Actif": "Enabled",
-        " : Attention la température de l'eau est en dessous du seuil autorisé : ": ": Watch the water temperature is below the allowed threshol"
+        " : Attention la température de l'eau est en dessous du seuil autorisé : ": ": Watch the water temperature is below the allowed threshol",
+        "Saison": "Saison",
+        "Hivernage": "Hivernage"
     },
     "plugins/pool/desktop/php/pool.php": {
         "Ajouter une piscine": "Add a pool",
@@ -72,7 +74,6 @@
         "Choix de l'heure pivot de filtration (2/3 - 1/3)": "Choice of time filtering pivot (2/3 - 1/3)",
         "Temps de filtration minimum": "Minimum filtration time",
         "Filtration 5mn toutes les 3 heures": "Filtration 5 minutes every 3 hours",
-        "Actif": "Enabled",
         "Filtration permanente si température extérieure inférieure à": "Filtration if outdoor temperature lower than",
         "Arrêt total": "Global stop",
         "Ajouter arrêt total": "Add global stop",
@@ -86,8 +87,10 @@
         "Asservissement externe": "External servo",
         "Mode:": "Mode:",
         "On": "On",
+        "Actif": "Enabled",
         "Auto": "Auto",
         "Inactif": "Inactive",
+        "Widget": "Widget",
         "Off": "Off",
         "Robot": "Robot",
         "Sans": "Without",

@@ -23,7 +23,9 @@
         " mn": "min",
         " : Attention la température de l'eau est au dessus du seuil autorisé : ": " : Achtung, die Wassertemperatur ist über dem erlaubten Grenzwert :",
         "Actif": "aktiv",
-        " : Attention la température de l'eau est en dessous du seuil autorisé : ": " : Achtung, die Wassertemperatur ist unter dem erlaubten Grenzwert :"
+        " : Attention la température de l'eau est en dessous du seuil autorisé : ": " : Achtung, die Wassertemperatur ist unter dem erlaubten Grenzwert :",
+        "Saison": "Saison",
+        "Hivernage": "Hivernage"
     },
     "plugins/pool/desktop/php/pool.php": {
         "Ajouter une piscine": "Pool hinzufügen",
@@ -72,7 +74,6 @@
         "Choix de l'heure pivot de filtration (2/3 - 1/3)": "Choix de l'heure pivot de filtration (2/3 - 1/3)",
         "Temps de filtration minimum": "Minimale Filtrationszeit",
         "Filtration 5mn toutes les 3 heures": "Filtration, 5min alle 3 Stunden",
-        "Actif": "aktiv",
         "Filtration permanente si température extérieure inférieure à": "Permanentes Filtrieren, wenn die Außentemperatur, niedriger ist als",
         "Arrêt total": "Vollständig Abschalten",
         "Ajouter arrêt total": "Vollständig Abschalten hinzufügen",
@@ -86,8 +87,10 @@
         "Asservissement externe": "Externe Steuerung",
         "Mode:": "Modus:",
         "On": "An",
+        "Actif": "aktiv",
         "Auto": "Auto",
         "Inactif": "Inaktiv",
+        "Widget": "Widget",
         "Off": "Aus",
         "Robot": "Roboter",
         "Sans": "Ohne",
