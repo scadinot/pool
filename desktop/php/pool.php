@@ -97,8 +97,8 @@
 							<label class="col-sm-4 control-label">{{Chauffage}}</label>
 							<div class="col-sm-4">
 								<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="cfgChauffage" placeholder="" >
-									<option value="disabled">Inactif</option>
-									<option value="enabled">Actif</option>
+									<option value="disabled">{{Inactif}}</option>
+									<option value="enabled">{{Actif}}</option>
 								</select>
 							</div>
 						</div>
@@ -107,8 +107,8 @@
 							<label class="col-sm-4 control-label">{{Traitement}}</label>
 							<div class="col-sm-4">
 								<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="cfgTraitement" placeholder="" >
-									<option value="disabled">Inactif</option>
-									<option value="enabled">Actif</option>
+									<option value="disabled">{{Inactif}}</option>
+									<option value="enabled">{{Actif}}</option>
 								</select>
 							</div>
 						</div>
@@ -117,8 +117,8 @@
 							<label class="col-sm-4 control-label">{{Surpresseur}}</label>
 							<div class="col-sm-4">
 								<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="cfgSurpresseur" placeholder="" >
-									<option value="disabled">Inactif</option>
-									<option value="enabled">Actif</option>
+									<option value="disabled">{{Inactif}}</option>
+									<option value="enabled">{{Actif}}</option>
 								</select>
 							</div>
 						</div>
@@ -127,8 +127,8 @@
 							<label class="col-sm-4 control-label">{{Filtre à sable}}</label>
 							<div class="col-sm-4">
 								<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="cfgFiltreSable" placeholder="" >
-									<option value="disabled">Inactif</option>
-									<option value="enabled">Actif</option>
+									<option value="disabled">{{Inactif}}</option>
+									<option value="enabled">{{Actif}}</option>
 								</select>
 							</div>
 						</div>
@@ -137,8 +137,9 @@
 							<label class="col-sm-4 control-label">{{Hivernage}}</label>
 							<div class="col-sm-4">
 								<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="cfgHivernage" placeholder="" >
-									<option value="disabled">Inactif</option>
-									<option value="enabled">Actif</option>
+									<option value="disabled">{{Inactif}}</option>
+									<option value="enabled">{{Actif}}</option>
+									<option value="widget">{{Widget}}</option>
 								</select>
 							</div>
 						</div>
@@ -147,8 +148,8 @@
 							<label class="col-sm-4 control-label">{{Asservissement externe}}</label>
 							<div class="col-sm-4">
 								<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="cfgAsservissementExterne" placeholder="" >
-									<option value="disabled">Inactif</option>
-									<option value="enabled">Actif</option>
+									<option value="disabled">{{Inactif}}</option>
+									<option value="enabled">{{Actif}}</option>
 								</select>
 							</div>
 						</div>

@@ -238,7 +238,7 @@ class pool extends eqLogic
 
                 ///////////////////////////////////////////////////////////////////////////////////
 
-                if ($pool->getConfiguration('cfgHivernage', 'enabled') == 'enabled') {
+                if ($pool->getHivernage()) {
                     $pool->calculateStatusFiltrationHivernage($temperature_water, $temperature_outdoor, $lever_soleil);
                 } else {
                     $pool->calculateStatusFiltration($temperature_water);
@@ -277,7 +277,7 @@ class pool extends eqLogic
 
     public function activatingDevices()
     {
-        // log::add ('pool', 'debug', $this->getHumanName() . 'activatingDevices() begin');
+        log::add('pool', 'debug', $this->getHumanName() . 'activatingDevices() begin');
 
         // log::add('pool', 'debug', $this->getHumanName() . 'FiltrationLavage=' . $this->getCmd(null, 'filtrationLavage')->execCmd());
         // log::add('pool', 'debug', $this->getHumanName() . 'FiltrationLavageEtat=' . $this->getCmd(null, 'filtrationLavageEtat')->execCmd());
@@ -288,41 +288,78 @@ class pool extends eqLogic
         // log::add('pool', 'debug', $this->getHumanName() . 'ArretTotal=' . $this->getCmd(null, 'arretTotal')->execCmd());
         // log::add('pool', 'debug', $this->getHumanName() . 'MarcheForcee=' . $this->getCmd(null, 'marcheForcee')->execCmd());
 
-        if ($this->getConfiguration('cfgAsservissementExterne', 'enabled') == 'disabled') {
-            if ($this->getCmd(null, 'arretTotal')->execCmd() == 0) {
-                if ($this->getCmd(null, 'marcheForcee')->execCmd() == 1) {
-                    if ($this->getCmd(null, 'asservissementStatus')->execCmd() != __('Actif', __FILE__)){
-                        $this->getCmd(null, 'asservissementStatus')->event(__('Actif', __FILE__));
-                    }
-                } else {
-                    if ($this->getCmd(null, 'asservissementStatus')->execCmd() != __('Auto', __FILE__)) {
-                        $this->getCmd(null, 'asservissementStatus')->event(__('Auto', __FILE__));
-                    }
+        // Verifie si la configuration de l'asservissement externe est correcte
+        if ($this->getConfiguration('cfgAsservissementExterne', 'enabled') == 'enabled') {
+
+            log::add('pool', 'debug', $this->getHumanName() . 'cfgAsservissementExterne == enabled');
+
+            if ($this->getCmd(null, 'arretTotal')->execCmd() == 1) {
+                $bFound = false;
+                $arretTotals = $this->getConfiguration('arretTotal');
+                foreach ($arretTotals as $arretTotal) {
+                    $bFound = true;
                 }
-            } else {
-                if ($this->getCmd(null, 'asservissementStatus')->execCmd() != __('Inactif', __FILE__)) {
-                    $this->getCmd(null, 'asservissementStatus')->event(__('Inactif', __FILE__));
+                // Pas de commande on remet la cmd 'arretTotal' à zero
+                if ($bFound == false) {
+                    // log::add('pool', 'debug', $this->getHumanName() . '$this->getCmd(null, \'arretTotal\')->event(0)');
+                    $this->getCmd(null, 'arretTotal')->event(0);
                 }
             }
+
+            if ($this->getCmd(null, 'marcheForcee')->execCmd() == 1) {
+                $bFound = false;
+                $marcheForcees = $this->getConfiguration('marcheForcee');
+                foreach ($marcheForcees as $marcheForcee) {
+                    $bFound = true;
+                }
+                // Pas de commande on remet la cmd 'marcheForcee' à zero
+                if ($bFound == false) {
+                    // log::add('pool', 'debug', $this->getHumanName() . '$this->getCmd(null, \'marcheForcee\')->event(0);');
+                    $this->getCmd(null, 'marcheForcee')->event(0);
+                }
+            }
+
         }
 
-        if ($this->getCmd(null, 'arretTotal')->execCmd() == 0)
-        {
-            if ($this->getCmd(null, 'filtrationLavage')->execCmd() == 0)
-            {
+        if ($this->getCmd(null, 'arretTotal')->execCmd() == 0) {
+
+            if ($this->getCmd(null, 'marcheForcee')->execCmd() == 1) {
+
+                // Marche forcée, filtration desactivée
+                $status = __('Actif', __FILE__);
+                $status = $this->getStatusHivernage($status);
+                $this->getCmd(null, 'asservissementStatus')->event($status);
+
+            } else {
+
+                // Mode Auto, filtration pendant les plages programmées
+                $status = __('Auto', __FILE__);
+                $status = $this->getStatusHivernage($status);
+                $this->getCmd(null, 'asservissementStatus')->event($status);
+            }
+
+        } else {
+
+            // Arret total, prioritaire > (tout est stoppé)
+            $status = __('Inactif', __FILE__);
+            $status = $this->getStatusHivernage($status);
+            $this->getCmd(null, 'asservissementStatus')->event($status);
+
+        }
+
+        if ($this->getCmd(null, 'arretTotal')->execCmd() == 0) {
+            if ($this->getCmd(null, 'filtrationLavage')->execCmd() == 0) {
                 if ($this->getCmd(null, 'filtrationTemperature')->execCmd() == 1
                     || $this->getCmd(null, 'filtrationSolaire')->execCmd() == 1
                     || $this->getCmd(null, 'filtrationHivernage')->execCmd() == 1
                     || $this->getCmd(null, 'filtrationSurpresseur')->execCmd() == 1
                     || $this->getCmd(null, 'marcheForcee')->execCmd() == 1
-                )
-                {
+                ) {
                     $this->filtrationOn();
 
                     if ($this->getCmd(null, 'filtrationTemperature')->execCmd() == 1
                         || $this->getCmd(null, 'marcheForcee')->execCmd() == 1
-                    )
-                    {
+                    ) {
                         sleep(2);
                         $this->traitementOn();
                     }
@@ -330,14 +367,10 @@ class pool extends eqLogic
                     if ($this->getCmd(null, 'filtrationSurpresseur')->execCmd() == 1) {
                         sleep(2);
                         $this->surpresseurOn();
-                    }
-                    else
-                    {
+                    } else {
                         $this->surpresseurStop();
                     }
-                }
-                else
-                {
+                } else {
                     if ($this->getCmd(null, 'traitement')->execCmd() == '1') {
                         $this->traitementStop();
                         sleep(2);
@@ -363,17 +396,14 @@ class pool extends eqLogic
                 $this->surpresseurStop();
                 $this->filtrationOn();
             }
-        }
-        else
-        {
+        } else {
             $this->traitementStop();
             $this->surpresseurStop();
             $this->filtrationStop();
             $this->chauffageStop();
         }
 
-
-        // log::add('pool', 'debug', 'activatingDevices() end');
+        log::add('pool', 'debug', $this->getHumanName() . 'activatingDevices() end');
     }
 
     public function processingTime($dureeHeures)
@@ -757,6 +787,49 @@ class pool extends eqLogic
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
+    public function getHivernage()
+    {
+        $flgHivernage = false;
+
+        switch ($this->getConfiguration('cfgHivernage', 'enabled')) {
+            case 'enabled':
+                $flgHivernage = true;
+                break;
+            case 'disabled':
+                $flgHivernage = false;
+                break;
+            case 'widget':
+                if ($this->getCmd(null, 'hivernageWidgetStatus')->execCmd() == 1) {
+                    $flgHivernage = true;
+                } else {
+                    $flgHivernage = false;
+                }
+                break;
+        }
+
+        return $flgHivernage;
+    }
+
+    public function getStatusHivernage($status)
+    {
+        switch ($this->getConfiguration('cfgHivernage')) {
+            case 'disabled':
+                $status = $status . ' ' . __('Saison', __FILE__);
+                break;
+            case 'enabled':
+                $status = $status . ' ' . __('Hivernage', __FILE__);
+                break;
+            case 'widget':
+                if ($this->getCmd(null, 'hivernageWidgetStatus')->execCmd() == 1) {
+                    $status = $status . ' ' . __('Hivernage', __FILE__);
+                } else {
+                    $status = $status . ' ' . __('Saison', __FILE__);
+                }
+                break;
+        }
+        return $status;
+    }
+
     public function calculateTimeFiltrationWithTemperatureHivernage($temperature_water)
     {
         // Filtration (temperature / 3)
@@ -1001,10 +1074,8 @@ class pool extends eqLogic
                 // La temperature n'a pas ete mise à jour depuis le temps definit par la config, on force la lecture
                 $temperature_water = $this->evaluateTemperatureWater();
             }
-        }
-        else
-        {
-            if ($temperature_water == ''){
+        } else {
+            if ($temperature_water == '') {
 
                 log::add('pool', 'debug', $this->getHumanName() . 'temperature_water == \'\' > evaluateTemperatureWater');
 
@@ -1049,13 +1120,13 @@ class pool extends eqLogic
 
     public function getTemperatureOutdoor()
     {
-        if ($this->getConfiguration('cfgChauffage', 'enabled') == 'enabled' || $this->getConfiguration('cfgHivernage', 'enabled') == 'enabled') {
+        if ($this->getConfiguration('cfgChauffage', 'enabled') == 'enabled' || $this->getHivernage()) {
             // log::add('pool', 'debug', $this->getHumanName() . 'hivernage=enabled');
 
             $temperature = $this->getCmd(null, 'temperature_outdoor');
             $temperature_outdoor = $temperature->execCmd();
 
-            if($temperature_outdoor == ''){
+            if ($temperature_outdoor == '') {
                 $temperature_outdoor = $this->evaluateTemperatureOutdoor();
             }
 
@@ -1096,13 +1167,13 @@ class pool extends eqLogic
 
     public function getLeverSoleil()
     {
-        if ($this->getConfiguration('cfgHivernage', 'enabled') == 'enabled') {
+        if ($this->getHivernage()) {
             // log::add('pool', 'debug', $this->getHumanName() . 'hivernage=enabled');
 
             $heure = $this->getCmd(null, 'lever_soleil');
             $lever_soleil = $heure->execCmd();
 
-            if($lever_soleil == ''){
+            if ($lever_soleil == '') {
                 $lever_soleil = $this->evaluateLeverSoleil();
             }
 
@@ -1169,11 +1240,10 @@ class pool extends eqLogic
                 case '1':
                     // log::add('pool', 'debug', $this->getHumanName() . 'case 1');
 
-                    if ($this->getConfiguration('rincageDuree', '2') == '0'){
+                    if ($this->getConfiguration('rincageDuree', '2') == '0') {
                         // Si le temps de rinçage est == 0 on passe directement à la fin
                         $this->getCmd(null, 'filtrationLavageEtat')->event(4); // Lavage en cours...
-                    }
-                    else {
+                    } else {
                         $this->getCmd(null, 'filtrationLavageEtat')->event(2); // Lavage en cours...
                     }
 
@@ -1274,10 +1344,12 @@ class pool extends eqLogic
     {
         // log::add('pool', 'debug', $this->getHumanName() . 'executeResetCalcul begin');
 
-        if ($this->getConfiguration('cfgHivernage', 'enabled') == 'enabled') {
+        if ($this->getHivernage()) {
 
             $temperature_water = $this->getTemperatureWater();
+            $temperature_outdoor = $this->getTemperatureOutdoor();
             $lever_soleil = $this->getLeverSoleil();
+
             $this->calculateTimeFiltrationHivernage($temperature_water, $lever_soleil, false);
 
             // Verifie si la plage calculée est passée
@@ -1292,9 +1364,9 @@ class pool extends eqLogic
                 $this->calculateTimeFiltrationHivernage($temperature_water, $lever_soleil, true);
             }
 
-            $this->calculateStatusFiltration($temperature_water);
-        }
-        else{
+            $this->calculateStatusFiltrationHivernage($temperature_water, $temperature_outdoor, $lever_soleil);
+
+        } else {
 
             $temperature_water = $this->getTemperatureWater();
             $this->calculateTimeFiltration($temperature_water, false);
@@ -1312,6 +1384,7 @@ class pool extends eqLogic
             }
 
             $this->calculateStatusFiltration($temperature_water);
+
         }
 
         // log::add('pool', 'debug', $this->getHumanName() . 'executeResetCalcul end');
@@ -1664,10 +1737,10 @@ class pool extends eqLogic
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
-    
+
     public function asservissementOff($asservissement)
     {
-         // log::add('pool', 'debug', $this->getHumanName() . ' : asservissementOff');
+        // log::add('pool', 'debug', $this->getHumanName() . ' : asservissementOff');
 
         $flg = 0;
 
@@ -1687,7 +1760,7 @@ class pool extends eqLogic
 
     public function asservissementOn($_trigger_id)
     {
-         // log::add('pool', 'debug', $this->getHumanName() . ' : asservissementOn');
+        // log::add('pool', 'debug', $this->getHumanName() . ' : asservissementOn');
 
         $flg = 0;
 
@@ -1766,7 +1839,7 @@ class pool extends eqLogic
         }
 
         if ($flg == 0) {
-             $this->getCmd(null, 'marcheForcee')->event(0);
+            $this->getCmd(null, 'marcheForcee')->event(0);
             $this->activatingDevices();
         }
     }
@@ -1830,6 +1903,32 @@ class pool extends eqLogic
         $this->activatingDevices();
 
         // log::add('pool', 'debug', $this->getHumanName() . 'executeAsservissementInactif end');
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    public function executeSaison()
+    {
+        log::add('pool', 'debug', $this->getHumanName() . 'executeSaison begin');
+
+        $this->getCmd(null, 'hivernageWidgetStatus')->event(0);
+        $this->activatingDevices();
+        $this->executeResetCalcul();
+
+        log::add('pool', 'debug', $this->getHumanName() . 'executeSaison end');
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    public function executeHivernage()
+    {
+        log::add('pool', 'debug', $this->getHumanName() . 'executeHivernage begin');
+
+        $this->getCmd(null, 'hivernageWidgetStatus')->event(1);
+        $this->activatingDevices();
+        $this->executeResetCalcul();
+
+        log::add('pool', 'debug', $this->getHumanName() . 'executeHivernage end');
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1904,7 +2003,7 @@ class pool extends eqLogic
             $this->setConfiguration('methodeCalcul', '1');
         }
 
-        if ($this->getConfiguration('tempsDeFiltrationMinimum') == ''){
+        if ($this->getConfiguration('tempsDeFiltrationMinimum') == '') {
             $this->setConfiguration('tempsDeFiltrationMinimum', '3');
         }
 
@@ -1912,7 +2011,7 @@ class pool extends eqLogic
             $this->setConfiguration('datePivotHivernage', '06:00');
         }
 
-        if ($this->getConfiguration('choixHeureFiltrationHivernage') == ''){
+        if ($this->getConfiguration('choixHeureFiltrationHivernage') == '') {
             $this->setConfiguration('choixHeureFiltrationHivernage', '1');
         }
 
@@ -1920,8 +2019,12 @@ class pool extends eqLogic
             $this->setConfiguration('disable_marcheForcee', '0');
         }
 
-        if ($this->getConfiguration('cfgChauffage') ==  '') {
+        if ($this->getConfiguration('cfgChauffage') == '') {
             $this->setConfiguration('cfgChauffage', 'disabled');
+        }
+
+        if ($this->getConfiguration('cfgHivernage') == '') {
+            $this->setConfiguration('cfgHivernage', 'disabled');
         }
 
         // log::add('pool', 'debug', $this->getHumanName() . 'preSave() end');
@@ -1990,7 +2093,10 @@ class pool extends eqLogic
                 $temperature_outdoor->setOrder($order++);
                 $temperature_outdoor->setUnite('°C');
 
-                if ($this->getConfiguration('cfgChauffage', 'enabled') == 'enabled' || $this->getConfiguration('cfgHivernage', 'enabled') == 'enabled') {
+                if ($this->getConfiguration('cfgChauffage', 'enabled') == 'enabled'
+                    || $this->getConfiguration('cfgHivernage', 'enabled') == 'enabled'
+                    || $this->getConfiguration('cfgHivernage', 'enabled') == 'widget'
+                ) {
                     $temperature_outdoor->setIsVisible(1);
                 } else {
                     $temperature_outdoor->setIsVisible(0);
@@ -2198,7 +2304,7 @@ class pool extends eqLogic
 
             ///////////////////////////////////////////////////////////////////////////////////////
 
-            // asservissementStatus
+            // asservissement / hivernage Status
             {
                 $asservissementStatus = $this->getCmd(null, 'asservissementStatus');
                 if (!is_object($asservissementStatus)) {
@@ -2210,7 +2316,9 @@ class pool extends eqLogic
                 $asservissementStatus->setSubType('string');
                 $asservissementStatus->setLogicalId('asservissementStatus');
 
-                if ($this->getConfiguration('cfgAsservissementExterne', 'enabled') == 'disabled') {
+                if ($this->getConfiguration('cfgAsservissementExterne', 'enabled') == 'disabled'
+                    || $this->getConfiguration('cfgHivernage', 'enabled') == 'widget'
+                ) {
                     $asservissementStatus->setIsVisible(1);
                 } else {
                     $asservissementStatus->setIsVisible(0);
@@ -2219,6 +2327,8 @@ class pool extends eqLogic
                 $asservissementStatus->setIsHistorized(0);
                 $asservissementStatus->save();
             }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
 
             // asservissementActif
             {
@@ -2287,6 +2397,52 @@ class pool extends eqLogic
                 $asservissementInactif->save();
             }
 
+            ///////////////////////////////////////////////////////////////////////////////////////
+
+            // saison
+            {
+                $saison = $this->getCmd(null, 'saison');
+                if (!is_object($saison)) {
+                    $saison = new poolCmd();
+                }
+                $saison->setEqLogic_id($this->getId());
+                $saison->setName(__('Saison', __FILE__));
+                $saison->setType('action');
+                $saison->setSubType('other');
+                $saison->setLogicalId('saison');
+                $saison->setOrder($order++);
+
+                if ($this->getConfiguration('cfgHivernage', 'enabled') == 'widget') {
+                    $saison->setIsVisible(1);
+                } else {
+                    $saison->setIsVisible(0);
+                }
+
+                $saison->save();
+            }
+
+            // hivernage
+            {
+                $hivernage = $this->getCmd(null, 'hivernage');
+                if (!is_object($hivernage)) {
+                    $hivernage = new poolCmd();
+                }
+                $hivernage->setEqLogic_id($this->getId());
+                $hivernage->setName(__('Hivernage', __FILE__));
+                $hivernage->setType('action');
+                $hivernage->setSubType('other');
+                $hivernage->setLogicalId('hivernage');
+                $hivernage->setDisplay('forceReturnLineAfter', 1);
+                $hivernage->setOrder($order++);
+
+                if ($this->getConfiguration('cfgHivernage', 'enabled') == 'widget') {
+                    $hivernage->setIsVisible(1);
+                } else {
+                    $hivernage->setIsVisible(0);
+                }
+
+                $hivernage->save();
+            }
             ///////////////////////////////////////////////////////////////////////////////////////
 
             // surpresseurStatus
@@ -2687,6 +2843,23 @@ class pool extends eqLogic
                 $marcheForcee->save();
             }
 
+            // hivernageWidgetStatus
+            {
+                $hivernageWidgetStatus = $this->getCmd(null, 'hivernageWidgetStatus');
+                if (!is_object($hivernageWidgetStatus)) {
+                    $hivernageWidgetStatus = new poolCmd();
+                }
+                $hivernageWidgetStatus->setEqLogic_id($this->getId());
+                $hivernageWidgetStatus->setName('hivernageWidgetStatus');
+                $hivernageWidgetStatus->setType('info');
+                $hivernageWidgetStatus->setSubType('numeric');
+                $hivernageWidgetStatus->setLogicalId('hivernageWidgetStatus');
+                $hivernageWidgetStatus->setIsVisible(0);
+                $hivernageWidgetStatus->setOrder($order++);
+                $hivernageWidgetStatus->setIsHistorized(0);
+                $hivernageWidgetStatus->save();
+            }
+
             // filtrationPauseDebut
             {
                 $filtrationPauseDebut = $this->getCmd(null, 'filtrationPauseDebut');
@@ -3022,6 +3195,22 @@ class poolCmd extends cmd
 
         if ($this->getLogicalId() == 'asservissementInactif') {
             $eqLogic->executeAsservissementInactif();
+
+            return '';
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+
+        if ($this->getLogicalId() == 'saison') {
+            $eqLogic->executeSaison();
+
+            return '';
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+
+        if ($this->getLogicalId() == 'hivernage') {
+            $eqLogic->executeHivernage();
 
             return '';
         }
