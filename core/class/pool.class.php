@@ -223,7 +223,7 @@ class pool extends eqLogic
                         $c = new Cron\CronExpression($cron, new Cron\FieldFactory);
                         if ($c->isDue()) {
 
-                            log::add('pool', 'debug', $pool->getHumanName() . 'cron >> refresh');
+                            // log::add('pool', 'debug', $pool->getHumanName() . 'cron >> refresh');
 
                             $pool->refreshFiltration();
                             $pool->refreshSurpresseur();
@@ -277,7 +277,7 @@ class pool extends eqLogic
 
     public function activatingDevices()
     {
-        log::add('pool', 'debug', $this->getHumanName() . 'activatingDevices() begin');
+        // log::add('pool', 'debug', $this->getHumanName() . 'activatingDevices() begin');
 
         // log::add('pool', 'debug', $this->getHumanName() . 'FiltrationLavage=' . $this->getCmd(null, 'filtrationLavage')->execCmd());
         // log::add('pool', 'debug', $this->getHumanName() . 'FiltrationLavageEtat=' . $this->getCmd(null, 'filtrationLavageEtat')->execCmd());
@@ -291,7 +291,7 @@ class pool extends eqLogic
         // Verifie si la configuration de l'asservissement externe est correcte
         if ($this->getConfiguration('cfgAsservissementExterne', 'enabled') == 'enabled') {
 
-            log::add('pool', 'debug', $this->getHumanName() . 'cfgAsservissementExterne == enabled');
+            // log::add('pool', 'debug', $this->getHumanName() . 'cfgAsservissementExterne == enabled');
 
             if ($this->getCmd(null, 'arretTotal')->execCmd() == 1) {
                 $bFound = false;
@@ -403,7 +403,7 @@ class pool extends eqLogic
             $this->chauffageStop();
         }
 
-        log::add('pool', 'debug', $this->getHumanName() . 'activatingDevices() end');
+        // log::add('pool', 'debug', $this->getHumanName() . 'activatingDevices() end');
     }
 
     public function processingTime($dureeHeures)
@@ -1037,7 +1037,7 @@ class pool extends eqLogic
 
     public function evaluateTemperatureWater()
     {
-        log::add('pool', 'debug', $this->getHumanName() . 'evaluateTemperatureWater() begin');
+        // log::add('pool', 'debug', $this->getHumanName() . 'evaluateTemperatureWater() begin');
 
         preg_match_all("/#([0-9]*)#/", $this->getConfiguration('temperature_water'), $matches);
         foreach ($matches[1] as $cmd_id) {
@@ -1052,8 +1052,8 @@ class pool extends eqLogic
 
         $temperature_water = round(jeedom::evaluateExpression($this->getConfiguration('temperature_water')), 1);
 
-        log::add('pool', 'debug', $this->getHumanName() . 'temperature_water=' . $temperature_water);
-        log::add('pool', 'debug', $this->getHumanName() . 'evaluateTemperatureWater() end');
+        // log::add('pool', 'debug', $this->getHumanName() . 'temperature_water=' . $temperature_water);
+        // log::add('pool', 'debug', $this->getHumanName() . 'evaluateTemperatureWater() end');
 
         return $temperature_water;
     }
@@ -1069,7 +1069,7 @@ class pool extends eqLogic
             if ($temperature->getCollectDate() != '' && strtotime($temperature->getCollectDate()) < strtotime('-' . $this->getConfiguration('maxTimeUpdateTemp') . ' minutes' . date('Y-m-d H:i:s'))) {
                 log::add('pool', 'error', $this->getHumanName() . __(" : Attention il n'y a pas eu de mise à jour de la température depuis ", __FILE__) . $this->getConfiguration('maxTimeUpdateTemp') . __(' mn', __FILE__));
 
-                log::add('pool', 'debug', $this->getHumanName() . 'maxTimeUpdateTemp > evaluateTemperatureWater');
+                // log::add('pool', 'debug', $this->getHumanName() . 'maxTimeUpdateTemp > evaluateTemperatureWater');
 
                 // La temperature n'a pas ete mise à jour depuis le temps definit par la config, on force la lecture
                 $temperature_water = $this->evaluateTemperatureWater();
@@ -1077,7 +1077,7 @@ class pool extends eqLogic
         } else {
             if ($temperature_water == '') {
 
-                log::add('pool', 'debug', $this->getHumanName() . 'temperature_water == \'\' > evaluateTemperatureWater');
+                // log::add('pool', 'debug', $this->getHumanName() . 'temperature_water == \'\' > evaluateTemperatureWater');
 
                 // La temperature n'a jamais ete mise a jour, on force la lecture
                 $temperature_water = $this->evaluateTemperatureWater();
@@ -1096,7 +1096,7 @@ class pool extends eqLogic
 
     public function evaluateTemperatureOutdoor()
     {
-        log::add('pool', 'debug', $this->getHumanName() . 'evaluateTemperatureOutdoor() begin');
+        // log::add('pool', 'debug', $this->getHumanName() . 'evaluateTemperatureOutdoor() begin');
 
         preg_match_all("/#([0-9]*)#/", $this->getConfiguration('temperature_outdoor'), $matches);
         foreach ($matches[1] as $cmd_id) {
@@ -1111,9 +1111,9 @@ class pool extends eqLogic
 
         $temperature_outdoor = round(jeedom::evaluateExpression($this->getConfiguration('temperature_outdoor')), 1);
 
-        log::add('pool', 'debug', $this->getHumanName() . 'temperature_outdoor=(' . $temperature_outdoor . ')');
+        // log::add('pool', 'debug', $this->getHumanName() . 'temperature_outdoor=(' . $temperature_outdoor . ')');
 
-        log::add('pool', 'debug', $this->getHumanName() . 'evaluateTemperatureOutdoor() end');
+        // log::add('pool', 'debug', $this->getHumanName() . 'evaluateTemperatureOutdoor() end');
 
         return $temperature_outdoor;
     }
@@ -1143,7 +1143,7 @@ class pool extends eqLogic
 
     public function evaluateLeverSoleil()
     {
-        log::add('pool', 'debug', $this->getHumanName() . 'evaluateLeverSoleil() begin');
+        // log::add('pool', 'debug', $this->getHumanName() . 'evaluateLeverSoleil() begin');
 
         preg_match_all("/#([0-9]*)#/", $this->getConfiguration('lever_soleil'), $matches);
         foreach ($matches[1] as $cmd_id) {
@@ -1158,9 +1158,9 @@ class pool extends eqLogic
 
         $lever_soleil = round(jeedom::evaluateExpression($this->getConfiguration('lever_soleil')), 1);
 
-        log::add('pool', 'debug', $this->getHumanName() . 'lever_soleil=(' . $lever_soleil . ')');
+        // log::add('pool', 'debug', $this->getHumanName() . 'lever_soleil=(' . $lever_soleil . ')');
 
-        log::add('pool', 'debug', $this->getHumanName() . 'evaluateLeverSoleil() end');
+        // log::add('pool', 'debug', $this->getHumanName() . 'evaluateLeverSoleil() end');
 
         return $lever_soleil;
     }
@@ -1909,26 +1909,26 @@ class pool extends eqLogic
 
     public function executeSaison()
     {
-        log::add('pool', 'debug', $this->getHumanName() . 'executeSaison begin');
+        // log::add('pool', 'debug', $this->getHumanName() . 'executeSaison begin');
 
         $this->getCmd(null, 'hivernageWidgetStatus')->event(0);
         $this->activatingDevices();
         $this->executeResetCalcul();
 
-        log::add('pool', 'debug', $this->getHumanName() . 'executeSaison end');
+        // log::add('pool', 'debug', $this->getHumanName() . 'executeSaison end');
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
     public function executeHivernage()
     {
-        log::add('pool', 'debug', $this->getHumanName() . 'executeHivernage begin');
+        // log::add('pool', 'debug', $this->getHumanName() . 'executeHivernage begin');
 
         $this->getCmd(null, 'hivernageWidgetStatus')->event(1);
         $this->activatingDevices();
         $this->executeResetCalcul();
 
-        log::add('pool', 'debug', $this->getHumanName() . 'executeHivernage end');
+        // log::add('pool', 'debug', $this->getHumanName() . 'executeHivernage end');
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
