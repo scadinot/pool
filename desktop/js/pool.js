@@ -75,7 +75,7 @@ $('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgChauffage]').on('change'
 	{
 		$('.cfgChauffage').hide();
 	}
-	else if ($('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgChauffage]').value() == "enabled")
+	else
 	{
 		$('.cfgChauffage').show();
 	}
@@ -97,12 +97,10 @@ $('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgTraitement]').on('change
     {
         $('.cfgTraitement').hide();
     }
-    else if ($('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgTraitement]').value() == "enabled")
+    else
     {
         $('.cfgTraitement').show();
     }
-
-
 });
 
 $('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgSurpresseur]').on('change', function () 
@@ -111,7 +109,7 @@ $('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgSurpresseur]').on('chang
 	{
 		$('.cfgSurpresseur').hide();
 	}
-	else if ($('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgSurpresseur]').value() == "enabled")
+	else
 	{
 		$('.cfgSurpresseur').show();
 	}
@@ -123,7 +121,7 @@ $('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgFiltreSable]').on('chang
 	{
 		$('.cfgFiltreSable').hide();
 	}
-	else if ($('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgFiltreSable]').value() == "enabled")
+	else
 	{
 		$('.cfgFiltreSable').show();
 	}
@@ -135,10 +133,10 @@ $('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgHivernage]').on('change'
 	{
 		$('.cfgHivernage').hide();
 	}
-	else if ($('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgHivernage]').value() == "enabled")
-	{
-		$('.cfgHivernage').show();
-	}
+	else
+    {
+        $('.cfgHivernage').show();
+    }
 
     if ($('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgChauffage]').value() == "disabled"
         && $('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgHivernage]').value() == "disabled")
@@ -158,7 +156,7 @@ $('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgAsservissementExterne]')
         $('.cfgAsservissementExterne').hide();
         $('.cfgAsservissementExterne_hide').show();
     }
-    else if ($('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgAsservissementExterne]').value() == "enabled")
+    else
     {
         $('.cfgAsservissementExterne').show();
         $('.cfgAsservissementExterne_hide').hide();

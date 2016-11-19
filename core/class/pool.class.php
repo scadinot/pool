@@ -2023,8 +2023,24 @@ class pool extends eqLogic
             $this->setConfiguration('cfgChauffage', 'disabled');
         }
 
+        if ($this->getConfiguration('cfgTraitement') == '') {
+            $this->setConfiguration('cfgTraitement', 'disabled');
+        }
+
+        if ($this->getConfiguration('cfgSurpresseur') == '') {
+            $this->setConfiguration('cfgSurpresseur', 'disabled');
+        }
+
+        if ($this->getConfiguration('cfgFiltreSable') == '') {
+            $this->setConfiguration('cfgFiltreSable', 'disabled');
+        }
+
         if ($this->getConfiguration('cfgHivernage') == '') {
             $this->setConfiguration('cfgHivernage', 'disabled');
+        }
+
+        if ($this->getConfiguration('cfgAsservissementExterne') == '') {
+            $this->setConfiguration('cfgAsservissementExterne', 'disabled');
         }
 
         // log::add('pool', 'debug', $this->getHumanName() . 'preSave() end');
