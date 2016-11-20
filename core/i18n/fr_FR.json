@@ -103,6 +103,7 @@
         "Cron de répétition de commande": "Cron de répétition de commande",
         "Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s'arrêtent pas correctement mettez en place cette vérification": "Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s'arrêtent pas correctement mettez en place cette vérification",
         "Pour démarrer le chauffage je dois ?": "Pour démarrer le chauffage je dois ?",
-        "Pour arrêter le chauffage je dois ?": "Pour arrêter le chauffage je dois ?"
+        "Pour arrêter le chauffage je dois ?": "Pour arrêter le chauffage je dois ?",
+        "Activer le traitement pendant l'hivernage": "Activer le traitement pendant l'hivernage"
     }
 }

@@ -359,6 +359,7 @@ class pool extends eqLogic
 
                     if ($this->getCmd(null, 'filtrationTemperature')->execCmd() == 1
                         || $this->getCmd(null, 'marcheForcee')->execCmd() == 1
+                        || ($this->getCmd(null, 'filtrationHivernage')->execCmd() == 1 && $this->getConfiguration('traitement_hivernage', '0') == '1' )
                     ) {
                         sleep(2);
                         $this->traitementOn();
@@ -2013,6 +2014,10 @@ class pool extends eqLogic
 
         if ($this->getConfiguration('choixHeureFiltrationHivernage') == '') {
             $this->setConfiguration('choixHeureFiltrationHivernage', '1');
+        }
+
+        if ($this->getConfiguration('traitement_hivernage') == '') {
+            $this->setConfiguration('traitement_hivernage', '0');
         }
 
         if ($this->getConfiguration('disable_marcheForcee') == '') {

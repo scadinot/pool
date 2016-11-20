@@ -626,6 +626,13 @@ $eqLogics = eqLogic::byType($plugin->getId());
                             </select>
                         </div>
                     </div>
+                    <!-- traitement_hivernage -->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">{{Activer le traitement pendant l'hivernage}}</label>
+                        <div class="col-sm-9">
+                            <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="traitement_hivernage" checked/>{{Actif}}</label>
+                        </div>
+                    </div>
                 </form>
             </div>
 
