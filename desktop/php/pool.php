@@ -674,12 +674,10 @@ $eqLogics = eqLogic::byType($plugin->getId());
                         </div>
                     </div>
                     <!-- disable_marcheForcee -->
-                    <div class="cfgAsservissementExterne_hide enabled">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{Désactiver marche forcée au début du cycle de filtration}}</label>
-                            <div class="col-sm-9">
-                                <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="disable_marcheForcee" checked/>{{Actif}}</label>
-                            </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">{{Désactiver marche forcée au début du cycle de filtration}}</label>
+                        <div class="col-sm-9">
+                            <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="disable_marcheForcee" checked/>{{Actif}}</label>
                         </div>
                     </div>
                     <!-- repeat_commande_cron -->
