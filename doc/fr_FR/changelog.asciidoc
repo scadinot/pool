@@ -10,3 +10,8 @@
 
 - refonte de la partie calcul de temps de filtration.
 
+==== 26/11/2016
+
+- ajout de boutons Saison / Hivernage optionnels sur le widget.
+- traitement optionnel pendant l'hivernage.
+- refonte de la présentation de la configuration.
