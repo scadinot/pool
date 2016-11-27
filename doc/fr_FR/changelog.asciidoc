@@ -1,3 +1,14 @@
+
+==== 26/11/2016
+
+- ajout de boutons Saison / Hivernage optionnels sur le widget.
+- traitement optionnel pendant l'hivernage.
+- refonte de la présentation de la configuration.
+
+==== 11/09/2015
+
+- refonte de la partie calcul de temps de filtration.
+
 ==== 25/04/2016
 
 - ajout d'un onglet asservissement externe, diverses améliorations.
@@ -5,13 +16,3 @@
 ==== 01/08/2015
 
 - première version du plugin.
-
-==== 11/09/2015
-
-- refonte de la partie calcul de temps de filtration.
-
-==== 26/11/2016
-
-- ajout de boutons Saison / Hivernage optionnels sur le widget.
-- traitement optionnel pendant l'hivernage.
-- refonte de la présentation de la configuration.
