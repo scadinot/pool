@@ -54,10 +54,14 @@ Activez les options de votre choix suivant le type d'équipement dont vous dispo
 - Hivernage
 
     Cette option vous permet de basculer l'installation en mode hivernage actif. Le cycle de filtration est modifié lors de l'activation de cette option.
+    Trois options sont disponibles : Actif / Inactif / Widget.
+    Si vous choisissez Widget les boutons 'Saison' et 'Hivernage' seront affichés sur le panel ce qui vous permet de changer de mode sans passer par la configuration.
+
+image::../images/config_hivernage_widget.png["Boutons Saison / Hivernage",align="Center"]
 
 [icon="../images/plugin/important.png"]
 [IMPORTANT]
-Vous devez activer cette option uniquement au début de l'hivernage et la désactiver à la fin de l'hivernage pour revenir au cycle de filtration classique.
+Si vous choisissez pas Widget, vous devez activer cette option uniquement au début de l'hivernage et la désactiver à la fin de l'hivernage pour revenir au cycle de filtration classique.
 
 - Asservissement externe
 
@@ -180,6 +184,8 @@ Cette fonction peut être utile suivant votre abonnement EDF (possibilité de fa
 `Filtration 5mn toutes les 3 heures` : si vous le souhaitez vous pouvez activer cette option qui lancera la filration pendant 5mn toutes les 3 heures.
 
 `Filtration permanente si température extérieure inférieure à` : cette option permet de lancer la filtration en marche forcée si la température extérieure descend en dessous d'un seuil défini.
+
+`Activer traitement pendant l'hivernage` : cette option permet d'activer le traitement pendant l'hivernage.
 
 [icon="../images/plugin/tip.png"]
 [TIP]

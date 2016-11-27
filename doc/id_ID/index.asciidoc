@@ -25,3 +25,7 @@ include::faq.asciidoc[]
 '''
 == Troubleshoting
 include::troubleshoting.asciidoc[]
+
+'''
+=== Changelog
+include::changelog.asciidoc[]
