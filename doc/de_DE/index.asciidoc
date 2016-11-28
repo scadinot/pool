@@ -10,22 +10,28 @@ Das Plugin unterstützt auch die folgenden Funktionen :
 -	aktives Überwintern.
 - Solarheizungs Regelung.
 
+
 '''
 == Konfiguration
 include::configuration.asciidoc[]
+
 
 '''
 == Funktionsweise
 include::fonctionnement.asciidoc[]
 
+
 '''
 == FAQ
 include::faq.asciidoc[]
+
 
 '''
 == Fehlersuche
 include::troubleshoting.asciidoc[]
 
+
 '''
 === Changelog
 include::changelog.asciidoc[]
+--
