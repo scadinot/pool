@@ -1228,6 +1228,7 @@ class pool extends eqLogic
             switch ($this->getCmd(null, 'filtrationLavageEtat')->execCmd()) {
                 case '':
                 case '0':
+
                     // log::add('pool', 'debug', $this->getHumanName() . 'case 0');
 
                     $this->getCmd(null, 'filtrationLavageEtat')->event(1); // Arrêt, mettre la vanne sur la position lavage
@@ -1239,6 +1240,7 @@ class pool extends eqLogic
                     break;
 
                 case '1':
+
                     // log::add('pool', 'debug', $this->getHumanName() . 'case 1');
 
                     if ($this->getConfiguration('rincageDuree', '2') == '0') {
@@ -1260,6 +1262,7 @@ class pool extends eqLogic
                     break;
 
                 case '2':
+
                     // log::add('pool', 'debug', $this->getHumanName() . 'case 2');
 
                     $this->getCmd(null, 'filtrationLavageEtat')->event(3); // Arrêt, mettre la vanne sur la position rinçage
@@ -1288,6 +1291,7 @@ class pool extends eqLogic
                     break;
 
                 case '4':
+
                     // log::add('pool', 'debug', $this->getHumanName() . 'case 4');
 
                     $this->getCmd(null, 'filtrationLavageEtat')->event(5); // Arrêt, mettre la vanne sur la position filtration
@@ -1300,6 +1304,7 @@ class pool extends eqLogic
                     break;
 
                 case '5':
+
                     // log::add('pool', 'debug', $this->getHumanName() . 'case 5');
 
                     $this->getCmd(null, 'filtrationLavageEtat')->event(0);
