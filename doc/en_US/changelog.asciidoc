@@ -1,4 +1,5 @@
 
+
 ==== 26/11/2016
 --
 - ajout de boutons Saison / Hivernage optionnels sur le widget.
@@ -6,14 +7,14 @@
 - refonte de la présentation de la configuration.
 --
 
-==== 11/09/2015
---
-- refonte de la partie calcul de temps de filtration.
---
-
 ==== 25/04/2016
 --
 - ajout d'un onglet asservissement externe, diverses améliorations.
+--
+
+==== 11/09/2015
+--
+- refonte de la partie calcul de temps de filtration.
 --
 
 ==== 01/08/2015
