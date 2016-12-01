@@ -1,18 +1,18 @@
-[panel,danger]
-.Température
+=== Température
 --
-La température prise en compte pour le calcul est la température maximum mesurée pendant la filtration.
+- La température prise en compte pour le calcul est la température maximum mesurée pendant la filtration.
 --
-.La filtration ne se lance pas
+=== La filtration ne se lance pas
 --
-Verifiez dans les logs que le calcul de durée est correct. Pour afficher le temps de calcul la configuration des logs doit au minimum être au niveau *INFO*.
+- Verifiez dans les logs que le calcul de durée est correct.
+- Pour afficher le temps de calcul la configuration des logs doit au minimum être au niveau INFO.
 --
 image::../images/log_info.png["Configuration",align="Center"]
 --
---
---
-L'affichage doit avoir la forme suivante:
+- L'affichage doit avoir la forme suivante
 --
 image::../images/log_calcul.png["Calcul",align="Center"]
 --
-Vérifiez que la date de la fitration est bien celle de la prochaine journée, ce calcul est effectué juste à la fin de la plage de filtration du jour.
+- Vérifiez que la date de la fitration est bien celle de la prochaine journée.
+- Ce calcul est effectué juste à la fin de la plage de filtration du jour.
+--
