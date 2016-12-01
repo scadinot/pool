@@ -16,4 +16,3 @@ L'affichage doit avoir la forme suivante:
 image::../images/log_calcul.png["Calcul",align="Center"]
 --
 Vérifiez que la date de la fitration est bien celle de la prochaine journée, ce calcul est effectué juste à la fin de la plage de filtration du jour.
---

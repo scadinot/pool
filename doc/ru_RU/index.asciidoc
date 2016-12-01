@@ -32,6 +32,6 @@ include::troubleshoting.asciidoc[]
 
 
 '''
-=== Changelog
+== Changelog
 include::changelog.asciidoc[]
 --
