@@ -442,17 +442,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_visualisation_du_fonctionnement_de_la_piscine">4.3. Visualisation du fonctionnement de la piscine</a></li>
 </ul>
 </li>
-<li><a href="#_faq">5. FAQ</a></li>
-<li><a href="#_troubleshoting">6. Troubleshoting</a>
+<li><a href="#_troubleshoting">5. Troubleshoting</a>
 <ul class="sectlevel2">
-<li><a href="#_changelog">6.1. Changelog</a>
-<ul class="sectlevel3">
-<li><a href="#_26_11_2016">6.1.1. 26/11/2016</a></li>
-<li><a href="#_11_09_2015">6.1.2. 11/09/2015</a></li>
-<li><a href="#_25_04_2016">6.1.3. 25/04/2016</a></li>
-<li><a href="#_01_08_2015">6.1.4. 01/08/2015</a></li>
+<li><a href="#_température">5.1. Température</a></li>
+<li><a href="#_la_filtration_ne_se_lance_pas">5.2. La filtration ne se lance pas</a></li>
 </ul>
 </li>
+<li><a href="#_faq">6. FAQ</a></li>
+<li><a href="#_changelog">7. Changelog</a>
+<ul class="sectlevel2">
+<li><a href="#_26_11_2016">7.1. 26/11/2016</a></li>
+<li><a href="#_25_04_2016">7.2. 25/04/2016</a></li>
+<li><a href="#_11_09_2015">7.3. 11/09/2015</a></li>
+<li><a href="#_01_08_2015">7.4. 01/08/2015</a></li>
 </ul>
 </li>
 </ul>
@@ -1163,7 +1165,79 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 <div class="sect1">
-<h2 id="_faq">5. FAQ</h2>
+<h2 id="_troubleshoting">5. Troubleshoting</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_température">5.1. Température</h3>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>La température prise en compte pour le calcul est la température maximum mesurée pendant la filtration.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_la_filtration_ne_se_lance_pas">5.2. La filtration ne se lance pas</h3>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Verifiez dans les logs que le calcul de durée est correct.</p>
+</li>
+<li>
+<p>Pour afficher le temps de calcul la configuration des logs doit au minimum être au niveau INFO.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock" style="text-align: Center">
+<div class="content">
+<img src="../images/log_info.png" alt="Configuration">
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;affichage doit avoir la forme suivante</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock" style="text-align: Center">
+<div class="content">
+<img src="../images/log_calcul.png" alt="Calcul">
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vérifiez que la date de la fitration est bien celle de la prochaine journée.</p>
+</li>
+<li>
+<p>Ce calcul est effectué juste à la fin de la plage de filtration du jour.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_faq">6. FAQ</h2>
 <div class="sectionbody">
 <div class="openblock panel">
 <div class="title">Quel type de sondes gère le Plugin</div><div class="content">
@@ -1176,56 +1250,10 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 <div class="sect1">
-<h2 id="_troubleshoting">6. Troubleshoting</h2>
+<h2 id="_changelog">7. Changelog</h2>
 <div class="sectionbody">
-<div class="openblock panel">
-<div class="title">Température</div><div class="content">
-<div class="paragraph">
-<p>La température prise en compte pour le calcul est la température maximum mesurée pendant la filtration.</p>
-</div>
-</div>
-</div>
-<div class="openblock">
-<div class="title">La filtration ne se lance pas</div><div class="content">
-<div class="paragraph">
-<p>Verifiez dans les logs que le calcul de durée est correct. Pour afficher le temps de calcul la configuration des logs doit au minimum être au niveau <strong>INFO</strong>.</p>
-</div>
-</div>
-</div>
-<div class="imageblock" style="text-align: Center">
-<div class="content">
-<img src="../images/log_info.png" alt="Configuration">
-</div>
-</div>
-<div class="openblock">
-<div class="content">
-
-</div>
-</div>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>L&#8217;affichage doit avoir la forme suivante:</p>
-</div>
-</div>
-</div>
-<div class="imageblock" style="text-align: Center">
-<div class="content">
-<img src="../images/log_calcul.png" alt="Calcul">
-</div>
-</div>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>Vérifiez que la date de la fitration est bien celle de la prochaine journée, ce calcul est effectué juste à la fin de la plage de filtration du jour.</p>
-</div>
-</div>
-</div>
-<hr>
 <div class="sect2">
-<h3 id="_changelog">6.1. Changelog</h3>
-<div class="sect3">
-<h4 id="_26_11_2016">6.1.1. 26/11/2016</h4>
+<h3 id="_26_11_2016">7.1. 26/11/2016</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1244,22 +1272,8 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_11_09_2015">6.1.2. 11/09/2015</h4>
-<div class="openblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>refonte de la partie calcul de temps de filtration.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_25_04_2016">6.1.3. 25/04/2016</h4>
+<div class="sect2">
+<h3 id="_25_04_2016">7.2. 25/04/2016</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1272,8 +1286,22 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_01_08_2015">6.1.4. 01/08/2015</h4>
+<div class="sect2">
+<h3 id="_11_09_2015">7.3. 11/09/2015</h3>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>refonte de la partie calcul de temps de filtration.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_01_08_2015">7.4. 01/08/2015</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1282,12 +1310,6 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 <p>première version du plugin.</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="openblock">
-<div class="content">
-
 </div>
 </div>
 </div>

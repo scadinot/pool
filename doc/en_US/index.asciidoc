@@ -22,16 +22,15 @@ include::fonctionnement.asciidoc[]
 
 
 '''
-== FAQ
-include::faq.asciidoc[]
-
-
-'''
 == Troubleshoting
 include::troubleshoting.asciidoc[]
 
 
 '''
-=== Changelog
+== FAQ
+include::faq.asciidoc[]
+
+
+'''
+== Changelog
 include::changelog.asciidoc[]
---
