@@ -104,6 +104,6 @@
         "Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s'arrêtent pas correctement mettez en place cette vérification": "Cron removal filtering controls, booster and treatment. If your equipment does not start or stop properly you can use this",
         "Pour démarrer le chauffage je dois ?": "To start heating i have to",
         "Pour arrêter le chauffage je dois ?": "To stop heating i have to",
-        "Activer le traitement pendant l'hivernage": "Activer le traitement pendant l'hivernage"
+        "Activer le traitement pendant l'hivernage": "Activate the treatment during the winter season"
     }
 }
