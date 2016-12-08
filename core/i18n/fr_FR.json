@@ -53,7 +53,6 @@
         "Borne de température supérieure": "Borne de température supérieure",
         "Filtration": "Filtration",
         "Chauffage": "Chauffage",
-        "Temps de filtration": "Temps de filtration",
         "Asservissement externe": "Asservissement externe",
         "Configuration avancée": "Configuration avancée",
         "Pour démarrer la filtration je dois ?": "Pour démarrer la filtration je dois ?",
@@ -104,6 +103,8 @@
         "Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s'arrêtent pas correctement mettez en place cette vérification": "Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s'arrêtent pas correctement mettez en place cette vérification",
         "Pour démarrer le chauffage je dois ?": "Pour démarrer le chauffage je dois ?",
         "Pour arrêter le chauffage je dois ?": "Pour arrêter le chauffage je dois ?",
-        "Activer le traitement pendant l'hivernage": "Activer le traitement pendant l'hivernage"
+        "Activer le traitement pendant l'hivernage": "Activer le traitement pendant l'hivernage",
+        "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration": "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration",
+        "Paramètres de filtration": "Paramètres de filtration"
     }
 }

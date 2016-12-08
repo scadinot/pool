@@ -8,7 +8,7 @@ Si vous souhaitez relancer le calcul avant la fin du cycle, activez le bouton [R
 '''
 === Widget Piscine sur le Dashboard
 
-image::../images/fonctionnement_1.png["Widget Piscine",align="Center"]
+Image:... /images/fonctionnement_1.PNG["widget pool", align = 'Center']
 
 Sur le widget sont indiqués :
 
