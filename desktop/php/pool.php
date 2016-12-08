@@ -70,7 +70,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
             <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab">{{Equipement}}</a></li>
             <li role="presentation"><a href="#configureFiltration" data-toggle="tab">{{Filtration}}</a></li>
-            <li role="presentation"><a href="#configureTempFiltration" data-toggle="tab">{{Temps de filtration}}</a></li>
             <li role="presentation" class="cfgChauffage enabled"><a href="#configureChauffage" data-toggle="tab">{{Chauffage}}</a></li>
             <li role="presentation" class="cfgTraitement enabled"><a href="#configureTraitement" data-toggle="tab">{{Traitement}}</a></li>
             <li role="presentation" class="cfgSurpresseur enabled"><a href="#configureSurpresseur" data-toggle="tab">{{Surpresseur}}</a></li>
@@ -84,7 +83,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
         <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
 
             <div role="tabpanel" class="tab-pane active" id="eqlogictab">
-                <br/>
+                <br/><br/>
 
                 <div class="row">
 
@@ -249,7 +248,146 @@ $eqLogics = eqLogic::byType($plugin->getId());
             </div>
 
             <div role="tabpanel" class="tab-pane" id="configureFiltration">
-                <br/><br/>
+                <br/>
+
+                <form class="form-horizontal">
+                    <legend>
+                        {{Paramètres de filtration}}
+                    </legend>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <form class="form-horizontal">
+                                <!-- methodeCalcul -->
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">{{Choix méthode de calcul}}</label>
+                                    <div class="col-sm-4">
+                                        <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="" placeholder="">
+                                            <option value="1">{{Courbe}}</option>
+                                            <option value="2">{{Temp / 2}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- coefficientAjustement -->
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">{{Ajustement du temps de filtration}}</label>
+                                    <div class="col-sm-4">
+                                        <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="coefficientAjustement" placeholder="">
+                                            <option value="3"> 30%</option>
+                                            <option value="3.5"> 35%</option>
+                                            <option value="4"> 40%</option>
+                                            <option value="4.5"> 45%</option>
+                                            <option value="5"> 50%</option>
+                                            <option value="5.5"> 55%</option>
+                                            <option value="6"> 60%</option>
+                                            <option value="6.5"> 65%</option>
+                                            <option value="7"> 70%</option>
+                                            <option value="7.5"> 75%</option>
+                                            <option value="8"> 80%</option>
+                                            <option value="8.5"> 85%</option>
+                                            <option value="9"> 90%</option>
+                                            <option value="9.5"> 95%</option>
+                                            <option value="10">100%</option>
+                                            <option value="10.5">105%</option>
+                                            <option value="11">110%</option>
+                                            <option value="11.5">115%</option>
+                                            <option value="12">120%</option>
+                                            <option value="12.5">125%</option>
+                                            <option value="13">130%</option>
+                                            <option value="13.5">135%</option>
+                                            <option value="14">140%</option>
+                                            <option value="14.5">145%</option>
+                                            <option value="15">150%</option>
+                                            <option value="15.5">155%</option>
+                                            <option value="16">160%</option>
+                                            <option value="16.5">165%</option>
+                                            <option value="17">170%</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- disable_marcheForcee -->
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">{{Désactiver marche forcée au début du cycle de filtration}}</label>
+                                    <div class="col-sm-4">
+                                        <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="disable_marcheForcee" checked/>{{Actif}}</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-6">
+                            <form class="form-horizontal">
+                                <!-- datePivot -->
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">{{Horaire pivot de filtration}}</label>
+                                    <div class="col-sm-4">
+                                        <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="datePivot" placeholder="">
+                                            <option value="01:00">01:00</option>
+                                            <option value="02:00">02:00</option>
+                                            <option value="03:00">03:00</option>
+                                            <option value="04:00">04:00</option>
+                                            <option value="05:00">05:00</option>
+                                            <option value="06:00">06:00</option>
+                                            <option value="07:00">07:00</option>
+                                            <option value="08:00">08:00</option>
+                                            <option value="09:00">09:00</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                            <option value="18:00">18:00</option>
+                                            <option value="19:00">19:00</option>
+                                            <option value="20:00">20:00</option>
+                                            <option value="21:00">21:00</option>
+                                            <option value="22:00">22:00</option>
+                                            <option value="23:00">23:00</option>
+                                            <option value="24:00">24:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- pausePivot -->
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">{{Temps de coupure (segmentation de la filtration)}}</label>
+                                    <div class="col-sm-4">
+                                        <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="pausePivot" placeholder="">
+                                            <option value="0">{{Sans}}</option>
+                                            <option value="30">00:30</option>
+                                            <option value="60">01:00</option>
+                                            <option value="90">01:30</option>
+                                            <option value="120">02:00</option>
+                                            <option value="150">02:30</option>
+                                            <option value="180">03:00</option>
+                                            <option value="210">03:30</option>
+                                            <option value="240">04:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- distributionDatePivot -->
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">{{Répartition du temps de filtration autour de l'horaire pivot}}</label>
+                                    <div class="col-sm-4">
+                                        <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="distributionDatePivot" placeholder="">
+                                            <option value="1">1/2 - 1/2</option>
+                                            <option value="2">1/3 - 2/3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- alert-info -->
+                <div class="alert alert-info">
+                    {{Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration}}
+                </div>
+
+                <br/>
+
                 <!-- filtrationOn -->
                 <form class="form-horizontal">
                     <fieldset>
@@ -284,120 +422,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                 </form>
             </div>
 
-            <div role="tabpanel" class="tab-pane" id="configureTempFiltration">
-                <br/><br/>
-                <form class="form-horizontal">
-                    <!-- methodeCalcul -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Choix méthode de calcul}}</label>
-                        <div class="col-sm-2">
-                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="" placeholder="">
-                                <option value="1">{{Courbe}}</option>
-                                <option value="2">{{Temp / 2}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- coefficientAjustement -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Ajustement du temps de filtration}}</label>
-                        <div class="col-sm-2">
-                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="coefficientAjustement" placeholder="">
-                                <option value="3"> 30%</option>
-                                <option value="3.5"> 35%</option>
-                                <option value="4"> 40%</option>
-                                <option value="4.5"> 45%</option>
-                                <option value="5"> 50%</option>
-                                <option value="5.5"> 55%</option>
-                                <option value="6"> 60%</option>
-                                <option value="6.5"> 65%</option>
-                                <option value="7"> 70%</option>
-                                <option value="7.5"> 75%</option>
-                                <option value="8"> 80%</option>
-                                <option value="8.5"> 85%</option>
-                                <option value="9"> 90%</option>
-                                <option value="9.5"> 95%</option>
-                                <option value="10">100%</option>
-                                <option value="10.5">105%</option>
-                                <option value="11">110%</option>
-                                <option value="11.5">115%</option>
-                                <option value="12">120%</option>
-                                <option value="12.5">125%</option>
-                                <option value="13">130%</option>
-                                <option value="13.5">135%</option>
-                                <option value="14">140%</option>
-                                <option value="14.5">145%</option>
-                                <option value="15">150%</option>
-                                <option value="15.5">155%</option>
-                                <option value="16">160%</option>
-                                <option value="16.5">165%</option>
-                                <option value="17">170%</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- datePivot -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Horaire pivot de filtration}}</label>
-                        <div class="col-sm-2">
-                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="datePivot" placeholder="">
-                                <option value="01:00">01:00</option>
-                                <option value="02:00">02:00</option>
-                                <option value="03:00">03:00</option>
-                                <option value="04:00">04:00</option>
-                                <option value="05:00">05:00</option>
-                                <option value="06:00">06:00</option>
-                                <option value="07:00">07:00</option>
-                                <option value="08:00">08:00</option>
-                                <option value="09:00">09:00</option>
-                                <option value="10:00">10:00</option>
-                                <option value="11:00">11:00</option>
-                                <option value="12:00">12:00</option>
-                                <option value="13:00">13:00</option>
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                                <option value="18:00">18:00</option>
-                                <option value="19:00">19:00</option>
-                                <option value="20:00">20:00</option>
-                                <option value="21:00">21:00</option>
-                                <option value="22:00">22:00</option>
-                                <option value="23:00">23:00</option>
-                                <option value="24:00">24:00</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- pausePivot -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Temps de coupure (segmentation de la filtration)}}</label>
-                        <div class="col-sm-2">
-                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="pausePivot" placeholder="">
-                                <option value="0">{{Sans}}</option>
-                                <option value="30">00:30</option>
-                                <option value="60">01:00</option>
-                                <option value="90">01:30</option>
-                                <option value="120">02:00</option>
-                                <option value="150">02:30</option>
-                                <option value="180">03:00</option>
-                                <option value="210">03:30</option>
-                                <option value="240">04:00</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- distributionDatePivot -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Répartition du temps de filtration autour de l'horaire pivot}}</label>
-                        <div class="col-sm-2">
-                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="distributionDatePivot" placeholder="">
-                                <option value="1">1/2 - 1/2</option>
-                                <option value="2">1/3 - 2/3</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
             <div role="tabpanel" class="tab-pane" id="configureChauffage">
-                <br/><br/>
+                <br/>
                 <!-- chauffageOn -->
                 <form class="form-horizontal">
                     <fieldset>
@@ -422,7 +448,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
             </div>
 
             <div role="tabpanel" class="tab-pane" id="configureTraitement">
-                <br/><br/>
+                <br/>
                 <!-- traitementOn -->
                 <form class="form-horizontal">
                     <fieldset>
@@ -447,7 +473,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
             </div>
 
             <div role="tabpanel" class="tab-pane" id="configureSurpresseur">
-                <br/><br/>
+                <br/>
                 <!-- surpresseurDuree -->
                 <form class="form-horizontal">
                     <div class="form-group">
@@ -495,7 +521,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
             </div>
 
             <div role="tabpanel" class="tab-pane" id="configureFiltreSable">
-                <br/><br/>
+                <br/>
                 <form class="form-horizontal">
                     <!-- lavageDuree -->
                     <div class="form-group">
@@ -534,7 +560,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
             </div>
 
             <div role="tabpanel" class="tab-pane" id="configureHivernage">
-                <br/><br/>
+                <br/>
                 <form class="form-horizontal">
                     <!-- lever_soleil -->
                     <div class="form-group">
@@ -637,7 +663,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
             </div>
 
             <div role="tabpanel" class="tab-pane" id="configureAsservissement">
-                <br/><br/>
+                <br/>
                 <!-- arretTotal -->
                 <form class="form-horizontal">
                     <fieldset>
@@ -662,7 +688,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
             </div>
 
             <div role="tabpanel" class="tab-pane" id="configureAdvanced">
-                <br/><br/>
+                <br/>
                 <form class="form-horizontal">
                     <!-- maxTimeUpdateTemp -->
                     <div class='form-group'>
@@ -678,13 +704,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
                         <label class="col-sm-2 control-label">{{Afficher bouton reset calcul sur le widget}}</label>
                         <div class="col-sm-9">
                             <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="display_reset" checked/>{{Actif}}</label>
-                        </div>
-                    </div>
-                    <!-- disable_marcheForcee -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Désactiver marche forcée au début du cycle de filtration}}</label>
-                        <div class="col-sm-9">
-                            <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="disable_marcheForcee" checked/>{{Actif}}</label>
                         </div>
                     </div>
                     <!-- repeat_commande_cron -->
