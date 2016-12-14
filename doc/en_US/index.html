@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3.dev">
-<title>Piscine</title>
+<title>Pool</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -415,7 +415,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table des matières</div>
 <ul class="sectlevel1">
-<li><a href="#_piscine">1. Piscine</a></li>
+<li><a href="#_pool">1. Pool</a></li>
 <li><a href="#_description">2. Description</a></li>
 <li><a href="#_configuration">3. Configuration</a>
 <ul class="sectlevel2">
@@ -444,17 +444,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_troubleshoting">5. Troubleshoting</a>
 <ul class="sectlevel2">
-<li><a href="#_température">5.1. Température</a></li>
+<li><a href="#_temperature">5.1. Temperature</a></li>
 <li><a href="#_la_filtration_ne_se_lance_pas">5.2. La filtration ne se lance pas</a></li>
 </ul>
 </li>
 <li><a href="#_faq">6. FAQ</a></li>
 <li><a href="#_changelog">7. Changelog</a>
 <ul class="sectlevel2">
-<li><a href="#_26_11_2016">7.1. 26/11/2016</a></li>
-<li><a href="#_25_04_2016">7.2. 25/04/2016</a></li>
-<li><a href="#_11_09_2015">7.3. 11/09/2015</a></li>
-<li><a href="#_01_08_2015">7.4. 01/08/2015</a></li>
+<li><a href="#_11_12_2016">7.1. 11/12/2016</a></li>
+<li><a href="#_26_11_2016">7.2. 26/11/2016</a></li>
+<li><a href="#_25_04_2016">7.3. 25/04/2016</a></li>
+<li><a href="#_11_09_2015">7.4. 11/09/2015</a></li>
+<li><a href="#_01_08_2015">7.5. 01/08/2015</a></li>
 </ul>
 </li>
 </ul>
@@ -462,7 +463,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_piscine">1. Piscine</h2>
+<h2 id="_pool">1. Pool</h2>
 <div class="sectionbody">
 
 </div>
@@ -691,21 +692,6 @@ Ces champs ne sont accessibles qu&#8217;en mode expert (cocher <code>Profil, Mod
 <p><em>C&#8217;est l&#8217;onglet principal de l&#8217;installation, il est toujours visible quelque soit la configration choisie.</em></p>
 </div>
 <div class="paragraph">
-<p>Dans cet onglet, vous devez définir les équipements permettant de <code>démarrer la filtration</code> et d' <code>arrêter la filtration</code>.</p>
-</div>
-<div class="paragraph">
-<p>Une autre option est présente l' <code>Asservissement chauffage solaire</code>.
-Cela vous permet définir un forçage de la filtration dans le cas d&#8217;une installation de chauffage solaire. La filtration démarrera alors quel que soit le programme en cours.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_onglet_temps_de_filtration">Onglet [Temps de filtration]</h5>
-<div class="imageblock" style="text-align: Center">
-<div class="content">
-<img src="../images/config_temps_filtration.png" alt="Onglet Filtration">
-</div>
-</div>
-<div class="paragraph">
 <p>Dans cet onglet, vous devez définir les paramétres du calcul de temps de la filtration.</p>
 </div>
 <div class="paragraph">
@@ -713,6 +699,9 @@ Cela vous permet définir un forçage de la filtration dans le cas d&#8217;une i
 </div>
 <div class="paragraph">
 <p><code>Ajustement du temps de filtration</code> : vous permet d&#8217;ajuster le temps de filtration avec un coefficient variable entre 60% et 140%.</p>
+</div>
+<div class="paragraph">
+<p><code>Désactiver marche forcée au début du cycle de filtration</code> pour revenir au mode auto au début du cycle de filtration, afin d&#8217;éviter de laisser indéfiniment la marche forcée. Cette option n&#8217;est présente que si l&#8217;asservissement externe est désactivé.</p>
 </div>
 <div class="paragraph">
 <p><code>Horaire pivot de filtration</code> : vous permet de définir l&#8217;heure de la filtration.</p>
@@ -743,6 +732,13 @@ Pour une eau à 30.2°C avec le mode courbe, un ajustement à 100%, un horaire p
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Dans la partie basse de cet onglet, vous devez définir les équipements permettant de <code>démarrer la filtration</code> et d' <code>arrêter la filtration</code>.</p>
+</div>
+<div class="paragraph">
+<p>Une autre option est présente l' <code>Asservissement chauffage solaire</code>.
+Cela vous permet définir un forçage de la filtration dans le cas d&#8217;une installation de chauffage solaire. La filtration démarrera alors quel que soit le programme en cours.</p>
 </div>
 </div>
 <div class="sect4">
@@ -917,9 +913,6 @@ Il faut donc y mettre les contacts d&#8217;un interrupteur RFXcom ou ZWave ou bi
 </div>
 <div class="paragraph">
 <p><code>Afficher bouton reset calcul sur le widget</code> pour activer un bouton [Reset] sur le Widget qui permet de relancer le calcul de temps de filtration.</p>
-</div>
-<div class="paragraph">
-<p><code>Désactiver marche forcée au début du cycle de filtration</code> pour revenir au mode auto au début du cycle de filtration, afin d&#8217;éviter de laisser indéfiniment la marche forcée. Cette option n&#8217;est présente que si l&#8217;asservissement externe est désactivé.</p>
 </div>
 <div class="paragraph">
 <p><code>Cron de répétition de commande</code> Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s&#8217;arrêtent pas correctement mettez en place cette vérification. Laissez vide le champ pour désactiver l&#8217;option.</p>
@@ -1166,7 +1159,7 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 <h2 id="_troubleshoting">5. Troubleshoting</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_température">5.1. Température</h3>
+<h3 id="_temperature">5.1. Temperature</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1251,7 +1244,21 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 <h2 id="_changelog">7. Changelog</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_26_11_2016">7.1. 26/11/2016</h3>
+<h3 id="_11_12_2016">7.1. 11/12/2016</h3>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>regroupement des onglets Filtration et Temps de filtration</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_26_11_2016">7.2. 26/11/2016</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1271,7 +1278,7 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 <div class="sect2">
-<h3 id="_25_04_2016">7.2. 25/04/2016</h3>
+<h3 id="_25_04_2016">7.3. 25/04/2016</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1285,7 +1292,7 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 <div class="sect2">
-<h3 id="_11_09_2015">7.3. 11/09/2015</h3>
+<h3 id="_11_09_2015">7.4. 11/09/2015</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1299,7 +1306,7 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 <div class="sect2">
-<h3 id="_01_08_2015">7.4. 01/08/2015</h3>
+<h3 id="_01_08_2015">7.5. 01/08/2015</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">

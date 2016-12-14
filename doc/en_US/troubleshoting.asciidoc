@@ -1,4 +1,4 @@
-=== Température
+=== Temperature
 --
 - La température prise en compte pour le calcul est la température maximum mesurée pendant la filtration.
 --
