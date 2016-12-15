@@ -5,7 +5,7 @@ L'installation du plugin ne demande aucune configuration particulière.
 image::../images/install.png["Installation plugin",align="Center"]
 
 '''
-=== Configuration
+=== Settings
 
 Après l'installation, il vous suffit simplement d’activer ce dernier et de vous rendre sur l’écran de configuration :
 
