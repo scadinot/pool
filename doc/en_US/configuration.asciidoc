@@ -37,7 +37,7 @@ Activez les options de votre choix suivant le type d'équipement dont vous dispo
 
 ===== Voyons ensemble le détail des options sélectionnables:
 
-- Traitement
+-Treatment
 
     Cette option vous permet de contrôler l'asservissement d'équipements de traitement automatique de l'eau tels pompe d'injection de Ph, de Chlore...
     Les équipements seront activés 5 secondes après le démarrage de la filtration et stoppés 5 secondes avant l'arrêt de la filtration.
@@ -138,7 +138,7 @@ Dans cet onglet, vous devez définir les équipements permettant de `démarrer l
 [IMPORTANT]
 Il ne s'agit pas d'une régulation de Ph ou autre, mais d'un asservissement de ce type d'équipement possédant sa propre régulation.
 
-===== Onglet [Surpresseur]
+===== Tab Booster
 
 image::../images/config_surpresseur.png["Onglet Surpresseur",align="Center"]
 
@@ -209,7 +209,7 @@ Ces deux équipements reçoivent des types infos.
 Il faut donc y mettre les contacts d'un interrupteur RFXcom ou ZWave ou bien encore l'info d'un virtuel qui vous permettra de piloter la filtration à partir du Dashboard.
 
 image::../images/config_general_2.png["Exemple Onglet Général",align="Center"]
-Exemple de configuration.
+Settings examples
 
 ===== Onglet [Configuration avancée]
 
