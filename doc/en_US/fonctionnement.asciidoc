@@ -1,7 +1,7 @@
 '''
 === Filter cycle.
 
-A la fin du cycle, le plugin recalcule la nouvelle plage de filtration.
+At the end of the cycle, the plugin recalculates the new range of filtration.
 Ce calcul est lancé uniquement à la fin du cycle.
 Si vous souhaitez relancer le calcul avant la fin du cycle, activez le bouton [Reset] dans l'onglet [Configuration avancée].
 
