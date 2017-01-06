@@ -18,5 +18,5 @@
 --
 === 01/08/2015
 --
-- première version du plugin.
+- Erste Version des Plugins.
 --

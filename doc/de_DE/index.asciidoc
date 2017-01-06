@@ -32,5 +32,5 @@ include::faq.asciidoc[]
 
 
 '''
-== Changelog
+== Änderungsprotokoll
 include::changelog.asciidoc[]

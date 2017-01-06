@@ -5,7 +5,7 @@ L'installation du plugin ne demande aucune configuration particulière.
 image::../images/install.png["Installation plugin",align="Center"]
 
 '''
-=== Configuration
+=== Konfiguration
 
 Après l'installation, il vous suffit simplement d’activer ce dernier et de vous rendre sur l’écran de configuration :
 
@@ -71,7 +71,7 @@ image::../images/fonctionnement_8.png["Asservissement interne",align="Center"]
 
 
 '''
-==== Sonde de température
+==== Temperaturfühler
 
 image::../images/config_6.png["Sonde de température",align="Center"]
 
