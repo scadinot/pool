@@ -25,24 +25,24 @@
         "Actif": "aktiv",
         " : Attention la température de l'eau est en dessous du seuil autorisé : ": " : Achtung, die Wassertemperatur ist unter dem erlaubten Grenzwert :",
         "Saison": "Saison",
-        "Hivernage": "Hivernage"
+        "Hivernage": "Überwintern"
     },
     "plugins/pool/desktop/php/pool.php": {
         "Ajouter une piscine": "Pool hinzufügen",
         "Rechercher": "Suchen",
-        "Gestion": "Gestion",
-        "Ajouter": "Ajouter",
+        "Gestion": "Verwaltung",
+        "Ajouter": "Hinzufügen",
         "Mes piscines": "Mein Pool",
         "Nom de l'équipement piscine": "Pool Gerätename",
         "Objet parent": "Elternobjekt",
         "Aucun": "Keine",
-        "Catégorie": "Catégorie",
-        "Etat": "Etat",
+        "Catégorie": "Kategorie",
+        "Etat": "Zustand",
         "Activer": "Aktivieren",
         "Visible": "Sichtbar",
         "Configuration": "Konfiguration",
         "Dupliquer": "Verdoppeln",
-        "Equipement": "Equipement",
+        "Equipement": "Gerät",
         "Traitement": "Behandlung",
         "Surpresseur": "Pumpe",
         "Filtre à sable": "Sand-Filter",
@@ -52,8 +52,7 @@
         "Borne de température inférieure": "Untere Temperaturgrenze",
         "Borne de température supérieure": "Obere Temperaturgrenze",
         "Filtration": "Filtration",
-        "Chauffage": "Chauffage",
-        "Temps de filtration": "Filtrationszeit",
+        "Chauffage": "Heizung",
         "Asservissement externe": "Externe Steuerung",
         "Configuration avancée": "Erweiterte Konfiguration",
         "Pour démarrer la filtration je dois ?": "Was muss ich machen, um das Filtrieren zu starten?",
@@ -104,6 +103,8 @@
         "Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s'arrêtent pas correctement mettez en place cette vérification": "Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s'arrêtent pas correctement mettez en place cette vérification",
         "Pour démarrer le chauffage je dois ?": "Was muss ich machen, um das Heizen zu starten?",
         "Pour arrêter le chauffage je dois ?": "Was muss ich machen, um das Heizen zu stoppen?",
-        "Activer le traitement pendant l'hivernage": "Activer le traitement pendant l'hivernage"
+        "Activer le traitement pendant l'hivernage": "Activer le traitement pendant l'hivernage",
+        "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration": "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration",
+        "Paramètres de filtration": "Filtrations Parameter"
     }
 }

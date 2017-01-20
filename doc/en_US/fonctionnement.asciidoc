@@ -1,7 +1,7 @@
 '''
-=== Cycle de filtration.
+=== Filter cycle.
 
-A la fin du cycle, le plugin recalcule la nouvelle plage de filtration.
+At the end of the cycle, the plugin recalculates the new range of filtration.
 Ce calcul est lancé uniquement à la fin du cycle.
 Si vous souhaitez relancer le calcul avant la fin du cycle, activez le bouton [Reset] dans l'onglet [Configuration avancée].
 
@@ -24,7 +24,7 @@ Sur le widget sont indiqués :
 - l'état du filtre à sable (si activé)
 - un bouton [Stop] (si surpresseur ou filtre à sable)
 
-==== Surpresseur
+==== Booster
 
 Pour activer le surpresseur, cliquez sur le bouton [On], le surpresseur est alors lancé pour une durée spécifiée dans la configuration.
 Si la filtration n'est pas active, elle sera lancée automatiquement, puis ensuite le surpresseur après une temporisation de quelques secondes.

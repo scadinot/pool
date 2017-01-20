@@ -420,11 +420,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_konfiguration">3. Konfiguration</a>
 <ul class="sectlevel2">
 <li><a href="#_installation">3.1. Installation</a></li>
-<li><a href="#_configuration">3.2. Configuration</a>
+<li><a href="#_konfiguration_2">3.2. Konfiguration</a>
 <ul class="sectlevel3">
 <li><a href="#_positionnement">3.2.1. Positionnement</a></li>
 <li><a href="#_choix_des_options">3.2.2. Choix des options</a></li>
-<li><a href="#_sonde_de_température">3.2.3. Sonde de température</a></li>
+<li><a href="#_temperaturfühler">3.2.3. Temperaturfühler</a></li>
 <li><a href="#_onglets_de_configuration">3.2.4. Onglets de configuration</a></li>
 </ul>
 </li>
@@ -444,17 +444,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_fehlersuche">5. Fehlersuche</a>
 <ul class="sectlevel2">
-<li><a href="#_température">5.1. Température</a></li>
+<li><a href="#_temperatur">5.1. Temperatur</a></li>
 <li><a href="#_la_filtration_ne_se_lance_pas">5.2. La filtration ne se lance pas</a></li>
 </ul>
 </li>
 <li><a href="#_faq">6. FAQ</a></li>
-<li><a href="#_changelog">7. Changelog</a>
+<li><a href="#_Änderungsprotokoll">7. Änderungsprotokoll</a>
 <ul class="sectlevel2">
-<li><a href="#_26_11_2016">7.1. 26/11/2016</a></li>
-<li><a href="#_25_04_2016">7.2. 25/04/2016</a></li>
-<li><a href="#_11_09_2015">7.3. 11/09/2015</a></li>
-<li><a href="#_01_08_2015">7.4. 01/08/2015</a></li>
+<li><a href="#_11_12_2016">7.1. 11/12/2016</a></li>
+<li><a href="#_26_11_2016">7.2. 26/11/2016</a></li>
+<li><a href="#_25_04_2016">7.3. 25/04/2016</a></li>
+<li><a href="#_11_09_2015">7.4. 11/09/2015</a></li>
+<li><a href="#_01_08_2015">7.5. 01/08/2015</a></li>
 </ul>
 </li>
 </ul>
@@ -509,7 +510,7 @@ Das Plugin unterstützt auch die folgenden Funktionen :</p>
 <hr>
 </div>
 <div class="sect2">
-<h3 id="_configuration">3.2. Configuration</h3>
+<h3 id="_konfiguration_2">3.2. Konfiguration</h3>
 <div class="paragraph">
 <p>Après l&#8217;installation, il vous suffit simplement d’activer ce dernier et de vous rendre sur l’écran de configuration :</p>
 </div>
@@ -640,7 +641,7 @@ Si vous choisissez pas Widget, vous devez activer cette option uniquement au dé
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sonde_de_température">3.2.3. Sonde de température</h4>
+<h4 id="_temperaturfühler">3.2.3. Temperaturfühler</h4>
 <div class="imageblock" style="text-align: Center">
 <div class="content">
 <img src="../images/config_6.png" alt="Sonde de température">
@@ -691,21 +692,6 @@ Ces champs ne sont accessibles qu&#8217;en mode expert (cocher <code>Profil, Mod
 <p><em>C&#8217;est l&#8217;onglet principal de l&#8217;installation, il est toujours visible quelque soit la configration choisie.</em></p>
 </div>
 <div class="paragraph">
-<p>Dans cet onglet, vous devez définir les équipements permettant de <code>démarrer la filtration</code> et d' <code>arrêter la filtration</code>.</p>
-</div>
-<div class="paragraph">
-<p>Une autre option est présente l' <code>Asservissement chauffage solaire</code>.
-Cela vous permet définir un forçage de la filtration dans le cas d&#8217;une installation de chauffage solaire. La filtration démarrera alors quel que soit le programme en cours.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_onglet_temps_de_filtration">Onglet [Temps de filtration]</h5>
-<div class="imageblock" style="text-align: Center">
-<div class="content">
-<img src="../images/config_temps_filtration.png" alt="Onglet Filtration">
-</div>
-</div>
-<div class="paragraph">
 <p>Dans cet onglet, vous devez définir les paramétres du calcul de temps de la filtration.</p>
 </div>
 <div class="paragraph">
@@ -713,6 +699,9 @@ Cela vous permet définir un forçage de la filtration dans le cas d&#8217;une i
 </div>
 <div class="paragraph">
 <p><code>Ajustement du temps de filtration</code> : vous permet d&#8217;ajuster le temps de filtration avec un coefficient variable entre 60% et 140%.</p>
+</div>
+<div class="paragraph">
+<p><code>Désactiver marche forcée au début du cycle de filtration</code> pour revenir au mode auto au début du cycle de filtration, afin d&#8217;éviter de laisser indéfiniment la marche forcée. Cette option n&#8217;est présente que si l&#8217;asservissement externe est désactivé.</p>
 </div>
 <div class="paragraph">
 <p><code>Horaire pivot de filtration</code> : vous permet de définir l&#8217;heure de la filtration.</p>
@@ -743,6 +732,13 @@ Pour une eau à 30.2°C avec le mode courbe, un ajustement à 100%, un horaire p
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Dans la partie basse de cet onglet, vous devez définir les équipements permettant de <code>démarrer la filtration</code> et d' <code>arrêter la filtration</code>.</p>
+</div>
+<div class="paragraph">
+<p>Une autre option est présente l' <code>Asservissement chauffage solaire</code>.
+Cela vous permet définir un forçage de la filtration dans le cas d&#8217;une installation de chauffage solaire. La filtration démarrera alors quel que soit le programme en cours.</p>
 </div>
 </div>
 <div class="sect4">
@@ -917,9 +913,6 @@ Il faut donc y mettre les contacts d&#8217;un interrupteur RFXcom ou ZWave ou bi
 </div>
 <div class="paragraph">
 <p><code>Afficher bouton reset calcul sur le widget</code> pour activer un bouton [Reset] sur le Widget qui permet de relancer le calcul de temps de filtration.</p>
-</div>
-<div class="paragraph">
-<p><code>Désactiver marche forcée au début du cycle de filtration</code> pour revenir au mode auto au début du cycle de filtration, afin d&#8217;éviter de laisser indéfiniment la marche forcée. Cette option n&#8217;est présente que si l&#8217;asservissement externe est désactivé.</p>
 </div>
 <div class="paragraph">
 <p><code>Cron de répétition de commande</code> Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s&#8217;arrêtent pas correctement mettez en place cette vérification. Laissez vide le champ pour désactiver l&#8217;option.</p>
@@ -1168,7 +1161,7 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 <h2 id="_fehlersuche">5. Fehlersuche</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_température">5.1. Température</h3>
+<h3 id="_temperatur">5.1. Temperatur</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1240,7 +1233,7 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 <h2 id="_faq">6. FAQ</h2>
 <div class="sectionbody">
 <div class="openblock panel">
-<div class="title">Quel type de sondes gère le Plugin</div><div class="content">
+<div class="title">Welchen Sondentyp verwaltet das Plugin</div><div class="content">
 <div class="paragraph">
 <p>Toutes les sondes (Flottantes, Collier de prise en charge) sont prise en compte par le plugin.</p>
 </div>
@@ -1250,10 +1243,24 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 <div class="sect1">
-<h2 id="_changelog">7. Changelog</h2>
+<h2 id="_Änderungsprotokoll">7. Änderungsprotokoll</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_26_11_2016">7.1. 26/11/2016</h3>
+<h3 id="_11_12_2016">7.1. 11/12/2016</h3>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>regroupement des onglets Filtration et Temps de filtration</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_26_11_2016">7.2. 26/11/2016</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1273,7 +1280,7 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 <div class="sect2">
-<h3 id="_25_04_2016">7.2. 25/04/2016</h3>
+<h3 id="_25_04_2016">7.3. 25/04/2016</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1287,7 +1294,7 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 <div class="sect2">
-<h3 id="_11_09_2015">7.3. 11/09/2015</h3>
+<h3 id="_11_09_2015">7.4. 11/09/2015</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
@@ -1301,13 +1308,13 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </div>
 </div>
 <div class="sect2">
-<h3 id="_01_08_2015">7.4. 01/08/2015</h3>
+<h3 id="_01_08_2015">7.5. 01/08/2015</h3>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>première version du plugin.</p>
+<p>Erste Version des Plugins.</p>
 </li>
 </ul>
 </div>

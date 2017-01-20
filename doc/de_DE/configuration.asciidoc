@@ -5,7 +5,7 @@ L'installation du plugin ne demande aucune configuration particulière.
 image::../images/install.png["Installation plugin",align="Center"]
 
 '''
-=== Configuration
+=== Konfiguration
 
 Après l'installation, il vous suffit simplement d’activer ce dernier et de vous rendre sur l’écran de configuration :
 
@@ -71,7 +71,7 @@ image::../images/fonctionnement_8.png["Asservissement interne",align="Center"]
 
 
 '''
-==== Sonde de température
+==== Temperaturfühler
 
 image::../images/config_6.png["Sonde de température",align="Center"]
 
@@ -94,22 +94,16 @@ _Certains de ces onglets sont visibles en fonction des options choisies précéd
 
 image::../images/config_filtration.png["Onglet Filtration",align="Center"]
 
+
 _C'est l'onglet principal de l'installation, il est toujours visible quelque soit la configration choisie._
-
-Dans cet onglet, vous devez définir les équipements permettant de `démarrer la filtration` et d' `arrêter la filtration`.
-
-Une autre option est présente l' `Asservissement chauffage solaire`.
-Cela vous permet définir un forçage de la filtration dans le cas d'une installation de chauffage solaire. La filtration démarrera alors quel que soit le programme en cours.
-
-===== Onglet [Temps de filtration]
-
-image::../images/config_temps_filtration.png["Onglet Filtration",align="Center"]
 
 Dans cet onglet, vous devez définir les paramétres du calcul de temps de la filtration.
 
 `Choix méthode de calcul` : vous permet de choisir entre un calcul de temps de filtration basé sur une courbe ou la classique formule température / 2.
 
 `Ajustement du temps de filtration` : vous permet d'ajuster le temps de filtration avec un coefficient variable entre 60% et 140%.
+
+`Désactiver marche forcée au début du cycle de filtration` pour revenir au mode auto au début du cycle de filtration, afin d'éviter de laisser indéfiniment la marche forcée. Cette option n'est présente que si l'asservissement externe est désactivé.
 
 `Horaire pivot de filtration` : vous permet de définir l'heure de la filtration.
 
@@ -126,6 +120,11 @@ image::../images/filtration_courbe.png["Courbe filtration",align="Center"]
 [TIP]
 *_Exemple de calcul :_*
 Pour une eau à 30.2°C avec le mode courbe, un ajustement à 100%, un horaire pivot à 12:00 et une répartition 1/3 - 2/3. la plage de filtration sera 05:46 <> 00:27.
+
+Dans la partie basse de cet onglet, vous devez définir les équipements permettant de `démarrer la filtration` et d' `arrêter la filtration`.
+
+Une autre option est présente l' `Asservissement chauffage solaire`.
+Cela vous permet définir un forçage de la filtration dans le cas d'une installation de chauffage solaire. La filtration démarrera alors quel que soit le programme en cours.
 
 
 ===== Onglet [Traitement]
@@ -223,8 +222,6 @@ Dans cet onglet vous pouvez définir :
 `Délai max entre 2 relevés de température` pour activer une alerte en cas de défaillance de la sonde de température.
 
 `Afficher bouton reset calcul sur le widget` pour activer un bouton [Reset] sur le Widget qui permet de relancer le calcul de temps de filtration.
-
-`Désactiver marche forcée au début du cycle de filtration` pour revenir au mode auto au début du cycle de filtration, afin d'éviter de laisser indéfiniment la marche forcée. Cette option n'est présente que si l'asservissement externe est désactivé.
 
 `Cron de répétition de commande` Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s'arrêtent pas correctement mettez en place cette vérification. Laissez vide le champ pour désactiver l'option.
 

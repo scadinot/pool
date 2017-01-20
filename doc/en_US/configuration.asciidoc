@@ -1,11 +1,11 @@
 === Installation
 
-L'installation du plugin ne demande aucune configuration particulière.
+Installing the plugin requires no special configuration.
 
 image::../images/install.png["Installation plugin",align="Center"]
 
 '''
-=== Configuration
+=== Settings
 
 Après l'installation, il vous suffit simplement d’activer ce dernier et de vous rendre sur l’écran de configuration :
 
@@ -37,7 +37,7 @@ Activez les options de votre choix suivant le type d'équipement dont vous dispo
 
 ===== Voyons ensemble le détail des options sélectionnables:
 
-- Traitement
+-Treatment
 
     Cette option vous permet de contrôler l'asservissement d'équipements de traitement automatique de l'eau tels pompe d'injection de Ph, de Chlore...
     Les équipements seront activés 5 secondes après le démarrage de la filtration et stoppés 5 secondes avant l'arrêt de la filtration.
@@ -94,22 +94,16 @@ _Certains de ces onglets sont visibles en fonction des options choisies précéd
 
 image::../images/config_filtration.png["Onglet Filtration",align="Center"]
 
+
 _C'est l'onglet principal de l'installation, il est toujours visible quelque soit la configration choisie._
-
-Dans cet onglet, vous devez définir les équipements permettant de `démarrer la filtration` et d' `arrêter la filtration`.
-
-Une autre option est présente l' `Asservissement chauffage solaire`.
-Cela vous permet définir un forçage de la filtration dans le cas d'une installation de chauffage solaire. La filtration démarrera alors quel que soit le programme en cours.
-
-===== Onglet [Temps de filtration]
-
-image::../images/config_temps_filtration.png["Onglet Filtration",align="Center"]
 
 Dans cet onglet, vous devez définir les paramétres du calcul de temps de la filtration.
 
 `Choix méthode de calcul` : vous permet de choisir entre un calcul de temps de filtration basé sur une courbe ou la classique formule température / 2.
 
 `Ajustement du temps de filtration` : vous permet d'ajuster le temps de filtration avec un coefficient variable entre 60% et 140%.
+
+`Désactiver marche forcée au début du cycle de filtration` pour revenir au mode auto au début du cycle de filtration, afin d'éviter de laisser indéfiniment la marche forcée. Cette option n'est présente que si l'asservissement externe est désactivé.
 
 `Horaire pivot de filtration` : vous permet de définir l'heure de la filtration.
 
@@ -127,6 +121,11 @@ image::../images/filtration_courbe.png["Courbe filtration",align="Center"]
 *_Exemple de calcul :_*
 Pour une eau à 30.2°C avec le mode courbe, un ajustement à 100%, un horaire pivot à 12:00 et une répartition 1/3 - 2/3. la plage de filtration sera 05:46 <> 00:27.
 
+Dans la partie basse de cet onglet, vous devez définir les équipements permettant de `démarrer la filtration` et d' `arrêter la filtration`.
+
+Une autre option est présente l' `Asservissement chauffage solaire`.
+Cela vous permet définir un forçage de la filtration dans le cas d'une installation de chauffage solaire. La filtration démarrera alors quel que soit le programme en cours.
+
 
 ===== Onglet [Traitement]
 
@@ -139,7 +138,7 @@ Dans cet onglet, vous devez définir les équipements permettant de `démarrer l
 [IMPORTANT]
 Il ne s'agit pas d'une régulation de Ph ou autre, mais d'un asservissement de ce type d'équipement possédant sa propre régulation.
 
-===== Onglet [Surpresseur]
+===== Tab Booster
 
 image::../images/config_surpresseur.png["Onglet Surpresseur",align="Center"]
 
@@ -210,7 +209,7 @@ Ces deux équipements reçoivent des types infos.
 Il faut donc y mettre les contacts d'un interrupteur RFXcom ou ZWave ou bien encore l'info d'un virtuel qui vous permettra de piloter la filtration à partir du Dashboard.
 
 image::../images/config_general_2.png["Exemple Onglet Général",align="Center"]
-Exemple de configuration.
+Settings examples
 
 ===== Onglet [Configuration avancée]
 
@@ -223,8 +222,6 @@ Dans cet onglet vous pouvez définir :
 `Délai max entre 2 relevés de température` pour activer une alerte en cas de défaillance de la sonde de température.
 
 `Afficher bouton reset calcul sur le widget` pour activer un bouton [Reset] sur le Widget qui permet de relancer le calcul de temps de filtration.
-
-`Désactiver marche forcée au début du cycle de filtration` pour revenir au mode auto au début du cycle de filtration, afin d'éviter de laisser indéfiniment la marche forcée. Cette option n'est présente que si l'asservissement externe est désactivé.
 
 `Cron de répétition de commande` Cron de renvoi des commandes de filtration, surpresseur et traitement. Si vos équipements ne démarrent ou ne s'arrêtent pas correctement mettez en place cette vérification. Laissez vide le champ pour désactiver l'option.
 

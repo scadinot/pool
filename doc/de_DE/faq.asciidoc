@@ -1,5 +1,5 @@
 [panel,primary]
-.Quel type de sondes gère le Plugin
+.Welchen Sondentyp verwaltet das Plugin
 --
 Toutes les sondes (Flottantes, Collier de prise en charge) sont prise en compte par le plugin.
 --

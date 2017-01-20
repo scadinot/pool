@@ -1002,23 +1002,27 @@ class pool extends eqLogic
 
         // 5mn toutes les 3H
         if ($this->getConfiguration('filtration_5mn_3h', '0') == '1') {
+
+            $time = date('Hi', time());
+            // log::add('pool', 'debug', $this->getHumanName() . '$time=' . $time);
+
             // log::add('pool', 'debug', $this->getHumanName() . '5mn toutes les 3H');
 
-            if ($timeNow >= '0200' && $timeNow <= '0205') {
+            if ($time >= '0200' && $time <= '0205') {
                 $filtrationHivernage = 1;
-            } else if ($timeNow >= '0500' && $timeNow <= '0505') {
+            } else if ($time >= '0500' && $time <= '0505') {
                 $filtrationHivernage = 1;
-            } else if ($timeNow >= '0800' && $timeNow <= '0805') {
+            } else if ($time >= '0800' && $time <= '0805') {
                 $filtrationHivernage = 1;
-            } else if ($timeNow >= '1100' && $timeNow <= '1105') {
+            } else if ($time >= '1100' && $time <= '1105') {
                 $filtrationHivernage = 1;
-            } else if ($timeNow >= '1400' && $timeNow <= '1405') {
+            } else if ($time >= '1400' && $time <= '1405') {
                 $filtrationHivernage = 1;
-            } else if ($timeNow >= '1700' && $timeNow <= '1705') {
+            } else if ($time >= '1700' && $time <= '1705') {
                 $filtrationHivernage = 1;
-            } else if ($timeNow >= '2000' && $timeNow <= '2005') {
+            } else if ($time >= '2000' && $time <= '2005') {
                 $filtrationHivernage = 1;
-            } else if ($timeNow >= '2300' && $timeNow <= '2305') {
+            } else if ($time >= '2300' && $time <= '2305') {
                 $filtrationHivernage = 1;
             }
         }
