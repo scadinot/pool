@@ -12,7 +12,7 @@ image::../images/fonctionnement_1.png["Widget Piscine",align="Center"]
 
 Sur le widget sont indiqués :
 
-- la température de l'eau.
+- die Temperatur des Wassers.
 - la température de l'air (en mode hivernage uniquement).
 - le temps de filtration.
 - les horaires de filtration.

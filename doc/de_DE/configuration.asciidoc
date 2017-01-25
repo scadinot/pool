@@ -27,7 +27,7 @@ Commencez par positionner votre équipement piscine dans l'objet Jeedom de votre
 image::../images/config_4.png["Position de l'équipement",align="Center"]
 
 '''
-==== Choix des options
+==== Auswahl der Optionen
 
 Les options suivantes peuvent être choisies:
 
