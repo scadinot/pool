@@ -1,5 +1,5 @@
 '''
-=== Cycle de filtration.
+=== Filtrationszyklus
 
 A la fin du cycle, le plugin recalcule la nouvelle plage de filtration.
 Ce calcul est lancé uniquement à la fin du cycle.

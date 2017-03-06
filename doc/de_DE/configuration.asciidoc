@@ -195,7 +195,7 @@ Le démarrage de la filtration étant dans tous les cas 2 heures avant le lever 
 Si vous avez activé l'option `Filtration 5mn toutes les 3 heures` la filtration sera lancée indépendamment de toute programmation de 02h00 à 02h05, de 05h00 à 05h05, de 08h00 à 08h05, de 11h00 à 11h05, de 14h00 à 14h05, de 17h00 à 17h05, de 20h00 à 20h05, de 23h00 à 23h05.
 L'option `Filtration permanente si température extérieure inférieure à` est une sécurité supplémentaire dite *_hors gel_* qui permet éventuellement de filtrer en continu dans le cas de températures très basses.
 
-===== Onglet [Asservissement externe]
+===== Registerkarte [externe Steuerung]
 
 image::../images/config_general.png["Onglet Général",align="Center"]
 
@@ -209,9 +209,9 @@ Ces deux équipements reçoivent des types infos.
 Il faut donc y mettre les contacts d'un interrupteur RFXcom ou ZWave ou bien encore l'info d'un virtuel qui vous permettra de piloter la filtration à partir du Dashboard.
 
 image::../images/config_general_2.png["Exemple Onglet Général",align="Center"]
-Exemple de configuration.
+Beispielkonfiguration
 
-===== Onglet [Configuration avancée]
+===== Registerkarte [Erweiterte Konfiguration]
 
 image::../images/config_configurationavancee.png["Onglet Configuration avancée",align="Center"]
 
