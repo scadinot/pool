@@ -1,5 +1,5 @@
 '''
-=== Cycle de filtration.
+=== Filtrationszyklus
 
 A la fin du cycle, le plugin recalcule la nouvelle plage de filtration.
 Ce calcul est lancé uniquement à la fin du cycle.
@@ -12,7 +12,7 @@ image::../images/fonctionnement_1.png["Widget Piscine",align="Center"]
 
 Sur le widget sont indiqués :
 
-- la température de l'eau.
+- die Temperatur des Wassers.
 - la température de l'air (en mode hivernage uniquement).
 - le temps de filtration.
 - les horaires de filtration.
