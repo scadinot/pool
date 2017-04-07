@@ -262,7 +262,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label">{{Choix méthode de calcul}}</label>
                                     <div class="col-sm-4">
-                                        <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="" placeholder="">
+                                        <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="methodeCalcul" placeholder="">
                                             <option value="1">{{Courbe}}</option>
                                             <option value="2">{{Temp / 2}}</option>
                                         </select>
