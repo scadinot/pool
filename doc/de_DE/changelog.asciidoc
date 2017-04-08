@@ -1,3 +1,7 @@
+=== 08/04/2017
+--
+- correction bug dans la selection du type de calcul
+--
 === 11/12/2016
 --
 - regroupement des onglets Filtration et Temps de filtration
