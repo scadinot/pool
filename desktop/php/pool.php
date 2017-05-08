@@ -690,6 +690,13 @@ $eqLogics = eqLogic::byType($plugin->getId());
             <div role="tabpanel" class="tab-pane" id="configureAdvanced">
                 <br/>
                 <form class="form-horizontal">
+                    <!-- sondeLocalTechnique -->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">{{Sonde de température dans local technique}}</label>
+                        <div class="col-sm-9">
+                            <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="sondeLocalTechnique" checked/>{{Actif}}</label>
+                        </div>
+                    </div>
                     <!-- maxTimeUpdateTemp -->
                     <div class='form-group'>
                         <fieldset>

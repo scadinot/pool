@@ -6,6 +6,7 @@
     "plugins\/pool\/core\/class\/pool.class.php": {
         "Arrêté": "Arrêté",
         "Température": "Température",
+        "Température eau": "Température eau",
         "Température extérieure": "Température extérieure",
         "Temps filtration:": "Temps filtration",
         "Horaires:": "Horaires:",
@@ -105,6 +106,7 @@
         "Pour arrêter le chauffage je dois ?": "Pour arrêter le chauffage je dois ?",
         "Activer le traitement pendant l'hivernage": "Activer le traitement pendant l'hivernage",
         "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration": "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration",
-        "Paramètres de filtration": "Paramètres de filtration"
+        "Paramètres de filtration": "Paramètres de filtration",
+        "Sonde de température dans local technique": "Sonde de température dans local technique"
     }
 }
