@@ -1,3 +1,7 @@
+=== 08/05/2017
+--
+- ajout d'une option pour prendre en compte les sondes de température dans un local technique
+--
 === 08/04/2017
 --
 - correction bug dans la selection du type de calcul
