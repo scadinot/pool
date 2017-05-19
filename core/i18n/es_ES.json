@@ -6,7 +6,7 @@
     "plugins/pool/core/class/pool.class.php": {
         "Arrêté": "Parado",
         "Température": "Temperatura",
-        "Température eau": "Température eau",
+        "Température eau": "Temperatura agua",
         "Température extérieure": "Temperatura exterior",
         "Temps filtration:": "Tiempo filtración",
         "Horaires:": "Horarios:",
@@ -107,6 +107,6 @@
         "Activer le traitement pendant l'hivernage": "Activar el tratamiento durante la invernación ",
         "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration": "Utilice el botón [Reset] para aplicar inmediatamente la nueva configuración del filtro",
         "Paramètres de filtration": "Parámetros de filtración",
-        "Sonde de température dans local technique": "Sonde de température dans local technique"
+        "Sonde de température dans local technique": "Sonda de temperatura de la sala técnica"
     }
 }
