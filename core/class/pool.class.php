@@ -3183,10 +3183,6 @@ class poolCmd extends cmd
                 $this->setCollectDate($date);
             }
 
-            if ($eqLogic->getConfiguration('sondeLocalTechnique', '0') == '0') {
-                $eqLogic->getCmd(null, 'temperature_display')->event(round(jeedom::evaluateExpression($eqLogic->getConfiguration('temperature_water')), 1));
-            }
-
             // log::add('pool', 'debug', $this->getHumanName() . ' execute() temperature_water:' . round(jeedom::evaluateExpression($eqLogic->getConfiguration('temperature_water')), 1));
 
             return round(jeedom::evaluateExpression($eqLogic->getConfiguration('temperature_water')), 1);
