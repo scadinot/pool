@@ -107,6 +107,7 @@
         "Activer le traitement pendant l'hivernage": "Activer le traitement pendant l'hivernage",
         "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration": "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration",
         "Paramètres de filtration": "Filtrations Parameter",
-        "Sonde de température dans local technique": "Sonde de température dans local technique"
+        "Sonde de température dans local technique": "Sonde de température dans local technique",
+        "Pause avant relevé de température": "Pause avant relevé de température"
     }
 }
