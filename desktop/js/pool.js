@@ -163,6 +163,18 @@ $('.eqLogicAttr[data-l1key=configuration][data-l2key=cfgAsservissementExterne]')
     }
 });
 
+$('.eqLogicAttr[data-l1key=configuration][data-l2key=sondeLocalTechnique]').on('change', function ()
+{
+    if ($('.eqLogicAttr[data-l1key=configuration][data-l2key=sondeLocalTechnique]').value() == "0")
+    {
+        $('.sondeLocalTechnique').hide();
+    }
+    else
+    {
+        $('.sondeLocalTechnique').show();
+    }
+});
+
 $("body").delegate(".listCmdInfoAsservissement", 'click', function () 
 {
     var el = $(this).closest('.form-group').find('.expressionAttr[data-l1key=cmd]');
