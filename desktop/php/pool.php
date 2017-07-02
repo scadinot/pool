@@ -690,6 +690,35 @@ $eqLogics = eqLogic::byType($plugin->getId());
             <div role="tabpanel" class="tab-pane" id="configureAdvanced">
                 <br/>
                 <form class="form-horizontal">
+                    <!-- sondeLocalTechnique -->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">{{Sonde de température dans local technique}}</label>
+                        <div class="col-sm-9">
+                            <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="sondeLocalTechnique" checked/>{{Actif}}</label>
+                        </div>
+                    </div>
+                    <!-- sondeLocalTechniquePause -->
+                    <div class="form-group">
+                        <div class="sondeLocalTechnique enabled">
+                            <label class="col-sm-2 control-label">{{Pause avant relevé de température}}</label>
+                            <div class="col-sm-2">
+                                <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="sondeLocalTechniquePause" placeholder="" >
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">5</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
                     <!-- maxTimeUpdateTemp -->
                     <div class='form-group'>
                         <fieldset>

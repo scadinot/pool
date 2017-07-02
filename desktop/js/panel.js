@@ -91,7 +91,7 @@ function graphPool(_eqLogic_id) {
 		},
         success: function (cmds) {
             for (var i  in cmds) {
-                if (cmds[i].logicalId == 'temperature') {
+                if (cmds[i].logicalId == 'temperature' && cmds[i].isVisible == '1') {
                     jeedom.history.drawChart(
 					{
                         cmd_id: cmds[i].id,
@@ -99,11 +99,24 @@ function graphPool(_eqLogic_id) {
                         start: $('#in_startDate').value(),
                         end: $('#in_endDate').value(),
                         option: {
-                            graphColor: '#f39c12',
+                            graphColor: '#0080ff',
                             derive : 0
 						}
 					});
 				}
+                if (cmds[i].logicalId == 'temperature_display' && cmds[i].isVisible == '1') {
+                    jeedom.history.drawChart(
+                        {
+                            cmd_id: cmds[i].id,
+                            el: 'div_graph' + _eqLogic_id,
+                            start: $('#in_startDate').value(),
+                            end: $('#in_endDate').value(),
+                            option: {
+                                graphColor: '#0100ff',
+                                derive : 0
+                            }
+                        });
+                }
 
 				if (cmds[i].logicalId == 'temperature_outdoor' && cmds[i].isVisible == '1') {
                     jeedom.history.drawChart(

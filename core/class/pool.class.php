@@ -668,6 +668,7 @@ class pool extends eqLogic
             $this->getCmd(null, 'temperatureMaxi')->event(0); // reset temperature maxi
         }
 
+        log::add('pool', 'info', $this->getHumanName() . '$temperatureCalcul=' . $temperatureCalcul);
         log::add('pool', 'info', $this->getHumanName() . '$filtrationTime=' . $filtrationTime);
 
         log::add('pool', 'info', $this->getHumanName() . '$filtrationDebut=' . date("H:i d-m-Y", $filtrationDebut));
@@ -724,11 +725,48 @@ class pool extends eqLogic
 
         } else {
 
-            if ($timeNow > $filtrationDebut && $timeNow < $filtrationFin) {
+            if ($this->getConfiguration('pausePivot', '0') != 0) { // Pause de filtration active
 
-                // On est dans la plage de filtration
+                // Premier segment
+                if ($timeNow >= $filtrationDebut && $timeNow <= $filtrationPauseDebut) {
 
-                // Si Asservissment interne et marche forcee active on repasse en manuel
+                    if ($timeNow >= $filtrationDebut + (60 * 5)) {
+                        $this->getCmd(null, 'temperature_display')->event($temperature_water);
+                        // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+                    }
+
+                    // Active la filtration
+                    $filtrationTemperature = 1;
+                }
+
+                // Deuxieme segment
+                if ($timeNow >= $filtrationPauseFin && $timeNow <= $filtrationFin) {
+
+                    if ($timeNow >= $filtrationPauseFin + (60 * $this->getConfiguration('sondeLocalTechniquePause', '5'))) {
+                        $this->getCmd(null, 'temperature_display')->event($temperature_water);
+                        // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+                    }
+
+                    // Active la filtration
+                    $filtrationTemperature = 1;
+                }
+            }
+            else { // Pas de pause de filtration
+
+                if ($timeNow >= $filtrationDebut && $timeNow <= $filtrationFin) {
+
+                    if ($timeNow >= $filtrationDebut + (60 * $this->getConfiguration('sondeLocalTechniquePause', '5'))) {
+                        $this->getCmd(null, 'temperature_display')->event($temperature_water);
+                        // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+                    }
+                    // Active la filtration
+                    $filtrationTemperature = 1;
+                }
+            }
+
+            if ($filtrationTemperature == 1) {
+
+                // Si Asservissement interne et marche forcee active on repasse en manuel
                 if ($this->getConfiguration('cfgAsservissementExterne', 'enabled') == 'disabled') {
                     if ($this->getConfiguration('disable_marcheForcee', '0') == '1') {
                         if ($this->getCmd(null, 'marcheForcee')->execCmd() == 1) {
@@ -742,17 +780,6 @@ class pool extends eqLogic
                     $this->getCmd(null, 'calculateStatus')->event(0); // 0 >> debut plage de filtration, reset du flag calcul
                 }
 
-                // Active la filtration
-                $filtrationTemperature = 1;
-
-                // Pause de filtration
-                if ($this->getConfiguration('pausePivot', '0') != 0) {
-                    if ($timeNow > $filtrationPauseDebut && $timeNow < $filtrationPauseFin) {
-                        // Desactive la filtration
-                        $filtrationTemperature = 0;
-                    }
-                }
-
                 // Determine la temperature maxi pour le prochain calcul
                 $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
 
@@ -762,7 +789,6 @@ class pool extends eqLogic
                 if ($temperature_water > $temperatureMaxi) {
                     $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
                 }
-
             }
 
             $calculateStatus = $this->getCmd(null, 'calculateStatus')->execCmd();
@@ -771,6 +797,7 @@ class pool extends eqLogic
             if ($timeNow > $filtrationFin && $calculateStatus == 0) {
                 // On est apres la plage de filtration, relancer le calcul pour la plage de demain
                 $this->calculateTimeFiltration($temperature_water, true);
+                $this->getCmd(null, 'temperature_display')->event($temperature_water);
             }
 
         }
@@ -908,6 +935,7 @@ class pool extends eqLogic
             $this->getCmd(null, 'temperatureMaxi')->event(0); // reset temperature maxi
         }
 
+        log::add('pool', 'info', $this->getHumanName() . '$temperatureCalcul=' . $temperatureCalcul);
         log::add('pool', 'info', $this->getHumanName() . '$filtrationTime=' . $filtrationTime);
 
         log::add('pool', 'info', $this->getHumanName() . '$filtrationDebut=' . date("H:i d-m-Y", $filtrationDebut));
@@ -952,7 +980,15 @@ class pool extends eqLogic
 
             if ($timeNow > $filtrationDebut && $timeNow < $filtrationFin) {
 
-                // On est dans la plage de filtration
+                if ($timeNow >= $filtrationDebut + (60 * $this->getConfiguration('sondeLocalTechniquePause', '5'))) {
+                    $this->getCmd(null, 'temperature_display')->event($temperature_water);
+                    // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+                }
+                // Active la filtration
+                $filtrationHivernage = 1;
+            }
+
+            if ($filtrationHivernage == 1) {
 
                 // Si Asservissment interne et marche forcee active on repasse en manuel
                 if ($this->getConfiguration('cfgAsservissementExterne', 'enabled') == 'disabled') {
@@ -968,9 +1004,6 @@ class pool extends eqLogic
                     $this->getCmd(null, 'calculateStatus')->event(0); // 0 >> debut plage de filtration, reset du flag calcul
                 }
 
-                // Active la filtration
-                $filtrationHivernage = 1;
-
                 // Determine la temperature maxi pour le prochain calcul
                 $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
 
@@ -980,7 +1013,6 @@ class pool extends eqLogic
                 if ($temperature_water > $temperatureMaxi) {
                     $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
                 }
-
             }
 
             $calculateStatus = $this->getCmd(null, 'calculateStatus')->execCmd();
@@ -989,6 +1021,7 @@ class pool extends eqLogic
             if ($timeNow > $filtrationFin && $calculateStatus == 0) {
                 // On est apres la plage de filtration, relancer le calcul pour la plage de demain
                 $this->calculateTimeFiltrationHivernage($temperature_water, $lever_soleil, true);
+                $this->getCmd(null, 'temperature_display')->event($temperature_water);
             }
 
         }
@@ -2052,6 +2085,14 @@ class pool extends eqLogic
             $this->setConfiguration('cfgAsservissementExterne', 'disabled');
         }
 
+        if ($this->getConfiguration('sondeLocalTechnique') == '') {
+            $this->setConfiguration('sondeLocalTechnique', '0');
+        }
+
+        if ($this->getConfiguration('sondeLocalTechniquePause') == '') {
+            $this->setConfiguration('sondeLocalTechniquePause', '5');
+        }
+
         // log::add('pool', 'debug', $this->getHumanName() . 'preSave() end');
     }
 
@@ -2080,7 +2121,11 @@ class pool extends eqLogic
                 $temperature->setLogicalId('temperature');
                 $temperature->setOrder($order++);
                 $temperature->setUnite('°C');
-                $temperature->setIsVisible(1);
+                if ($this->getConfiguration('sondeLocalTechnique', '0') == '0') {
+                    $temperature->setIsVisible(1);
+                } else {
+                    $temperature->setIsVisible(0);
+                }
                 $temperature->setIsHistorized(1);
 
                 $value = '';
@@ -2097,6 +2142,33 @@ class pool extends eqLogic
                 $temperature->setValue($value);
                 $temperature->save();
                 $temperature->event($temperature->execute());
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
+
+            // temperature_display
+            {
+                $temperature_display = $this->getCmd(null, 'temperature_display');
+                if (!is_object($temperature_display)) {
+                    $temperature_display = new poolCmd();
+                    $temperature_display->setTemplate('dashboard', 'tile');
+                    $temperature_display->setTemplate('mobile', 'badge');
+                    // $temperature_display->setDisplay('parameters', array('displayHistory' => 'display : none;'));
+                }
+                $temperature_display->setEqLogic_id($this->getId());
+                $temperature_display->setName(__('Température eau', __FILE__));
+                $temperature_display->setType('info');
+                $temperature_display->setSubType('numeric');
+                $temperature_display->setLogicalId('temperature_display');
+                $temperature_display->setOrder($order++);
+                $temperature_display->setUnite('°C');
+                if ($this->getConfiguration('sondeLocalTechnique', '0') == '1') {
+                    $temperature_display->setIsVisible(1);
+                } else {
+                    $temperature_display->setIsVisible(0);
+                }
+                $temperature_display->setIsHistorized(1);
+                $temperature_display->save();
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////
