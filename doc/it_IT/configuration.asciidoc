@@ -219,6 +219,10 @@ _Cet onglet n'est visible qu'en mode expert (cocher `Profil, Mode expert`).._
 
 Dans cet onglet vous pouvez définir :
 
+`Sonde de température dans local technique` pour ne tenir compte de la valeur renvoyée par la sonde que pendant la filtration.
+
+`Pause avant relevé de température` temporisation pour attendre que la température de la sonde soit au niveau de la température du bassin. Ce délai depend de la puissance de votre pompe et de la longueur du circuit de filtration entre la piscine et la sonde.
+
 `Délai max entre 2 relevés de température` pour activer une alerte en cas de défaillance de la sonde de température.
 
 `Afficher bouton reset calcul sur le widget` pour activer un bouton [Reset] sur le Widget qui permet de relancer le calcul de temps de filtration.
