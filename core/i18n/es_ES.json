@@ -108,6 +108,12 @@
         "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration": "Utilice el botón [Reset] para aplicar inmediatamente la nueva configuración del filtro",
         "Paramètres de filtration": "Parámetros de filtración",
         "Sonde de température dans local technique": "Sonda de temperatura de la sala técnica",
-        "Pause avant relevé de température": "Pausa antes de la lectura de la temperatura"
+        "Pause avant relevé de température": "Pausa antes de la lectura de la temperatura",
+        "Activer HC/HP": "Activer HC/HP",
+        "Début des heures creuses en journée": "Début des heures creuses en journée",
+        "Fin des heures creuses en journée": "Fin des heures creuses en journée",
+        "Début des heures creuses nuit": "Début des heures creuses nuit",
+        "Pas de réglage de fin des heures creuses nuit.": "Pas de réglage de fin des heures creuses nuit.",
+        "Assomption 8h creuses par jour.": "Assomption 8h creuses par jour."
     }
 }

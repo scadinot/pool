@@ -911,6 +911,12 @@ Il faut donc y mettre les contacts d&#8217;un interrupteur RFXcom ou ZWave ou bi
 <p>Dans cet onglet vous pouvez définir :</p>
 </div>
 <div class="paragraph">
+<p><code>Sonde de température dans local technique</code> pour ne tenir compte de la valeur renvoyée par la sonde que pendant la filtration.</p>
+</div>
+<div class="paragraph">
+<p><code>Pause avant relevé de température</code> temporisation pour attendre que la température de la sonde soit au niveau de la température du bassin. Ce délai depend de la puissance de votre pompe et de la longueur du circuit de filtration entre la piscine et la sonde.</p>
+</div>
+<div class="paragraph">
 <p><code>Délai max entre 2 relevés de température</code> pour activer une alerte en cas de défaillance de la sonde de température.</p>
 </div>
 <div class="paragraph">
@@ -987,6 +993,11 @@ Si vous souhaitez relancer le calcul avant la fin du cycle, activez le bouton [R
 <p>un bouton [Stop] (si surpresseur ou filtre à sable)</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Si votre sonde de température est située dans le local technique. Il est conseillé de sélectionner l’option correspondante dans la configuration.
+La température affichée sera alors celle de piscine, même lorsque la filtration sera stoppée (la dernière valeur mesurée).
+Le widget indiquera alors température eau pour indiquer cette option.</p>
 </div>
 <div class="sect3">
 <h4 id="_surpresseur">4.2.1. Surpresseur</h4>
@@ -1137,9 +1148,6 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 <img src="../images/graph_cumulfiltration.png" alt="cumul du temps de chauffe du thermostat">
 </div>
 </div>
-<div class="paragraph text-center">
-<p><em>Graphe du cumul du temps de filtration</em></p>
-</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1147,13 +1155,21 @@ Le bouton [Stop] permet d&#8217;arrêter le cycle avant la fin de la temporisati
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><em>Sans l&#8217;option "sonde local technique", on voit la température qui redescend quand la filtration est stoppée.</em></p>
+</div>
 <div class="imageblock" style="text-align: Center">
 <div class="content">
 <img src="../images/graph_courbesfiltration.png" alt="graphe des courbes de filtration">
 </div>
 </div>
-<div class="paragraph text-center">
-<p><em>Graphe des courbes de filtration</em></p>
+<div class="paragraph">
+<p><em>Avec l&#8217;option "sonde local technique", la température reste constante quand la filtration est stoppée.</em></p>
+</div>
+<div class="imageblock" style="text-align: Center">
+<div class="content">
+<img src="../images/graph_courbesfiltration_2.png" alt="graphe des courbes de filtration">
+</div>
 </div>
 <hr>
 </div>

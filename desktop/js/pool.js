@@ -175,6 +175,20 @@ $('.eqLogicAttr[data-l1key=configuration][data-l2key=sondeLocalTechnique]').on('
     }
 });
 
+$('.eqLogicAttr[data-l1key=configuration][data-l2key=Activate_HCHP]').on('change', function ()
+{
+    if ($('.eqLogicAttr[data-l1key=configuration][data-l2key=Activate_HCHP]').value() == "1")
+    {
+        $('.horairePivot').hide();
+        $('.heureCreuse').show();
+    }
+    else
+    {
+        $('.horairePivot').show();
+        $('.heureCreuse').hide();
+    }
+});
+
 $("body").delegate(".listCmdInfoAsservissement", 'click', function () 
 {
     var el = $(this).closest('.form-group').find('.expressionAttr[data-l1key=cmd]');

@@ -312,12 +312,20 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                         <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="disable_marcheForcee" checked/>{{Actif}}</label>
                                     </div>
                                 </div>
+                                <!-- Activate HC/HP -->
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">{{Activer HC/HP}}</label>
+                                    <div class="col-sm-4">
+                                        <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="Activate_HCHP" checked/>{{Actif}}</label>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                         <div class="col-sm-6">
                             <form class="form-horizontal">
-                                <!-- datePivot -->
-                                <div class="form-group">
+                                <div class="horairePivot">
+                                    <!-- datePivot -->
+                                    <div class="form-group">
                                     <label class="col-sm-4 control-label">{{Horaire pivot de filtration}}</label>
                                     <div class="col-sm-4">
                                         <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="datePivot" placeholder="">
@@ -348,8 +356,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                         </select>
                                     </div>
                                 </div>
-                                <!-- pausePivot -->
-                                <div class="form-group">
+                                    <!-- pausePivot -->
+                                    <div class="form-group">
                                     <label class="col-sm-4 control-label">{{Temps de coupure (segmentation de la filtration)}}</label>
                                     <div class="col-sm-4">
                                         <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="pausePivot" placeholder="">
@@ -365,14 +373,199 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                         </select>
                                     </div>
                                 </div>
-                                <!-- distributionDatePivot -->
-                                <div class="form-group">
+                                    <!-- distributionDatePivot -->
+                                    <div class="form-group">
                                     <label class="col-sm-4 control-label">{{Répartition du temps de filtration autour de l'horaire pivot}}</label>
                                     <div class="col-sm-4">
                                         <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="distributionDatePivot" placeholder="">
                                             <option value="1">1/2 - 1/2</option>
                                             <option value="2">1/3 - 2/3</option>
                                         </select>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="heureCreuse">
+                                    <!-- Debut HC Journée -->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">{{Début des heures creuses en journée}}</label>
+                                        <div class="col-sm-4">
+                                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="DebutHCJournee" placeholder="">
+                                                <option value="00:00">00:00</option>
+                                                <option value="00:30">00:30</option>
+                                                <option value="01:00">01:00</option>
+                                                <option value="01:30">01:30</option>
+                                                <option value="02:00">02:00</option>
+                                                <option value="02:30">02:30</option>
+                                                <option value="03:00">03:00</option>
+                                                <option value="03:30">03:30</option>
+                                                <option value="04:00">04:00</option>
+                                                <option value="04:30">04:30</option>
+                                                <option value="05:00">05:00</option>
+                                                <option value="05:30">05:30</option>
+                                                <option value="06:00">06:00</option>
+                                                <option value="06:30">06:30</option>
+                                                <option value="07:00">07:00</option>
+                                                <option value="07:30">07:30</option>
+                                                <option value="08:00">08:00</option>
+                                                <option value="08:30">08:30</option>
+                                                <option value="09:00">09:00</option>
+                                                <option value="09:30">09:30</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="10:30">10:30</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="11:30">11:30</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="12:30">12:30</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="13:30">13:30</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="14:30">14:30</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="15:30">15:30</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="16:30">16:30</option>
+                                                <option value="17:00">17:00</option>
+                                                <option value="17:30">17:30</option>
+                                                <option value="18:00">18:00</option>
+                                                <option value="18:30">18:30</option>
+                                                <option value="19:00">19:00</option>
+                                                <option value="19:30">19:30</option>
+                                                <option value="20:00">20:00</option>
+                                                <option value="20:30">20:30</option>
+                                                <option value="21:00">21:00</option>
+                                                <option value="21:30">21:30</option>
+                                                <option value="22:00">22:00</option>
+                                                <option value="22:30">22:30</option>
+                                                <option value="23:00">23:00</option>
+                                                <option value="23:30">23:30</option>
+                                                <option value="24:00">24:00</option>
+                                                <option value="24:30">24:30</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- fin HC Journée -->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">{{Fin des heures creuses en journée}}</label>
+                                        <div class="col-sm-4">
+                                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="FinHCJournee" placeholder="">
+                                                <option value="00:00">00:00</option>
+                                                <option value="00:30">00:30</option>
+                                                <option value="01:00">01:00</option>
+                                                <option value="01:30">01:30</option>
+                                                <option value="02:00">02:00</option>
+                                                <option value="02:30">02:30</option>
+                                                <option value="03:00">03:00</option>
+                                                <option value="03:30">03:30</option>
+                                                <option value="04:00">04:00</option>
+                                                <option value="04:30">04:30</option>
+                                                <option value="05:00">05:00</option>
+                                                <option value="05:30">05:30</option>
+                                                <option value="06:00">06:00</option>
+                                                <option value="06:30">06:30</option>
+                                                <option value="07:00">07:00</option>
+                                                <option value="07:30">07:30</option>
+                                                <option value="08:00">08:00</option>
+                                                <option value="08:30">08:30</option>
+                                                <option value="09:00">09:00</option>
+                                                <option value="09:30">09:30</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="10:30">10:30</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="11:30">11:30</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="12:30">12:30</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="13:30">13:30</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="14:30">14:30</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="15:30">15:30</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="16:30">16:30</option>
+                                                <option value="17:00">17:00</option>
+                                                <option value="17:30">17:30</option>
+                                                <option value="18:00">18:00</option>
+                                                <option value="18:30">18:30</option>
+                                                <option value="19:00">19:00</option>
+                                                <option value="19:30">19:30</option>
+                                                <option value="20:00">20:00</option>
+                                                <option value="20:30">20:30</option>
+                                                <option value="21:00">21:00</option>
+                                                <option value="21:30">21:30</option>
+                                                <option value="22:00">22:00</option>
+                                                <option value="22:30">22:30</option>
+                                                <option value="23:00">23:00</option>
+                                                <option value="23:30">23:30</option>
+                                                <option value="24:00">24:00</option>
+                                                <option value="24:30">24:30</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- debut HC Nuit -->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">{{Début des heures creuses nuit}}</label>
+                                        <div class="col-sm-4">
+                                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="DebutHCNuit" placeholder="01:00">
+                                                <option value="00:00">00:00</option>
+                                                <option value="00:30">00:30</option>
+                                                <option value="01:00">01:00</option>
+                                                <option value="01:30">01:30</option>
+                                                <option value="02:00">02:00</option>
+                                                <option value="02:30">02:30</option>
+                                                <option value="03:00">03:00</option>
+                                                <option value="03:30">03:30</option>
+                                                <option value="04:00">04:00</option>
+                                                <option value="04:30">04:30</option>
+                                                <option value="05:00">05:00</option>
+                                                <option value="05:30">05:30</option>
+                                                <option value="06:00">06:00</option>
+                                                <option value="06:30">06:30</option>
+                                                <option value="07:00">07:00</option>
+                                                <option value="07:30">07:30</option>
+                                                <option value="08:00">08:00</option>
+                                                <option value="08:30">08:30</option>
+                                                <option value="09:00">09:00</option>
+                                                <option value="09:30">09:30</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="10:30">10:30</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="11:30">11:30</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="12:30">12:30</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="13:30">13:30</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="14:30">14:30</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="15:30">15:30</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="16:30">16:30</option>
+                                                <option value="17:00">17:00</option>
+                                                <option value="17:30">17:30</option>
+                                                <option value="18:00">18:00</option>
+                                                <option value="18:30">18:30</option>
+                                                <option value="19:00">19:00</option>
+                                                <option value="19:30">19:30</option>
+                                                <option value="20:00">20:00</option>
+                                                <option value="20:30">20:30</option>
+                                                <option value="21:00">21:00</option>
+                                                <option value="21:30">21:30</option>
+                                                <option value="22:00">22:00</option>
+                                                <option value="22:30">22:30</option>
+                                                <option value="23:00">23:00</option>
+                                                <option value="23:30">23:30</option>
+                                                <option value="24:00">24:00</option>
+                                                <option value="24:30">24:30</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- fin HC Nuit -->
+                                    <div class="form-group">
+                                        <div class="col-sm-8 alert alert-info">
+                                            {{Pas de réglage de fin des heures creuses nuit.}}
+                                            <br/>
+                                            {{Assomption 8h creuses par jour.}}
+                                        </div>
                                     </div>
                                 </div>
                             </form>

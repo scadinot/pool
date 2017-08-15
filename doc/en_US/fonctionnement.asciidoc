@@ -24,6 +24,10 @@ Sur le widget sont indiqués :
 - l'état du filtre à sable (si activé)
 - un bouton [Stop] (si surpresseur ou filtre à sable)
 
+Si votre sonde de température est située dans le local technique. Il est conseillé de sélectionner l’option correspondante dans la configuration.
+La température affichée sera alors celle de piscine, même lorsque la filtration sera stoppée (la dernière valeur mesurée).
+Le widget indiquera alors température eau pour indiquer cette option.
+
 ==== Booster
 
 Pour activer le surpresseur, cliquez sur le bouton [On], le surpresseur est alors lancé pour une durée spécifiée dans la configuration.
@@ -96,12 +100,12 @@ Dans le menu `Accueil`, on trouve le sous-menu `Piscine`. La fenêtre qui s'affi
 
 image::../images/graph_cumulfiltration.png["cumul du temps de chauffe du thermostat",align="Center"]
 
-[.text-center]
-_Graphe du cumul du temps de filtration_
-
 * un autre graphique qui affiche les courbes de température de l'eau et l'état de la filtration.
+
+_Sans l'option "sonde local technique", on voit la température qui redescend quand la filtration est stoppée._
 
 image::../images/graph_courbesfiltration.png["graphe des courbes de filtration",align="Center"]
 
-[.text-center]
-_Graphe des courbes de filtration_
+_Avec l'option "sonde local technique", la température reste constante quand la filtration est stoppée._
+
+image::../images/graph_courbesfiltration_2.png["graphe des courbes de filtration",align="Center"]

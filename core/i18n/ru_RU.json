@@ -108,6 +108,12 @@
         "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration": "Utilisez le bouton [Reset] pour appliquer immédiatement les nouveaux paramètres de filtration",
         "Paramètres de filtration": "Paramètres de filtration",
         "Sonde de température dans local technique": "Sonde de température dans local technique",
-        "Pause avant relevé de température": "Pause avant relevé de température"
+        "Pause avant relevé de température": "Pause avant relevé de température",
+        "Activer HC/HP": "Activer HC/HP",
+        "Début des heures creuses en journée": "Début des heures creuses en journée",
+        "Fin des heures creuses en journée": "Fin des heures creuses en journée",
+        "Début des heures creuses nuit": "Début des heures creuses nuit",
+        "Pas de réglage de fin des heures creuses nuit.": "Pas de réglage de fin des heures creuses nuit.",
+        "Assomption 8h creuses par jour.": "Assomption 8h creuses par jour."
     }
 }
