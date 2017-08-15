@@ -256,6 +256,57 @@ class pool extends eqLogic
         // log::add('pool', 'debug', 'cron() end');
     }
 
+    public static function deadCmd()
+    {
+        // log::add('pool', 'debug', 'deadCmd() begin');
+
+        $return = array();
+        foreach (eqLogic::byType('pool') as $pool){
+
+            // log::add('pool', 'debug', $pool->getHumanName());
+
+            $return = self::testCmd($pool,  'filtrationOn', $return);
+            $return = self::testCmd($pool,  'filtrationStop', $return);
+            $return = self::testCmd($pool, 'asservissement', $return);
+
+            if (  $pool->getConfiguration('cfgSurpresseur', 'enabled') == 'enabled'  ) {
+                $return = self::testCmd($pool,  'surpresseurOn', $return);
+                $return = self::testCmd($pool, 'surpresseurStop', $return);
+            }
+            if (  $pool->getConfiguration('cfgTraitement', 'enabled') == 'enabled'  ) {
+                $return = self::testCmd($pool, 'traitementOn', $return);
+                $return = self::testCmd($pool, 'traitementStop', $return);
+            }
+            if (  $pool->getConfiguration('cfgChauffage', 'enabled') == 'enabled'  ) {
+                $return = self::testCmd($pool, 'chauffageOn', $return);
+                $return = self::testCmd($pool, 'chauffageStop', $return);
+            }
+            if ($pool->getConfiguration('cfgSurpresseur', 'enabled') == 'enabled') {
+                $return = self::testCmd($pool, 'surpresseurOn', $return);
+                $return = self::testCmd($pool, 'surpresseurStop', $return);
+            }
+            if (  $pool->getConfiguration('cfgAsservissementExterne', 'enabled') == 'enabled'){
+                $return = self::testCmd($pool,  'arretTotal', $return);
+                $return = self::testCmd($pool,  'marcheForcee', $return);
+            }
+
+        }
+        // log::add('pool', 'debug', 'deadCmd() end');
+        return $return;
+    }
+
+    public static function testCmd($pool, $key, $return)
+    {
+        foreach ($pool->getConfiguration($key) as $action) {
+            if ($action['cmd'] != '' && strpos($action['cmd'], '#') !== false) {
+                if (!cmd::byId(str_replace('#', '', $action['cmd']))) {
+                    $return[] = array('detail' => 'Pool ' . $pool->getHumanName(), 'help' => $key, 'who' => $action['cmd']);
+                }
+            }
+        }
+        return $return;
+    }
+
     /* **********************Methode d'instance************************* */
 
     public function stopDaemon()
