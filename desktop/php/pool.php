@@ -76,7 +76,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
             <li role="presentation" class="cfgFiltreSable enabled"><a href="#configureFiltreSable" data-toggle="tab">{{Filtre à sable}}</a></li>
             <li role="presentation" class="cfgHivernage enabled"><a href="#configureHivernage" data-toggle="tab">{{Hivernage}}</a></li>
             <li role="presentation" class="cfgAsservissementExterne enabled"><a href="#configureAsservissement" data-toggle="tab">{{Asservissement externe}}</a></li>
-            <li role="presentation" class="expertModeVisible"><a href="#configureAdvanced" data-toggle="tab">{{Configuration avancée}}</a></li>
+            <li role="presentation"><a href="#configureAdvanced" data-toggle="tab">{{Configuration avancée}}</a></li>
 
         </ul>
 
@@ -222,7 +222,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                             </div>
                         </div>
                         <!-- temperature_water_min / temperature_water_max -->
-                        <div class="form-group expertModeVisible">
+                        <div class="form-group">
                             <label class="col-sm-2 control-label">{{Borne de température inférieure}}</label>
                             <div class="col-sm-2">
                                 <input type="text" class="eqLogicAttr form-control tooltips" data-l1key="configuration" data-l2key="temperature_water_min" />
