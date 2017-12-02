@@ -26,8 +26,6 @@ class pool extends eqLogic
 
     /* ************************Methode static*************************** */
 
-    // Test Master
-
     public static function asservissement($_option)
     {
         // log::add('pool', 'debug', 'asservissement() begin');
@@ -1084,6 +1082,7 @@ class pool extends eqLogic
 
         if ($flgTomorrow == true) {
             $this->getCmd(null, 'temperatureMaxi')->event(0); // reset temperature maxi
+            log::add('pool', 'info', $this->getHumanName() . '$temperatureMaxi=0');
         }
 
         log::add('pool', 'info', $this->getHumanName() . '$temperatureCalcul=' . $temperatureCalcul);
@@ -1141,7 +1140,7 @@ class pool extends eqLogic
 
             if ($filtrationHivernage == 1) {
 
-                // Si Asservissment interne et marche forcee active on repasse en manuel
+                // Si Asservissement interne et marche forcee active on repasse en manuel
                 if ($this->getConfiguration('cfgAsservissementExterne', 'enabled') == 'disabled') {
                     if ($this->getConfiguration('disable_marcheForcee', '0') == '1') {
                         if ($this->getCmd(null, 'marcheForcee')->execCmd() == 1) {
@@ -1163,6 +1162,9 @@ class pool extends eqLogic
 
                 if ($temperature_water > $temperatureMaxi) {
                     $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
+                    log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
+                    log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
+                    log::add('pool', 'debug', $this->getHumanName() . '($temperature_water > $temperatureMaxi) > $temperatureMaxi=' . $temperature_water);
                 }
             }
 
