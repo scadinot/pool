@@ -109,11 +109,11 @@
         "Paramètres de filtration": "Parámetros de filtración",
         "Sonde de température dans local technique": "Sonda de temperatura de la sala técnica",
         "Pause avant relevé de température": "Pausa antes de la lectura de la temperatura",
-        "Activer HC/HP": "Activer HC/HP",
-        "Début des heures creuses en journée": "Début des heures creuses en journée",
-        "Fin des heures creuses en journée": "Fin des heures creuses en journée",
-        "Début des heures creuses nuit": "Début des heures creuses nuit",
-        "Pas de réglage de fin des heures creuses nuit.": "Pas de réglage de fin des heures creuses nuit.",
-        "Assomption 8h creuses par jour.": "Assomption 8h creuses par jour."
+        "Activer HC/HP": "Activar HC/HP",
+        "Début des heures creuses en journée": "Inicio de horario poca actividad durante el día",
+        "Fin des heures creuses en journée": "Fin de horario poca actividad durante el día",
+        "Début des heures creuses nuit": "Comienzo de horario poca actividad nocturna",
+        "Pas de réglage de fin des heures creuses nuit.": "No hay ajuste horario nocturno poca actividad",
+        "Assomption 8h creuses par jour.": "Supuestos 8h poca actividad por día"
     }
 }

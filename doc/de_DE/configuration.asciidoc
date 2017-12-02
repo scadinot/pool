@@ -82,8 +82,6 @@ Il suffit simplement de définir l'équipement de votre installation destiné à
 Les champs `Borne de température inférieure` et `Borne de température supérieure` permettent de définir une alerte en cas de données erronées renvoyées par la sonde.
 
 [icon="../images/plugin/important.png"]
-[IMPORTANT]
-Ces champs ne sont accessibles qu'en mode expert (cocher `Profil, Mode expert`).
 
 '''
 ==== Onglets de configuration
@@ -214,8 +212,6 @@ Beispielkonfiguration
 ===== Registerkarte [Erweiterte Konfiguration]
 
 image::../images/config_configurationavancee.png["Onglet Configuration avancée",align="Center"]
-
-_Cet onglet n'est visible qu'en mode expert (cocher `Profil, Mode expert`).._
 
 Dans cet onglet vous pouvez définir :
 
