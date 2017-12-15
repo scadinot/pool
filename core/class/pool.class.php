@@ -259,23 +259,23 @@ class pool extends eqLogic
         // log::add('pool', 'debug', 'deadCmd() begin');
 
         $return = array();
-        foreach (eqLogic::byType('pool') as $pool){
+        foreach (eqLogic::byType('pool') as $pool) {
 
             // log::add('pool', 'debug', $pool->getHumanName());
 
-            $return = self::testCmd($pool,  'filtrationOn', $return);
-            $return = self::testCmd($pool,  'filtrationStop', $return);
+            $return = self::testCmd($pool, 'filtrationOn', $return);
+            $return = self::testCmd($pool, 'filtrationStop', $return);
             $return = self::testCmd($pool, 'asservissement', $return);
 
-            if (  $pool->getConfiguration('cfgSurpresseur', 'enabled') == 'enabled'  ) {
-                $return = self::testCmd($pool,  'surpresseurOn', $return);
+            if ($pool->getConfiguration('cfgSurpresseur', 'enabled') == 'enabled') {
+                $return = self::testCmd($pool, 'surpresseurOn', $return);
                 $return = self::testCmd($pool, 'surpresseurStop', $return);
             }
-            if (  $pool->getConfiguration('cfgTraitement', 'enabled') == 'enabled'  ) {
+            if ($pool->getConfiguration('cfgTraitement', 'enabled') == 'enabled') {
                 $return = self::testCmd($pool, 'traitementOn', $return);
                 $return = self::testCmd($pool, 'traitementStop', $return);
             }
-            if (  $pool->getConfiguration('cfgChauffage', 'enabled') == 'enabled'  ) {
+            if ($pool->getConfiguration('cfgChauffage', 'enabled') == 'enabled') {
                 $return = self::testCmd($pool, 'chauffageOn', $return);
                 $return = self::testCmd($pool, 'chauffageStop', $return);
             }
@@ -283,9 +283,9 @@ class pool extends eqLogic
                 $return = self::testCmd($pool, 'surpresseurOn', $return);
                 $return = self::testCmd($pool, 'surpresseurStop', $return);
             }
-            if (  $pool->getConfiguration('cfgAsservissementExterne', 'enabled') == 'enabled'){
-                $return = self::testCmd($pool,  'arretTotal', $return);
-                $return = self::testCmd($pool,  'marcheForcee', $return);
+            if ($pool->getConfiguration('cfgAsservissementExterne', 'enabled') == 'enabled') {
+                $return = self::testCmd($pool, 'arretTotal', $return);
+                $return = self::testCmd($pool, 'marcheForcee', $return);
             }
 
         }
@@ -892,9 +892,33 @@ class pool extends eqLogic
                 // Deuxieme segment
                 if ($timeNow >= $filtrationPauseFin && $timeNow <= $filtrationFin) {
 
-                    if ($timeNow >= $filtrationPauseFin + (60 * $this->getConfiguration('sondeLocalTechniquePause', '5'))) {
-                        $this->getCmd(null, 'temperature_display')->event($temperature_water);
-                        // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+                    if ($this->getConfiguration('sondeLocalTechnique', '0') == '1') {
+
+                        if ($timeNow >= $filtrationPauseFin + (60 * $this->getConfiguration('sondeLocalTechniquePause', '5'))) {
+
+                            $this->getCmd(null, 'temperature_display')->event($temperature_water);
+                            // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+
+                            // Determine la temperature maxi pour le prochain calcul
+                            $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
+
+                            if ($temperature_water > $temperatureMaxi) {
+                                $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
+                                log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
+                                log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
+                                log::add('pool', 'debug', $this->getHumanName() . '($temperature_water > $temperatureMaxi) >> $temperatureMaxi=' . $temperature_water);
+                            }
+                        }
+                    } else {
+                        // Determine la temperature maxi pour le prochain calcul
+                        $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
+
+                        if ($temperature_water > $temperatureMaxi) {
+                            $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
+                            log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
+                            log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
+                            log::add('pool', 'debug', $this->getHumanName() . '($temperature_water > $temperatureMaxi) >> $temperatureMaxi=' . $temperature_water);
+                        }
                     }
 
                     // Active la filtration
@@ -904,10 +928,35 @@ class pool extends eqLogic
 
                 if ($timeNow >= $filtrationDebut && $timeNow <= $filtrationFin) {
 
-                    if ($timeNow >= $filtrationDebut + (60 * $this->getConfiguration('sondeLocalTechniquePause', '5'))) {
-                        $this->getCmd(null, 'temperature_display')->event($temperature_water);
-                        // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+                    if ($this->getConfiguration('sondeLocalTechnique', '0') == '1') {
+
+                        if ($timeNow >= $filtrationDebut + (60 * $this->getConfiguration('sondeLocalTechniquePause', '5'))) {
+
+                            $this->getCmd(null, 'temperature_display')->event($temperature_water);
+                            // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+
+                            // Determine la temperature maxi pour le prochain calcul
+                            $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
+
+                            if ($temperature_water > $temperatureMaxi) {
+                                $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
+                                log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
+                                log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
+                                log::add('pool', 'debug', $this->getHumanName() . '($temperature_water > $temperatureMaxi) >> $temperatureMaxi=' . $temperature_water);
+                            }
+                        }
+                    } else {
+                        // Determine la temperature maxi pour le prochain calcul
+                        $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
+
+                        if ($temperature_water > $temperatureMaxi) {
+                            $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
+                            log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
+                            log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
+                            log::add('pool', 'debug', $this->getHumanName() . '($temperature_water > $temperatureMaxi) >> $temperatureMaxi=' . $temperature_water);
+                        }
                     }
+
                     // Active la filtration
                     $filtrationTemperature = 1;
                 }
@@ -929,15 +978,7 @@ class pool extends eqLogic
                     $this->getCmd(null, 'calculateStatus')->event(0); // 0 >> debut plage de filtration, reset du flag calcul
                 }
 
-                // Determine la temperature maxi pour le prochain calcul
-                $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
 
-                // log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
-                // log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
-
-                if ($temperature_water > $temperatureMaxi) {
-                    $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
-                }
             }
 
             $calculateStatus = $this->getCmd(null, 'calculateStatus')->execCmd();
@@ -1130,10 +1171,36 @@ class pool extends eqLogic
 
             if ($timeNow > $filtrationDebut && $timeNow < $filtrationFin) {
 
-                if ($timeNow >= $filtrationDebut + (60 * $this->getConfiguration('sondeLocalTechniquePause', '5'))) {
-                    $this->getCmd(null, 'temperature_display')->event($temperature_water);
-                    // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+                if ($this->getConfiguration('sondeLocalTechnique', '0') == '1') {
+
+                    if ($timeNow >= $filtrationDebut + (60 * $this->getConfiguration('sondeLocalTechniquePause', '5'))) {
+
+                        $this->getCmd(null, 'temperature_display')->event($temperature_water);
+                        // log::add('pool', 'debug', $this->getHumanName() . 'temperature_display=' . $temperature_water);
+
+                        // Determine la temperature maxi pour le prochain calcul
+                        $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
+
+                        if ($temperature_water > $temperatureMaxi) {
+                            $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
+                            log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
+                            log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
+                            log::add('pool', 'debug', $this->getHumanName() . '($temperature_water > $temperatureMaxi) >> $temperatureMaxi=' . $temperature_water);
+                        }
+                    }
+                } else {
+
+                    // Determine la temperature maxi pour le prochain calcul
+                    $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
+
+                    if ($temperature_water > $temperatureMaxi) {
+                        $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
+                        log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
+                        log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
+                        log::add('pool', 'debug', $this->getHumanName() . '($temperature_water > $temperatureMaxi) >> $temperatureMaxi=' . $temperature_water);
+                    }
                 }
+
                 // Active la filtration
                 $filtrationHivernage = 1;
             }
@@ -1154,18 +1221,6 @@ class pool extends eqLogic
                     $this->getCmd(null, 'calculateStatus')->event(0); // 0 >> debut plage de filtration, reset du flag calcul
                 }
 
-                // Determine la temperature maxi pour le prochain calcul
-                $temperatureMaxi = $this->getCmd(null, 'temperatureMaxi')->execCmd();
-
-                // log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
-                // log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
-
-                if ($temperature_water > $temperatureMaxi) {
-                    $this->getCmd(null, 'temperatureMaxi')->event($temperature_water);
-                    log::add('pool', 'debug', $this->getHumanName() . '$temperatureMaxi=' . $temperatureMaxi);
-                    log::add('pool', 'debug', $this->getHumanName() . '$temperature_water=' . $temperature_water);
-                    log::add('pool', 'debug', $this->getHumanName() . '($temperature_water > $temperatureMaxi) > $temperatureMaxi=' . $temperature_water);
-                }
             }
 
             $calculateStatus = $this->getCmd(null, 'calculateStatus')->execCmd();
