@@ -1,6 +1,6 @@
 === Installation
 
-L'installation du plugin ne demande aucune configuration particulière.
+Die Installation des Plugins erfordert keine spezielle Konfiguration.
 
 image::../images/install.png["Installation plugin",align="Center"]
 
