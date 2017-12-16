@@ -1,0 +1,14 @@
+{
+	"id" : "pool",
+	"name" : "Piscine",
+	"licence" : "AGPL",
+	"author" : "Stéphane Cadinot",
+	"require" : "2.0",
+	"category" : "wellness",
+	"display" : "panel",
+	"mobile" : "panel",
+	"hasDependency" : 0,
+	"hasOwnDeamon" : 1,
+	"changelog" : "https://github.com/scadinot/pool/blob/master/doc/#language#/changelog.asciidoc",
+	"documentation" : "https://github.com/scadinot/pool/blob/master/doc/#language#/index.asciidoc"
+}
