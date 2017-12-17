@@ -16,7 +16,7 @@ Sur le widget sont indiqués :
 - la température de l'air (en mode hivernage uniquement).
 - le temps de filtration.
 - les horaires de filtration.
-- un bouton [Reset] (si activé dans la configuration).
+- eine Schaltfläche [Zurücksetzen] (falls in der Konfiguration aktiviert).
 - l'état de la filtration.
 - un bouton [On] de lancement du surpresseur (si activé dans la configuration)
 - l'état du surpresseur (si activé)

@@ -15,7 +15,7 @@ Commencez par créer un nouvel équipement :
 
 image::../images/config_2.png["Création de l'équipement",align="Center"]
 
-L'écran de configuration suivant apparait alors.
+Der folgende Konfigurationsbildschirm wird angezeigt.
 
 image::../images/config_3.png["Ecran de configuration",align="Center"]
 
