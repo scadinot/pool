@@ -1048,14 +1048,116 @@ class pool extends eqLogic
         return $status;
     }
 
+    public function getCoefficientAjustementHivernage()
+    {
+        switch ($this->getConfiguration('coefficientAjustementHivernage', '10')) {
+            case '3':
+                $coeff = 0.3;
+                break;
+            case '3.5':
+                $coeff = 0.35;
+                break;
+            case '4':
+                $coeff = 0.4;
+                break;
+            case '4.5':
+                $coeff = 0.45;
+                break;
+            case '5':
+                $coeff = 0.5;
+                break;
+            case '5.5':
+                $coeff = 0.55;
+                break;
+            case '6':
+                $coeff = 0.6;
+                break;
+            case '6.5':
+                $coeff = 0.65;
+                break;
+            case '7':
+                $coeff = 0.7;
+                break;
+            case '7.5':
+                $coeff = 0.75;
+                break;
+            case '8':
+                $coeff = 0.8;
+                break;
+            case '8.5':
+                $coeff = 0.85;
+                break;
+            case '9':
+                $coeff = 0.9;
+                break;
+            case '9.5':
+                $coeff = 0.95;
+                break;
+            case '10':
+                $coeff = 1.0;
+                break;
+            case '10.5':
+                $coeff = 1.05;
+                break;
+            case '11':
+                $coeff = 1.1;
+                break;
+            case '11.5':
+                $coeff = 1.15;
+                break;
+            case '12':
+                $coeff = 1.2;
+                break;
+            case '12.5':
+                $coeff = 1.25;
+                break;
+            case '13':
+                $coeff = 1.3;
+                break;
+            case '13.5':
+                $coeff = 1.35;
+                break;
+            case '14':
+                $coeff = 1.4;
+                break;
+            case '14.5':
+                $coeff = 1.45;
+                break;
+            case '15':
+                $coeff = 1.5;
+                break;
+            case '15.5':
+                $coeff = 1.55;
+                break;
+            case '16':
+                $coeff = 1.6;
+                break;
+            case '16.5':
+                $coeff = 1.65;
+                break;
+            case '17':
+                $coeff = 1.7;
+                break;
+        }
+
+        return $coeff;
+    }
+
     public function calculateTimeFiltrationWithTemperatureHivernage($temperature_water)
     {
         // Filtration (temperature / 3)
         $dureeHeures = ($temperature_water / 3.0);
 
+        // Coefficient d'ajustement de la courbe (suivant config)
+        $coeff = $this->getCoefficientAjustementHivernage();
+
+        // log::add('pool', 'debug', $this->getHumanName() . 'coefficientAjustementHivernage=[' . $coeff . ']');
+
+        $dureeHeures *= $coeff;
+        // log::add('pool', 'debug', $this->getHumanName() . '$dureeHeures=[' . $dureeHeures . ']');
+
         // Au moins 3 heures
         $dureeHeures = max($dureeHeures, $this->getConfiguration('tempsDeFiltrationMinimum', '3'));
-
         // log::add('pool', 'debug', $this->getHumanName() . '$dureeHeures=[' . $dureeHeures . ']');
 
         return $dureeHeures;
@@ -2247,6 +2349,10 @@ class pool extends eqLogic
 
         if ($this->getConfiguration('coefficientAjustement') == '') {
             $this->setConfiguration('coefficientAjustement', '10');
+        }
+
+        if ($this->getConfiguration('coefficientAjustementHivernage') == '') {
+            $this->setConfiguration('coefficientAjustementHivernage', '10');
         }
 
         if ($this->getConfiguration('methodeCalcul') == '') {

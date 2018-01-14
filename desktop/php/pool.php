@@ -768,88 +768,131 @@ $eqLogics = eqLogic::byType($plugin->getId());
                         </fieldset>
                     </div>
                     <br/>
-                    <!-- datePivotHivernage -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Heure prédéfinie}}</label>
-                        <div class="col-sm-2">
-                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="datePivotHivernage" placeholder="">
-                                <option value="01:00">01:00</option>
-                                <option value="02:00">02:00</option>
-                                <option value="03:00">03:00</option>
-                                <option value="04:00">04:00</option>
-                                <option value="05:00">05:00</option>
-                                <option value="06:00">06:00</option>
-                                <option value="07:00">07:00</option>
-                                <option value="08:00">08:00</option>
-                                <option value="09:00">09:00</option>
-                                <option value="10:00">10:00</option>
-                                <option value="11:00">11:00</option>
-                                <option value="12:00">12:00</option>
-                                <option value="13:00">13:00</option>
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                                <option value="18:00">18:00</option>
-                                <option value="19:00">19:00</option>
-                                <option value="20:00">20:00</option>
-                                <option value="21:00">21:00</option>
-                                <option value="22:00">22:00</option>
-                                <option value="23:00">23:00</option>
-                                <option value="24:00">24:00</option>
-                            </select>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- datePivotHivernage -->
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">{{Heure prédéfinie}}</label>
+                                <div class="col-sm-4">
+                                    <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="datePivotHivernage" placeholder="">
+                                        <option value="01:00">01:00</option>
+                                        <option value="02:00">02:00</option>
+                                        <option value="03:00">03:00</option>
+                                        <option value="04:00">04:00</option>
+                                        <option value="05:00">05:00</option>
+                                        <option value="06:00">06:00</option>
+                                        <option value="07:00">07:00</option>
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="21:00">21:00</option>
+                                        <option value="22:00">22:00</option>
+                                        <option value="23:00">23:00</option>
+                                        <option value="24:00">24:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- choixHeureFiltrationHivernage -->
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">{{Choix de l'heure pivot de filtration (2/3 - 1/3)}}</label>
+                                <div class="col-sm-4">
+                                    <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="choixHeureFiltrationHivernage" placeholder="" >
+                                        <option value="1">{{Heure de lever du soleil}}</option>
+                                        <option value="2">{{Heure prédéfinie}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- coefficientAjustementHivernage -->
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">{{Ajustement du temps de filtration}}</label>
+                                <div class="col-sm-4">
+                                    <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="coefficientAjustementHivernage" placeholder="">
+                                        <option value="3"> 30%</option>
+                                        <option value="3.5"> 35%</option>
+                                        <option value="4"> 40%</option>
+                                        <option value="4.5"> 45%</option>
+                                        <option value="5"> 50%</option>
+                                        <option value="5.5"> 55%</option>
+                                        <option value="6"> 60%</option>
+                                        <option value="6.5"> 65%</option>
+                                        <option value="7"> 70%</option>
+                                        <option value="7.5"> 75%</option>
+                                        <option value="8"> 80%</option>
+                                        <option value="8.5"> 85%</option>
+                                        <option value="9"> 90%</option>
+                                        <option value="9.5"> 95%</option>
+                                        <option value="10">100%</option>
+                                        <option value="10.5">105%</option>
+                                        <option value="11">110%</option>
+                                        <option value="11.5">115%</option>
+                                        <option value="12">120%</option>
+                                        <option value="12.5">125%</option>
+                                        <option value="13">130%</option>
+                                        <option value="13.5">135%</option>
+                                        <option value="14">140%</option>
+                                        <option value="14.5">145%</option>
+                                        <option value="15">150%</option>
+                                        <option value="15.5">155%</option>
+                                        <option value="16">160%</option>
+                                        <option value="16.5">165%</option>
+                                        <option value="17">170%</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- tempsDeFiltrationMinimum -->
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">{{Temps de filtration minimum}}</label>
+                                <div class="col-sm-4">
+                                    <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="tempsDeFiltrationMinimum" placeholder="" >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- choixHeureFiltrationHivernage -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Choix de l'heure pivot de filtration (2/3 - 1/3)}}</label>
-                        <div class="col-sm-2">
-                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="choixHeureFiltrationHivernage" placeholder="" >
-                                <option value="1">{{Heure de lever du soleil}}</option>
-                                <option value="2">{{Heure prédéfinie}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- tempsDeFiltrationMinimum -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Temps de filtration minimum}}</label>
-                        <div class="col-sm-2">
-                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="tempsDeFiltrationMinimum" placeholder="" >
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- filtration_5mn_3h -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Filtration 5mn toutes les 3 heures}}</label>
-                        <div class="col-sm-9">
-                            <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="filtration_5mn_3h" checked/>{{Actif}}</label>
-                        </div>
-                    </div>
-                    <!-- temperatureSecurite -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Filtration permanente si température extérieure inférieure à}}</label>
-                        <div class="col-sm-2">
-                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="temperatureSecurite" placeholder="" >
-                                <option value="-4">-4</option>
-                                <option value="-3">-3</option>
-                                <option value="-2">-2</option>
-                                <option value="-1">-1</option>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- traitement_hivernage -->
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Activer le traitement pendant l'hivernage}}</label>
-                        <div class="col-sm-9">
-                            <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="traitement_hivernage" checked/>{{Actif}}</label>
+                        <div class="col-sm-6">
+                            <!-- filtration_5mn_3h -->
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">{{Filtration 5mn toutes les 3 heures}}</label>
+                                <div class="col-sm-4">
+                                    <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="filtration_5mn_3h" checked/>{{Actif}}</label>
+                                </div>
+                            </div>
+                            <!-- temperatureSecurite -->
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">{{Filtration permanente si température extérieure inférieure à}}</label>
+                                <div class="col-sm-4">
+                                    <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="temperatureSecurite" placeholder="" >
+                                        <option value="-4">-4</option>
+                                        <option value="-3">-3</option>
+                                        <option value="-2">-2</option>
+                                        <option value="-1">-1</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- traitement_hivernage -->
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">{{Activer le traitement pendant l'hivernage}}</label>
+                                <div class="col-sm-4">
+                                    <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="traitement_hivernage" checked/>{{Actif}}</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
