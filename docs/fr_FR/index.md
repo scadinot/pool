@@ -25,7 +25,7 @@ L'installation du plugin ne demande aucune configuration particulière.
 Configuration
 ===
 
-Après l'installation, il vous suffit simplement d’activer ce dernier et de vous rendre sur l’écran de configuration :
+Après l'installation, il vous suffit de l’activer et de vous rendre sur l’écran de configuration :
 
 ![Accés à la configuration](../images/config_1.png)
 
