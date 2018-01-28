@@ -1,7 +1,9 @@
 Piscine
 ==
+
 Description
-=== 
+===
+
 Plugin permettant de gérer la filtration d'une piscine en fonction de la température.
 Le plugin gère également les fonctions suivantes :
 
@@ -12,14 +14,17 @@ Le plugin gère également les fonctions suivantes :
 
 Configuration
 ==
+
 Installation
-=== 
+===
+
 L'installation du plugin ne demande aucune configuration particulière.
 
 ![Installation plugin](../images/install.png)
 
 Configuration
-=== 
+===
+
 Après l'installation, il vous suffit simplement d’activer ce dernier et de vous rendre sur l’écran de configuration :
 
 ![Accés à la configuration](../images/config_1.png)
@@ -33,13 +38,15 @@ L'écran de configuration suivant apparait alors.
 ![Ecran de configuration](../images/config_3.png)
 
 Positionnement
-==== 
+====
+
 Commencez par positionner votre équipement piscine dans l'objet Jeedom de votre choix et activez-le.
 
 ![Position de l'équipement](../images/config_4.png)
 
 Choix des options
-==== 
+====
+
 Les options suivantes peuvent être choisies:
 
 ![Position de l'équipement](../images/config_5.png)
@@ -47,7 +54,8 @@ Les options suivantes peuvent être choisies:
 Activez les options de votre choix suivant le type d'équipement dont vous disposez sur votre piscine.
 
 Voyons ensemble le détail des options sélectionnables:
-===== 
+=====
+
 - Traitement
 
     Cette option vous permet de contrôler l'asservissement d'équipements de traitement automatique de l'eau tels pompe d'injection de Ph, de Chlore...
@@ -82,7 +90,7 @@ Si vous choisissez pas Widget, vous devez activer cette option uniquement au dé
 
 
 Sonde de température
-==== 
+====
 
 ![Sonde de température](../images/config_6.png)
 
@@ -91,12 +99,12 @@ Il suffit simplement de définir l'équipement de votre installation destiné à
 Les champs `Borne de température inférieure` et `Borne de température supérieure` permettent de définir une alerte en cas de données erronées renvoyées par la sonde.
 
 Onglets de configuration
-==== 
+====
 
 _Certains de ces onglets sont visibles en fonction des options choisies précédemment._
 
 Onglet [Filtration]
-===== 
+=====
 
 ![Onglet Filtration](../images/config_filtration.png)
 
@@ -133,7 +141,7 @@ Cela vous permet définir un forçage de la filtration dans le cas d'une install
 
 
 Onglet [Traitement]
-===== 
+=====
 
 ![Onglet Traitement](../images/config_traitement.png)
 
@@ -166,7 +174,7 @@ Dans cet onglet, vous devez définir le `Temps de lavage du filtre à sable` et 
 Sur le Dashboard, vous trouverez un bouton permettant de lancer le nettoyage du filtre une indication du temps de restant et du positionnement de la vanne du filtre à sable.
 
 Onglet [Hivernage]
-===== 
+=====
 
 ![Onglet Hivernage](../images/config_hivernage.png)
 
@@ -240,17 +248,17 @@ Dans cet onglet vous pouvez définir :
 D’autres options seront ajoutées dans les versions futures du plugin Piscine.
 
 Fonctionnement
-== 
+==
 
 Cycle de filtration.
-=== 
+===
 
 A la fin du cycle, le plugin recalcule la nouvelle plage de filtration.
 Ce calcul est lancé uniquement à la fin du cycle.
 Si vous souhaitez relancer le calcul avant la fin du cycle, activez le bouton [Reset] dans l'onglet [Configuration avancée].
 
 Widget Piscine sur le Dashboard
-=== 
+===
 
 ![Widget Piscine](../images/fonctionnement_1.png)
 
@@ -273,7 +281,7 @@ La température affichée sera alors celle de piscine, même lorsque la filtrati
 Le widget indiquera alors température eau pour indiquer cette option.
 
 Surpresseur
-==== 
+====
 
 Pour activer le surpresseur, cliquez sur le bouton [On], le surpresseur est alors lancé pour une durée spécifiée dans la configuration.
 Si la filtration n'est pas active, elle sera lancée automatiquement, puis ensuite le surpresseur après une temporisation de quelques secondes.
@@ -288,7 +296,7 @@ A la fin de la temporisation, le surpresseur s'arrête ainsi que la filtration s
 Le bouton [Stop] permet d'arrêter le cycle avant la fin de la temporisation si nécessaire.
 
 Nettoyage du filtre à sable
-==== 
+====
 
 Cette fonctionnalité est un assistant pour vous guider dans les opérations de lavage de votre filtre à sable.
 
@@ -331,7 +339,7 @@ Si la filtration était active avant l’opération de lavage, elle redémarre a
 ![Schema Filtration](../images/schema-filtration.gif)
 
 Visualisation du fonctionnement de la piscine
-=== 
+===
 
 Une fois votre piscine configurée, vous pouvez contrôler les temps de filtration.
 
@@ -359,11 +367,13 @@ FAQ
 ==
  
 Température
-=== 
+===
+
 La température prise en compte pour le calcul est la température maximum mesurée pendant la filtration.
 
 La filtration ne se lance pas
 ===
+
 - Verifiez dans les logs que le calcul de durée est correct.
 - Pour afficher le temps de calcul la configuration des logs doit au minimum être au niveau INFO.
 ![Configuration](../images/log_info.png)
@@ -374,4 +384,5 @@ La filtration ne se lance pas
 
 Quel type de sondes gère le Plugin
 ===
+
 Toutes les sondes (Flottantes, Collier de prise en charge) sont prise en compte par le plugin.
