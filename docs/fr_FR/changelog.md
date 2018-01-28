@@ -12,6 +12,7 @@
 ===
 
 - correction bug dans la selection du type de calcul
+
 11/12/2016
 ===
 
@@ -28,7 +29,7 @@
 ===
 
 - ajout d'un onglet asservissement externe, diverses améliorations.
---
+
 11/09/2015
 ===
 
