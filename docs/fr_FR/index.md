@@ -88,7 +88,6 @@ Si vous choisissez pas Widget, vous devez activer cette option uniquement au dé
 
 ![Asservissement interne](../images/fonctionnement_8.png)
 
-
 Sonde de température
 ====
 
@@ -107,7 +106,6 @@ Onglet [Filtration]
 =====
 
 ![Onglet Filtration](../images/config_filtration.png)
-
 
 _C'est l'onglet principal de l'installation, il est toujours visible quelque soit la configration choisie._
 
@@ -128,7 +126,6 @@ Dans cet onglet, vous devez définir les paramétres du calcul de temps de la fi
 Voici le détail de la courbe de filtration, la courbe bleue représente la valeur 100%, la courbe verte 140% et la courbe rouge 60%.
 
 ![Courbe filtration](../images/filtration_courbe.png)
-
 
 *_Exemple de calcul :_*
 
@@ -226,6 +223,7 @@ Ces deux équipements reçoivent des types infos.
 Il faut donc y mettre les contacts d'un interrupteur RFXcom ou ZWave ou bien encore l'info d'un virtuel qui vous permettra de piloter la filtration à partir du Dashboard.
 
 ![Exemple Onglet Général](../images/config_general_2.png)
+
 Exemple de configuration.
 
 Onglet [Configuration avancée]
@@ -311,6 +309,7 @@ Comme demandé sur le Widget, positionnez votre vanne sur la position [lavage], 
 La filtration démarre, le plugin affiche alors le temps restant pour l'opération de lavage :
 
 ![Lavage](../images/fonctionnement_4.png)
+
 ![Schema Lavage](../images/schema-lavage.gif)
 
 A la fin du lavage, le plugin affiche le message suivant:
@@ -324,6 +323,7 @@ Comme demandé sur le Widget, positionnez votre vanne sur la position [Rinçage]
 La filtration démarre, le plugin affiche alors le temps restant pour l'opération de rinçage :
 
 ![Rinçage](../images/fonctionnement_6.png)
+
 ![Schema Rinçage](../images/schema-rincage.gif)
 
 A la fin du rinçage, le plugin affiche le message suivant :
@@ -376,9 +376,13 @@ La filtration ne se lance pas
 
 - Verifiez dans les logs que le calcul de durée est correct.
 - Pour afficher le temps de calcul la configuration des logs doit au minimum être au niveau INFO.
+
 ![Configuration](../images/log_info.png)
+
 - L'affichage doit avoir la forme suivante
+
 ![Calcul](../images/log_calcul.png)
+
 - Vérifiez que la date de la fitration est bien celle de la prochaine journée.
 - Ce calcul est effectué juste à la fin de la plage de filtration du jour.
 
