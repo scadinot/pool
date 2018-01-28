@@ -7,8 +7,8 @@
 	"category" : "wellness",
 	"display" : "panel",
 	"mobile" : "panel",
-	"changelog" : "https://htmlpreview.github.io/?https://github.com/scadinot/pool/blob/master/doc/#language#/index.html#_changelog",
-	"documentation" : "https://htmlpreview.github.io/?https://github.com/scadinot/pool/blob/master/doc/#language#/index.html",
+	"changelog" : "https://scadinot.github.io/pool/#language#/changelog",
+	"documentation" : "https://scadinot.github.io/pool/#language#/",
 	"hasDependency" : 0,
 	"hasOwnDeamon" : 1
 }
