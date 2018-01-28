@@ -1,41 +1,41 @@
 17/01/2018
 ===
 
-- ajout d'un paramétrage pour le temps de filtration en hivernage
+- Ajout d'un paramétrage pour le temps de filtration en hivernage.
 
 08/05/2017
 ===
 
-- ajout d'une option pour prendre en compte les sondes de température dans un local technique
+- Ajout d'une option pour prendre en compte les sondes de température dans un local technique.
 
 08/04/2017
 ===
 
-- correction bug dans la selection du type de calcul
+- Correction bug dans la selection du type de calcul.
 
 11/12/2016
 ===
 
-- regroupement des onglets Filtration et Temps de filtration
+- Regroupement des onglets Filtration et Temps de filtration.
 
 26/11/2016
 ===
 
-- ajout de boutons Saison / Hivernage optionnels sur le widget.
-- traitement optionnel pendant l'hivernage.
-- refonte de la présentation de la configuration.
+- Ajout de boutons Saison / Hivernage optionnels sur le widget.
+- Traitement optionnel pendant l'hivernage.
+- Refonte de la présentation de la configuration.
 
 25/04/2016
 ===
 
-- ajout d'un onglet asservissement externe, diverses améliorations.
+- Ajout d'un onglet asservissement externe, diverses améliorations.
 
 11/09/2015
 ===
 
-- refonte de la partie calcul de temps de filtration.
+- Refonte de la partie calcul de temps de filtration.
 
 01/08/2015
 ===
 
-- première version du plugin.
+- Première version du plugin.
