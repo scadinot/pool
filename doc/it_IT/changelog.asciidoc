@@ -1,3 +1,7 @@
+=== 17/01/2018
+--
+- ajout d'un paramétrage pour le temps de filtration en hivernage
+--
 === 08/05/2017
 --
 - ajout d'une option pour prendre en compte les sondes de température dans un local technique

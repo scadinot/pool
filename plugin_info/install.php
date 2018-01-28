@@ -38,6 +38,7 @@ function pool_install()
 function pool_update()
 {
     log::add('pool', 'debug', 'pool_update()');
+    log::add('pool', 'error', '!!! Voir le changelog et doc pour les changements !!!');
 
     foreach (pool::byType('pool') as $pool) {
         log::add('pool', 'debug', 'update :' . $pool->getHumanName());
