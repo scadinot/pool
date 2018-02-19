@@ -113,7 +113,9 @@
         "Début des heures creuses en journée": "Inicio de horario poca actividad durante el día",
         "Fin des heures creuses en journée": "Fin de horario poca actividad durante el día",
         "Début des heures creuses nuit": "Comienzo de horario poca actividad nocturna",
-        "Pas de réglage de fin des heures creuses nuit.": "No hay ajuste horario nocturno poca actividad",
-        "Assomption 8h creuses par jour.": "Supuestos 8h poca actividad por día"
+        "Pas de réglage de fin des heures creuses nuit. (8h / jour)": "Pas de réglage de fin des heures creuses nuit. (8h / jour)",
+        "Journée": "Jour",
+        "Nuit": "Nuit",
+        "Egal": "Egal"
     }
 }
