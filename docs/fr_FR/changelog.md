@@ -1,3 +1,8 @@
+24/02/2018
+===
+
+- Refonte du systeme heures creuses / heure pleines.
+
 17/01/2018
 ===
 
