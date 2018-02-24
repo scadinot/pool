@@ -561,10 +561,19 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                     </div>
                                     <!-- fin HC Nuit -->
                                     <div class="form-group">
-                                        <div class="col-sm-8 alert alert-info">
-                                            {{Pas de réglage de fin des heures creuses nuit.}}
-                                            <br/>
-                                            {{Assomption 8h creuses par jour.}}
+                                        <label class="col-sm-8 control-label">
+                                            {{Pas de réglage de fin des heures creuses nuit. (8h / jour)}}
+                                        </label>
+                                    </div>
+                                    <!-- priorite HC Jour / Nuit / Egal -->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">{{Priorité plage heures creuses}}</label>
+                                        <div class="col-sm-4">
+                                            <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="prioriteHC" placeholder="">
+                                                <option value="1">{{Journée}}</option>
+                                                <option value="2">{{Nuit}}</option>
+                                                <option value="3">{{Egal}}</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

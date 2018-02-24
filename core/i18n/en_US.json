@@ -113,7 +113,9 @@
         "Début des heures creuses en journée": "Début des heures creuses en journée",
         "Fin des heures creuses en journée": "Fin des heures creuses en journée",
         "Début des heures creuses nuit": "Début des heures creuses nuit",
-        "Pas de réglage de fin des heures creuses nuit.": "Pas de réglage de fin des heures creuses nuit.",
-        "Assomption 8h creuses par jour.": "Assomption 8h creuses par jour."
+        "Pas de réglage de fin des heures creuses nuit. (8h / jour)": "Pas de réglage de fin des heures creuses nuit. (8h / jour)",
+        "Journée": "Jour",
+        "Nuit": "Nuit",
+        "Egal": "Egal"
     }
 }

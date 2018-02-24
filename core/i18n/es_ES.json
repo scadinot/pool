@@ -43,7 +43,7 @@
         "Visible": "Visible",
         "Configuration": "Configuración",
         "Dupliquer": "Duplicar",
-        "Equipement": "Equipo",
+        "Equipement": "Dispositivo",
         "Traitement": "Tratamiento",
         "Surpresseur": "Compresor",
         "Filtre à sable": "Filtro de arena",
@@ -90,7 +90,7 @@
         "Délai maximum entre 2 relévés de température": "Retardo max entre 2 lecturas de temperatura",
         "Afficher bouton reset calcul sur le widget": "Mostrar botón reset calculo en el wifget",
         "Supprimer": "Borrar",
-        "Sauvegarder": "Salvar",
+        "Sauvegarder": "Guardar",
         "Mode:": "Modo:",
         "On": "On",
         "Actif": "Activo",
@@ -113,7 +113,9 @@
         "Début des heures creuses en journée": "Inicio de horario poca actividad durante el día",
         "Fin des heures creuses en journée": "Fin de horario poca actividad durante el día",
         "Début des heures creuses nuit": "Comienzo de horario poca actividad nocturna",
-        "Pas de réglage de fin des heures creuses nuit.": "No hay ajuste horario nocturno poca actividad",
-        "Assomption 8h creuses par jour.": "Supuestos 8h poca actividad por día"
+        "Pas de réglage de fin des heures creuses nuit. (8h / jour)": "No se ajusta el final de las horas de menor consumo en la noche. (8h / día)",
+        "Journée": "Día",
+        "Nuit": "Noche",
+        "Egal": "Igual"
     }
 }
