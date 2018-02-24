@@ -1820,8 +1820,8 @@ class pool extends eqLogic
             $filtrationFin = $this->getCmd(null, 'filtrationFin')->execCmd();
             $timeNow = time();
 
-            // log::add('pool', 'debug', $this->getHumanName() . '$filtrationFin=' . date("H:i d-m-Y", $filtrationFin));
-            // log::add('pool', 'debug', $this->getHumanName() . '$timeNow=' . date("H:i d-m-Y", $timeNow));
+            log::add('pool', 'debug', $this->getHumanName() . '$filtrationFin=' . date("H:i d-m-Y", $filtrationFin));
+            log::add('pool', 'debug', $this->getHumanName() . '$timeNow=' . date("H:i d-m-Y", $timeNow));
 
             if ($timeNow > $filtrationFin) {
                 // On est apres la plage de filtration, relancer le calcul pour la plage de demain
@@ -1841,8 +1841,8 @@ class pool extends eqLogic
             $filtrationFin = $this->getCmd(null, 'filtrationFin')->execCmd();
             $timeNow = time();
 
-            // log::add('pool', 'debug', $this->getHumanName() . '$filtrationFin=' . date("H:i d-m-Y", $filtrationFin));
-            // log::add('pool', 'debug', $this->getHumanName() . '$timeNow=' . date("H:i d-m-Y", $timeNow));
+            log::add('pool', 'debug', $this->getHumanName() . '$filtrationFin=' . date("H:i d-m-Y", $filtrationFin));
+            log::add('pool', 'debug', $this->getHumanName() . '$timeNow=' . date("H:i d-m-Y", $timeNow));
 
             if ($timeNow > $filtrationFin) {
                 // On est apres la plage de filtration, relancer le calcul pour la plage de demain
