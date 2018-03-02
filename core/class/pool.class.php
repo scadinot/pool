@@ -1450,10 +1450,37 @@ class pool extends eqLogic
 
         }
 
-        // Securité gel sur temperature exterieure < 0
-        if ($temperature_outdoor < $this->getConfiguration('temperatureSecurite', '0')) {
+        // log::add('pool', 'debug', $this->getHumanName() . '$temperature_outdoor=' . $temperature_outdoor);
+
+        // Recupere l'etat precedent de filtrationHivernageSecurite
+        $filtrationHivernageSecurite = $this->getCmd(null, 'filtrationHivernageSecurite')->execCmd();
+        // log::add('pool', 'debug', $this->getHumanName() . 'get $filtrationHivernageSecurite=' . $filtrationHivernageSecurite);
+
+        if ($filtrationHivernageSecurite != 0)
+        {
+            // La filtration etait deja active on verifie si la temperature est remontee suffisament (Hysteresis...)
+            if ($temperature_outdoor > ($this->getConfiguration('temperatureSecurite', '0') + $this->getConfiguration('temperatureHysteresis', '0.5'))) {
+
+                // log::add('pool', 'debug', $this->getHumanName() . 'Arret securité gel sur temperature exterieure > ' . ($this->getConfiguration('temperatureSecurite', '0') + $this->getConfiguration('temperatureHysteresis', '0.5')));
+
+                $filtrationHivernageSecurite = 0;
+            }
+        }
+        else if ($temperature_outdoor < $this->getConfiguration('temperatureSecurite', '0')) {
+
             // log::add('pool', 'debug', $this->getHumanName() . 'Securité gel sur temperature exterieure < ' . $this->getConfiguration('temperatureSecurite', '0'));
 
+            $filtrationHivernageSecurite = 1;
+        }
+
+        if ($this->getCmd(null, 'filtrationHivernageSecurite')->execCmd() != $filtrationHivernageSecurite) {
+            $this->getCmd(null, 'filtrationHivernageSecurite')->event($filtrationHivernageSecurite);
+        }
+        // log::add('pool', 'debug', $this->getHumanName() . 'set $filtrationHivernageSecurite=' . $filtrationHivernageSecurite);
+
+        // Securité gel sur temperature exterieure < temperatureSecurite
+        if ($filtrationHivernageSecurite != 0)
+        {
             $filtrationHivernage = 1;
         }
 
@@ -2545,6 +2572,14 @@ class pool extends eqLogic
             $this->setConfiguration('prioriteHC', '1');
         }
 
+        if ($this->getConfiguration('temperatureSecurite') == '') {
+            $this->setConfiguration('temperatureSecurite', '0');
+        }
+
+        if ($this->getConfiguration('temperatureHysteresis') == '') {
+            $this->setConfiguration('temperatureHysteresis', '0.5');
+        }
+
         // log::add('pool', 'debug', $this->getHumanName() . 'preSave() end');
     }
 
@@ -3231,6 +3266,23 @@ class pool extends eqLogic
                 $filtrationHivernage->setOrder($order++);
                 $filtrationHivernage->setIsHistorized(0);
                 $filtrationHivernage->save();
+            }
+
+            // filtrationHivernageSecurite
+            {
+                $filtrationHivernageSecurite = $this->getCmd(null, 'filtrationHivernageSecurite');
+                if (!is_object($filtrationHivernageSecurite)) {
+                    $filtrationHivernageSecurite = new poolCmd();
+                }
+                $filtrationHivernageSecurite->setEqLogic_id($this->getId());
+                $filtrationHivernageSecurite->setName('filtrationHivernageSecurite');
+                $filtrationHivernageSecurite->setType('info');
+                $filtrationHivernageSecurite->setSubType('numeric');
+                $filtrationHivernageSecurite->setLogicalId('filtrationHivernageSecurite');
+                $filtrationHivernageSecurite->setIsVisible(0);
+                $filtrationHivernageSecurite->setOrder($order++);
+                $filtrationHivernageSecurite->setIsHistorized(0);
+                $filtrationHivernageSecurite->save();
             }
 
             // filtrationSurpresseur

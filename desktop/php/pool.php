@@ -895,6 +895,18 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                     </select>
                                 </div>
                             </div>
+                            <!-- hystérésis -->
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">{{Valeur d'hystérésis}}</label>
+                                <div class="col-sm-4">
+                                    <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="temperatureHysteresis" placeholder="" >
+                                        <option value="0.5">0.5</option>
+                                        <option value="1">1.0</option>
+                                        <option value="1.5">1.5</option>
+                                        <option value="2">2.0</option>
+                                    </select>
+                                </div>
+                            </div>
                             <!-- traitement_hivernage -->
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">{{Activer le traitement pendant l'hivernage}}</label>
