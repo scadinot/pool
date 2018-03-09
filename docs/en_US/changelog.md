@@ -1,3 +1,8 @@
+08/03/2018
+===
+
+- Ajout d’une valeur d’hystérésis pour la température extérieure d'hivernage.
+
 24/02/2018
 ===
 
