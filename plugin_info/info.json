@@ -1,14 +1,16 @@
 {
-	"id" : "pool",
-	"name" : "Piscine",
-	"licence" : "AGPL",
-	"author" : "Stéphane Cadinot",
-	"require" : "2.0",
-	"category" : "wellness",
-	"display" : "panel",
-	"mobile" : "panel",
-	"changelog" : "https://scadinot.github.io/pool/#language#/changelog",
-	"documentation" : "https://scadinot.github.io/pool/#language#/",
-	"hasDependency" : 0,
-	"hasOwnDeamon" : 1
+  "id" : "pool",
+  "name" : "Piscine",
+  "licence" : "AGPL",
+  "author" : "Stéphane Cadinot",
+  "require" : "2.0",
+  "category" : "wellness",
+  "display" : "panel",
+  "mobile" : "panel",
+  "changelog" : "https://scadinot.github.io/pool/#language#/changelog",
+  "documentation" : "https://scadinot.github.io/pool/#language#/",
+  "hasDependency" : 0,
+  "hasOwnDeamon" : 1,
+  "language" : ["fr_FR","en_US","de_DE","sp_SP"],
+  "compatibility" : ["Jeedomboard","Smart","RPI/RPI2","Docker","DIY","mobile"]
 }
