@@ -572,7 +572,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                             <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="prioriteHC" placeholder="">
                                                 <option value="1">{{Journée}}</option>
                                                 <option value="2">{{Nuit}}</option>
-                                                <option value="3">{{Egal}}</option>
+                                                <option value="3">{{Proportionnel}}</option>
                                             </select>
                                         </div>
                                     </div>
