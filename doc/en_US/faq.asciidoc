@@ -1,5 +1,0 @@
-[panel,primary]
-. What type of probes manages the Plugin
---
-Toutes les sondes (Flottantes, Collier de prise en charge) sont prise en compte par le plugin.
---
