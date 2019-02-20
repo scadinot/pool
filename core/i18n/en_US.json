@@ -4,7 +4,7 @@
         "Aucune": "None"
     },
     "plugins/pool/core/class/pool.class.php": {
-        "Arrêté": "Order",
+        "Arrêté": "Stopped",
         "Température": "Temperature",
         "Température eau": "Water temperature",
         "Température extérieure": "Outside temperature",
@@ -14,7 +14,7 @@
         "Filtration:": "Filtration:",
         "Traitement:": "Treatment:",
         "Chauffage:": "Heating:",
-        "On": "We",
+        "On": "On",
         "Surpresseur": "Booster",
         "Start": "Start",
         "Filtre à sable:": "Sand filter:",
@@ -44,7 +44,7 @@
         "Configuration": "Configuration",
         "Dupliquer": "Duplicate",
         "Equipement": "Device",
-        "Traitement": "Treatment:",
+        "Traitement": "Treatment",
         "Surpresseur": "Booster",
         "Filtre à sable": "Sand filter",
         "Hivernage": "Wintering",
@@ -114,8 +114,8 @@
         "Fin des heures creuses en journée": "Fin des heures creuses en journée",
         "Début des heures creuses nuit": "Début des heures creuses nuit",
         "Pas de réglage de fin des heures creuses nuit. (8h / jour)": "Pas de réglage de fin des heures creuses nuit. (8h / jour)",
-        "Journée": "Jour",
-        "Nuit": "Nuit",
-        "Proportionnel": "Proportionnel"
+        "Journée": "Day",
+        "Nuit": "Night",
+        "Proportionnel": "Proportional"
     }
 }
