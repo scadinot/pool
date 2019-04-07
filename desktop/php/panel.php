@@ -9,10 +9,10 @@
 
 	if (init('object_id') == '') {
 
-        // $object = object::byId($_SESSION['user']->getOptions('defaultDashboardObject'));
+        // $object = jeeObject::byId($_SESSION['user']->getOptions('defaultDashboardObject'));
 
         // Selectionne le premier item de la liste
-        $allObject = object::buildTree();
+        $allObject = jeeObject::buildTree();
         foreach ($allObject as $object_li) {
             if ($object_li->getIsVisible() == 1 && count($object_li->getEqLogic(true, true, 'pool')) > 0) {
                 $object = $object_li;
@@ -20,11 +20,11 @@
             }
         }
 	} else {
-		$object = object::byId(init('object_id'));
+		$object = jeeObject::byId(init('object_id'));
 	}
 
 	if (!is_object($object)) {
-		$object = object::rootObject();
+		$object = jeeObject::rootObject();
 	}
 	if (is_object($object)) {
 		$_GET['object_id'] = $object->getId();
@@ -38,7 +38,7 @@
 	<?php
         // Compte le nombre d'objets
         $nbrePool = 0;
-        $allObject = object::buildTree();
+        $allObject = jeeObject::buildTree();
         foreach ($allObject as $object_li) {
             if ($object_li->getIsVisible() == 1 && count($object_li->getEqLogic(true, true, 'pool')) > 0) {
                 $nbrePool++;
@@ -50,7 +50,7 @@
             echo '<ul id="ul_object" class="nav nav-list bs-sidenav">';
             echo '<li class="nav-header">{{Liste objets}}</li>';
             echo '<li class="filter" style="margin-bottom: 5px;"><input class="filter form-control input-sm" placeholder="{{Rechercher}}" style="width: 100%"/></li>';
-            $allObject = object::buildTree();
+            $allObject = jeeObject::buildTree();
             foreach ($allObject as $object_li)
             {
                 if ($object_li->getIsVisible() == 1 && count($object_li->getEqLogic(true, true, 'pool')) > 0)

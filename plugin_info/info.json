@@ -3,7 +3,7 @@
   "name" : "Piscine",
   "licence" : "AGPL",
   "author" : "Stéphane Cadinot",
-  "require" : "2.0",
+  "require" : "3.3",
   "category" : "wellness",
   "display" : "panel",
   "mobile" : "panel",

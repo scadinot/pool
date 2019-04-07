@@ -28,9 +28,9 @@ try {
         if (init('object_id') == '') {
             $_GET['object_id'] = $_SESSION['user']->getOptions('defaultDashboardObject');
         }
-        $object = object::byId(init('object_id'));
+        $object = jeeObject::byId(init('object_id'));
         if (!is_object($object)) {
-            $object = object::rootObject();
+            $object = jeeObject::rootObject();
         }
         if (!is_object($object)) {
             throw new Exception(__('Aucun objet racine trouvé', __FILE__));
