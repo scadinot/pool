@@ -940,7 +940,8 @@ class pool extends eqLogic
         $timeNow = time();
         // log::add('pool', 'debug', $this->getHumanName() . '$timeNow=' . date("d-m-Y H:i", $timeNow));
 
-        if ($filtrationDebut == 0 || $filtrationFin == 0) {
+        if (!is_numeric($filtrationDebut) || !is_numeric($filtrationFin)
+            || $filtrationDebut == 0 || $filtrationFin == 0) {
             // log::add('pool', 'debug', $this->getHumanName() . ' $filtrationDebut=' . $filtrationDebut . ' $filtrationFin=' . $filtrationFin);
 
             // Le calcul n'a jamais ete lancé, on le lance maintenant
@@ -1332,7 +1333,8 @@ class pool extends eqLogic
         $timeNow = time();
         // log::add('pool', 'debug', $this->getHumanName() . '$timeNow=' . date("d-m-Y H:i", $timeNow));
 
-        if ($filtrationDebut == 0 || $filtrationFin == 0) {
+        if (!is_numeric($filtrationDebut) || !is_numeric($filtrationFin)
+            || $filtrationDebut == 0 || $filtrationFin == 0) {
             // log::add('pool', 'debug', $this->getHumanName() . ' $filtrationDebut=' . $filtrationDebut . ' $filtrationFin=' . $filtrationFin);
 
             // Le calcul n'a jamais ete lancé, on le lance maintenant
@@ -1621,7 +1623,7 @@ class pool extends eqLogic
         // log::add('pool', 'debug', $this->getHumanName() . 'lever_soleil= (' . $lever_soleil . ')');
 
         if ($lever_soleil != '') {
-            $lever_soleil = $value;
+            $lever_soleil = (string) $lever_soleil;
         } else {
             $lever_soleil = "06:00"; // Valeur initiale 06:00 si pas de configuration
         }
@@ -3478,7 +3480,7 @@ class pool extends eqLogic
 
         if ($this->getIsEnable() == 1) {
             $asservissements = $this->getConfiguration('asservissement');
-            if (count($asservissements) > 0) {
+            if (is_array($asservissements) && count($asservissements) > 0) {
                 $listener = listener::byClassAndFunction('pool', 'asservissement', array('pool_id' => intval($this->getId())));
                 if (!is_object($listener)) {
                     $listener = new listener();
@@ -3501,7 +3503,7 @@ class pool extends eqLogic
 
         if ($this->getIsEnable() == 1) {
             $arretTotals = $this->getConfiguration('arretTotal');
-            if (count($arretTotals) > 0) {
+            if (is_array($arretTotals) && count($arretTotals) > 0) {
                 $listener = listener::byClassAndFunction('pool', 'arretTotal', array('pool_id' => intval($this->getId())));
                 if (!is_object($listener)) {
                     $listener = new listener();
@@ -3524,7 +3526,7 @@ class pool extends eqLogic
 
         if ($this->getIsEnable() == 1) {
             $marcheForcees = $this->getConfiguration('marcheForcee');
-            if (count($marcheForcees) > 0) {
+            if (is_array($marcheForcees) && count($marcheForcees) > 0) {
                 $listener = listener::byClassAndFunction('pool', 'marcheForcee', array('pool_id' => intval($this->getId())));
                 if (!is_object($listener)) {
                     $listener = new listener();
