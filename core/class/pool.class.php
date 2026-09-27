@@ -342,11 +342,8 @@ class pool extends eqLogic
             // log::add('pool', 'debug', $this->getHumanName() . 'cfgAsservissementExterne == enabled');
 
             if ($this->getCmd(null, 'arretTotal')->execCmd() == 1) {
-                $bFound = false;
                 $arretTotals = $this->getConfiguration('arretTotal');
-                foreach ($arretTotals as $arretTotal) {
-                    $bFound = true;
-                }
+                $bFound = is_array($arretTotals) && count($arretTotals) > 0;
                 // Pas de commande on remet la cmd 'arretTotal' à zero
                 if ($bFound == false) {
                     // log::add('pool', 'debug', $this->getHumanName() . '$this->getCmd(null, \'arretTotal\')->event(0)');
@@ -355,11 +352,8 @@ class pool extends eqLogic
             }
 
             if ($this->getCmd(null, 'marcheForcee')->execCmd() == 1) {
-                $bFound = false;
                 $marcheForcees = $this->getConfiguration('marcheForcee');
-                foreach ($marcheForcees as $marcheForcee) {
-                    $bFound = true;
-                }
+                $bFound = is_array($marcheForcees) && count($marcheForcees) > 0;
                 // Pas de commande on remet la cmd 'marcheForcee' à zero
                 if ($bFound == false) {
                     // log::add('pool', 'debug', $this->getHumanName() . '$this->getCmd(null, \'marcheForcee\')->event(0);');
