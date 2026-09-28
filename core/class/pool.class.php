@@ -342,11 +342,8 @@ class pool extends eqLogic
             // log::add('pool', 'debug', $this->getHumanName() . 'cfgAsservissementExterne == enabled');
 
             if ($this->getCmd(null, 'arretTotal')->execCmd() == 1) {
-                $bFound = false;
                 $arretTotals = $this->getConfiguration('arretTotal');
-                foreach ($arretTotals as $arretTotal) {
-                    $bFound = true;
-                }
+                $bFound = is_array($arretTotals) && count($arretTotals) > 0;
                 // Pas de commande on remet la cmd 'arretTotal' à zero
                 if ($bFound == false) {
                     // log::add('pool', 'debug', $this->getHumanName() . '$this->getCmd(null, \'arretTotal\')->event(0)');
@@ -355,11 +352,8 @@ class pool extends eqLogic
             }
 
             if ($this->getCmd(null, 'marcheForcee')->execCmd() == 1) {
-                $bFound = false;
                 $marcheForcees = $this->getConfiguration('marcheForcee');
-                foreach ($marcheForcees as $marcheForcee) {
-                    $bFound = true;
-                }
+                $bFound = is_array($marcheForcees) && count($marcheForcees) > 0;
                 // Pas de commande on remet la cmd 'marcheForcee' à zero
                 if ($bFound == false) {
                     // log::add('pool', 'debug', $this->getHumanName() . '$this->getCmd(null, \'marcheForcee\')->event(0);');
@@ -940,7 +934,8 @@ class pool extends eqLogic
         $timeNow = time();
         // log::add('pool', 'debug', $this->getHumanName() . '$timeNow=' . date("d-m-Y H:i", $timeNow));
 
-        if ($filtrationDebut == 0 || $filtrationFin == 0) {
+        if (!is_numeric($filtrationDebut) || !is_numeric($filtrationFin)
+            || $filtrationDebut == 0 || $filtrationFin == 0) {
             // log::add('pool', 'debug', $this->getHumanName() . ' $filtrationDebut=' . $filtrationDebut . ' $filtrationFin=' . $filtrationFin);
 
             // Le calcul n'a jamais ete lancé, on le lance maintenant
@@ -1332,7 +1327,8 @@ class pool extends eqLogic
         $timeNow = time();
         // log::add('pool', 'debug', $this->getHumanName() . '$timeNow=' . date("d-m-Y H:i", $timeNow));
 
-        if ($filtrationDebut == 0 || $filtrationFin == 0) {
+        if (!is_numeric($filtrationDebut) || !is_numeric($filtrationFin)
+            || $filtrationDebut == 0 || $filtrationFin == 0) {
             // log::add('pool', 'debug', $this->getHumanName() . ' $filtrationDebut=' . $filtrationDebut . ' $filtrationFin=' . $filtrationFin);
 
             // Le calcul n'a jamais ete lancé, on le lance maintenant
@@ -1621,7 +1617,7 @@ class pool extends eqLogic
         // log::add('pool', 'debug', $this->getHumanName() . 'lever_soleil= (' . $lever_soleil . ')');
 
         if ($lever_soleil != '') {
-            $lever_soleil = $value;
+            $lever_soleil = (string) $lever_soleil;
         } else {
             $lever_soleil = "06:00"; // Valeur initiale 06:00 si pas de configuration
         }
@@ -3476,22 +3472,20 @@ class pool extends eqLogic
         ///////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////
 
-        if ($this->getIsEnable() == 1) {
-            $asservissements = $this->getConfiguration('asservissement');
-            if (count($asservissements) > 0) {
-                $listener = listener::byClassAndFunction('pool', 'asservissement', array('pool_id' => intval($this->getId())));
-                if (!is_object($listener)) {
-                    $listener = new listener();
-                }
-                $listener->setClass('pool');
-                $listener->setFunction('asservissement');
-                $listener->setOption(array('pool_id' => intval($this->getId())));
-                $listener->emptyEvent();
-                foreach ($asservissements as $asservissement) {
-                    $listener->addEvent($asservissement['cmd']);
-                }
-                $listener->save();
+        $asservissements = $this->getConfiguration('asservissement');
+        if ($this->getIsEnable() == 1 && is_array($asservissements) && count($asservissements) > 0) {
+            $listener = listener::byClassAndFunction('pool', 'asservissement', array('pool_id' => intval($this->getId())));
+            if (!is_object($listener)) {
+                $listener = new listener();
             }
+            $listener->setClass('pool');
+            $listener->setFunction('asservissement');
+            $listener->setOption(array('pool_id' => intval($this->getId())));
+            $listener->emptyEvent();
+            foreach ($asservissements as $asservissement) {
+                $listener->addEvent($asservissement['cmd']);
+            }
+            $listener->save();
         } else {
             $listener = listener::byClassAndFunction('pool', 'asservissement', array('pool_id' => intval($this->getId())));
             if (is_object($listener)) {
@@ -3499,22 +3493,20 @@ class pool extends eqLogic
             }
         }
 
-        if ($this->getIsEnable() == 1) {
-            $arretTotals = $this->getConfiguration('arretTotal');
-            if (count($arretTotals) > 0) {
-                $listener = listener::byClassAndFunction('pool', 'arretTotal', array('pool_id' => intval($this->getId())));
-                if (!is_object($listener)) {
-                    $listener = new listener();
-                }
-                $listener->setClass('pool');
-                $listener->setFunction('arretTotal');
-                $listener->setOption(array('pool_id' => intval($this->getId())));
-                $listener->emptyEvent();
-                foreach ($arretTotals as $arretTotal) {
-                    $listener->addEvent($arretTotal['cmd']);
-                }
-                $listener->save();
+        $arretTotals = $this->getConfiguration('arretTotal');
+        if ($this->getIsEnable() == 1 && is_array($arretTotals) && count($arretTotals) > 0) {
+            $listener = listener::byClassAndFunction('pool', 'arretTotal', array('pool_id' => intval($this->getId())));
+            if (!is_object($listener)) {
+                $listener = new listener();
             }
+            $listener->setClass('pool');
+            $listener->setFunction('arretTotal');
+            $listener->setOption(array('pool_id' => intval($this->getId())));
+            $listener->emptyEvent();
+            foreach ($arretTotals as $arretTotal) {
+                $listener->addEvent($arretTotal['cmd']);
+            }
+            $listener->save();
         } else {
             $listener = listener::byClassAndFunction('pool', 'arretTotal', array('pool_id' => intval($this->getId())));
             if (is_object($listener)) {
@@ -3522,22 +3514,20 @@ class pool extends eqLogic
             }
         }
 
-        if ($this->getIsEnable() == 1) {
-            $marcheForcees = $this->getConfiguration('marcheForcee');
-            if (count($marcheForcees) > 0) {
-                $listener = listener::byClassAndFunction('pool', 'marcheForcee', array('pool_id' => intval($this->getId())));
-                if (!is_object($listener)) {
-                    $listener = new listener();
-                }
-                $listener->setClass('pool');
-                $listener->setFunction('marcheForcee');
-                $listener->setOption(array('pool_id' => intval($this->getId())));
-                $listener->emptyEvent();
-                foreach ($marcheForcees as $marcheForcee) {
-                    $listener->addEvent($marcheForcee['cmd']);
-                }
-                $listener->save();
+        $marcheForcees = $this->getConfiguration('marcheForcee');
+        if ($this->getIsEnable() == 1 && is_array($marcheForcees) && count($marcheForcees) > 0) {
+            $listener = listener::byClassAndFunction('pool', 'marcheForcee', array('pool_id' => intval($this->getId())));
+            if (!is_object($listener)) {
+                $listener = new listener();
             }
+            $listener->setClass('pool');
+            $listener->setFunction('marcheForcee');
+            $listener->setOption(array('pool_id' => intval($this->getId())));
+            $listener->emptyEvent();
+            foreach ($marcheForcees as $marcheForcee) {
+                $listener->addEvent($marcheForcee['cmd']);
+            }
+            $listener->save();
         } else {
             $listener = listener::byClassAndFunction('pool', 'marcheForcee', array('pool_id' => intval($this->getId())));
             if (is_object($listener)) {
